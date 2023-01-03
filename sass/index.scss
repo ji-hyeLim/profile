@@ -1,0 +1,1556 @@
+@import './style.scss';
+@import './reset.scss';
+@import './mixin.scss';
+
+// 헤더 밝아지는 효과
+@keyframes shine {
+    0% { background-color: black; }
+    100% { background-color: white; }
+}
+
+
+// 헤더메인 달 나타나는 효과
+@keyframes circle_move {
+    from {  left: 0px; background-color: black;  }
+    to {  left: -130px; background-color: white; }
+}
+
+@keyframes circle_move_dt {
+    from {  left: 0px; background-color: black; }
+    to {  left: -280px; background-color: white;  }
+}
+
+// 구름 움직이는 효과
+@keyframes cloud_move {
+    0% { transform: translateY(0%); }
+    50% { transform: translateY(5%); }
+    100% { transform: translateY(0%); }
+}
+
+// 달 돌아가는 효과
+@keyframes moon-anim {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+@keyframes moon-anim-n {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(-360deg); }
+}
+
+
+// 포트폴리오 달 나타나는 효과
+@keyframes moon_open_as {
+    0% { transform: translateX(-10%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes moon_open_bs {
+    0% { 
+        top: -360px;
+        transform: translateX(-65%);
+    }
+
+    100% { 
+        top: -480px;
+        transform: translateX(-15%);
+    }
+}
+
+@keyframes moon_open_pro {
+    0% { 
+        top: -350px;
+        transform: translateX(-35%);
+    }
+
+    100% { 
+        top: -480px;
+        transform: translateX(-90%);
+    }
+}
+
+// 별 반짝이는 효과
+// @keyframes twinkle {
+//     0% {
+//         -webkit-transform: scale(1, 1);
+//                 transform: scale(1, 1);
+//         background: rgba(255, 255, 255, 0);
+//         -webkit-animation-timing-function: ease-in;
+//                 animation-timing-function: ease-in;
+//     }
+//     60% {
+//         -webkit-transform: scale(0.8, 0.8);
+//                 transform: scale(0.8, 0.8);
+//         background: white;
+//         -webkit-animation-timing-function: ease-out;
+//                 animation-timing-function: ease-out;
+//     }
+//     80% {
+//         background: rgba(255, 255, 255, 0);
+//         -webkit-transform: scale(1, 1);
+//                 transform: scale(1, 1);
+//     }
+//     100% {
+//         background: rgba(255, 255, 255, 0);
+//         -webkit-transform: scale(1, 1);
+//                 transform: scale(1, 1);
+//     }
+// }
+
+
+
+html,
+body {
+    min-width: 390px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    animation: shine 2s;
+}
+
+
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    max-width: calc(100% - 40px);
+    width: 100%;
+    // background-color: thistle;
+
+    @include responsive(large-tablet-screens) {
+        width: 1320px;
+    }
+}
+
+.mobile-only {
+    display: block;
+
+    @include responsive(small-tablet-screens) {
+        display: none;
+    }
+}
+
+
+.large-only {    
+    display: none;
+    
+    @include responsive(large-tablet-screens) {
+        display: block;
+    }
+}
+
+.desktop-non-only {    
+    display: block;
+
+    @include responsive(desktop-screens) {
+        display: none;
+    }
+}
+
+.desktop-only {
+    display: none;
+
+    @include responsive(desktop-screens) {
+        display: block;
+    }
+}
+
+
+// ============== header ============== //
+header {
+    width: 100%;
+
+    .menu {
+        position: relative;
+
+        .menu_icon {
+            display: flex;
+            justify-content: space-between;
+
+            li {
+                position: relative;
+                margin-top: 20px;              
+                
+                &:first-child {
+                    width: 70px;
+                    height: 70px;
+                }
+                
+                &:last-child {
+                    width: 50px;
+                    height: 50px;
+                    a {
+                        position: absolute;
+                        @include pos-center();
+                    }
+                }
+            }
+        } // ul
+
+
+        nav {
+            position: absolute;
+            top: 100px;
+            display: none;
+            width: 100%;
+            z-index: 9999;
+            
+            .gnb {
+                list-style: circle;
+                
+                li {
+                    background-color: $main-color;
+                    &:hover {
+                        background-color: $gray-bg;
+                        transition: 0.3s ease;
+                        a {
+                            color: $night_bg;    
+                        }
+                    }
+                    
+                    a {
+                        padding: 18px 0;
+                        color: white;
+                        font-size: $sub-font-size;
+                        font-weight: 600;
+                        padding-left: 20px;
+                    }
+                } // li
+            } // gnb
+
+            @include responsive(small-tablet-screens) {
+                position: absolute;
+                top: 20px;
+                display: block;
+                width: 100%;
+
+                .gnb {
+                    display: flex;
+                    justify-content: center;
+
+                    li {
+                        margin: 0 5vw;
+                        background-color: transparent;
+
+                        &:hover {
+                            background-color: transparent;
+                            transition: 0.3s ease;
+                            a {
+                                color: black;
+                                font-size: calc($sub-font-size + 2px) ;    
+                            }
+                        }
+
+                        a {
+                            color: $main-color;
+                        }
+                    }
+
+                    .gnb_pf {
+                        position: relative;
+                    }
+
+                    .lnb {
+                        position: absolute;
+                        left: 0;
+                        
+                        li {
+                            display: none;
+                            margin: 0;
+                            width: 160px;
+                            background-color: $main-color;
+
+                            &:hover {
+                                background-color: $gray-bg;
+                                transition: 0.3s ease;
+                                a {
+                                    color: black;
+                                    font-weight: 600;    
+                                }
+                            }
+
+                            a {
+                                color: white;
+                                font-size: $mini-text-font-size;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                } // gnb
+            } // small-tablet-screens
+
+
+            @include responsive(desktop-screens) {
+                position: fixed;
+                top: 30%;
+                right: 10px;
+                display: block;
+                width: 280px;
+                
+                .gnb {
+                    display: block;
+                    
+                    li {
+                        width: 100%;
+                        background-color: transparent;
+                        
+                        a {
+                            color: $gray-font;
+                            text-indent: 25px;
+                            background: url(../image/icon/button/gray_circle.png) no-repeat;
+                            background-position: left;
+                            background-size: 10px;
+                        }
+
+                        &:hover {
+                            transition: 0.3s ease;
+                            background-color: transparent;
+
+                            a {
+                                font: {
+                                    weight: 800;
+                                    size: 1.8rem;
+                                }
+                                color: $main-color;
+                                text-indent: 50px;
+                                transform: translateX(-20px);
+                                background: url(../image/icon/button/Moon_btn.png) no-repeat;
+                                background-position: left;
+                            }
+                        }
+                    } // li
+
+                    .gnb_change {
+                        display: block;
+
+                        li {
+                            background-color: transparent;
+    
+                            a {
+                                color: $gray-font;
+                                text-indent: 30px;
+                                background: url(../image/icon/button/gray_circle.png) no-repeat;
+                                background-position: left;
+                                background-size: 10px;
+                            }
+    
+                            &:hover {
+                                transition: 0.3s ease;
+                                background-color: transparent;
+    
+                                a {
+                                    font: {
+                                        weight: 800;
+                                        size: 1.8rem;
+                                    }
+                                    color: white;
+                                    text-indent: 50px;
+                                    transform: translateX(-20px);
+                                    background: url(../image/icon/button/Moon_btn_white.png) no-repeat;
+                                    background-position: left;
+                                }
+                            }
+                        } // li
+                    } // gnb_change
+                } // gnb
+            } // desktop-screens
+        } // nav
+
+        .on {
+            display: block;
+        }
+    } // menu
+    
+    .header_video {
+        position: relative;
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-bottom: 200px; 
+        width: 300px;
+        height: 400px; 
+        overflow: hidden;
+
+        @include responsive(small-tablet-screens) {
+            margin-top: 200px;
+        }
+
+        video {
+            text-align: center;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+        
+        .window_circle {
+            position: absolute;
+            top: -60px; left: -130px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: white;
+    
+            animation: circle_move 2s;
+        }
+        
+        .header_text {
+            position: absolute; 
+            bottom: -80px; right: 3%; 
+    
+            h1,
+            p { 
+                font-size: $title-font-size; 
+                color: $main-color;
+            }
+            
+            h1 {
+                font-family: $point-font;
+                font-weight: 500;
+                letter-spacing: -2px;
+            }
+    
+            p {
+                font: {
+                    size: 1.4rem;
+                }
+            }
+        } // header_text
+
+        @include responsive(desktop-screens) {
+            width: 500px;
+            height: 600px;
+            margin-top: 100px;
+            margin-bottom: 500px;
+
+            video {
+                width: 500px;
+                height: 500px;
+            }
+
+            .window_circle {
+                top: -110px; left: -280px;
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                background-color: white;
+        
+                animation: circle_move_dt 2s;
+            }
+
+            .header_text {
+                position: absolute; 
+                bottom: -100px; right: -1%; 
+        
+                h1,
+                p { 
+                    color: $main-color;
+                }
+                
+                h1 {
+                    font: {
+                        size: calc($title-font-size + 1rem);
+                        family: $point-font;
+                        weight: 500;
+                    }
+                    letter-spacing: -2px;
+                }
+        
+                p {
+                    font: {
+                        size: 1.8rem ;
+                    }
+                }
+            } // header_text
+
+        } // desktop-screens
+    } // header_video
+} // header
+
+
+// ============== main ============== //
+main {
+    width: 100%;
+
+    /* === introduce === */
+    .introduce {
+        width: 100%;
+        padding-top: 100px;
+        margin-bottom: 200px;
+        
+        .intro_order {
+            display: flex;
+            flex-direction: column;
+
+            @include responsive(large-tablet-screens) {
+                flex-direction: row;
+                .flex-box {
+                    margin: 0 50px;
+                }
+            }
+
+            .intro-main {
+                text-align: center;
+                margin-bottom: 100px;
+
+                @include responsive(large-tablet-screens) {
+                    text-align: left;
+
+                    p {
+                        font: {
+                            size: 2rem;
+                        }
+                    }
+                }
+                
+                
+                strong {
+                    display: inline-block;
+                    width: 260px;
+                    margin-bottom: 30px;
+                    color: $main-color;
+                    letter-spacing: -2px;
+                    font: {
+                        size: 6rem;
+                        family: $point-font;
+                        weight: 100;
+                    }
+                    background: url(../image/text_deco.png) no-repeat;
+                    background-position: bottom center;
+                    background-size: 80% 35%;
+
+                    @include responsive(large-tablet-screens) {
+                        width: 390px;
+                        font: {
+                            size: 8rem;
+                            weight: 100;
+                        }
+                        background-position: bottom left;
+                    }
+                }
+                
+                span {
+                    color: $main-color;
+                    margin: 0 5px;
+                    font: {
+                        size: 2.5rem;
+                        weight: 600;
+                        family: $point-font;
+                    }
+                    @include responsive(large-tablet-screens) {
+                        font: {
+                            size: 3.5rem;
+                            weight: 600;
+                            family: $point-font;
+                        }
+                    }
+                }
+            } // intro-main
+
+            .intro_contents {
+                width: 100%;
+                margin-top: 100px;
+                margin-bottom: 100px;
+                line-height: 1.8;
+                
+                p {
+                    
+                    span {
+                        color: $main-color;
+                        font: {
+                            weight: 600;
+                        }
+                    }
+                }
+            }
+    
+            .profile {
+                text-align: center;
+
+                @include responsive(large-tablet-screens) {
+                    margin: 0 100px;
+                }
+
+                .profile_img {
+                    margin-bottom: 50px;
+                }
+    
+                .profile_text {
+                    text-align: left;
+                    
+                    ul {
+                        display: flex;
+                        li {
+                            margin-bottom: 20px;
+
+                            &:first-child {
+                                margin-right: 3rem;
+                            }
+    
+                            h4 {
+                                color: $main-color;
+                                margin-bottom: 50px;
+                            }
+
+                            p {
+                                margin-bottom: 40px;
+                            }
+                        }
+                    } // ul
+                } // profile_text
+            } // profile
+        } // intro_order
+    } // introduce
+    
+
+    .title {
+        display: flex;
+        margin: 100px 0;
+        
+        p {
+            margin-right: 10px;
+            font-weight: 900;
+            
+            span {
+                border-bottom: 3.5px solid $main-color;
+            }
+            
+        }
+        
+        h2 {
+            font-family: $point-font;
+            font-size: $sub-title-font-size;
+        }
+
+        &:last-child {
+            color: white;
+    
+            p {
+                margin-right: 10px;
+                font-weight: 600;
+    
+                span {
+                    border-bottom: 3.5px solid #999;
+                }
+            }
+    
+            h2 {
+                font-weight: 600;
+            }
+        }
+    } // title
+
+
+    /* === skills === */    
+    .skills {
+        width: 100%;
+        
+        .skills_wrap {
+            position: relative;
+            margin-top: 200px;
+            margin-bottom: 200px;
+
+            @include responsive(large-tablet-screens) {
+                margin-top: 0;
+                margin-bottom: 500px;
+                padding-bottom: 600px;
+            }
+        }
+
+        .skills_list {
+            width: 100%;
+            margin: 0 auto;
+            // display: flex;
+            // flex-wrap: wrap;
+            // justify-content: center;
+
+            
+            @include responsive(large-tablet-screens) {
+                position: absolute;
+                @include pos-center();
+                display: block;
+                height: 700px;
+                width: 700px;
+                border-radius: 50%;
+
+                &:hover {
+                    .lists {
+                        animation-play-state: paused;
+                    }
+                }
+            }
+            
+            .lists {
+                // position: relative;
+                margin: 0 15px;
+                margin-bottom: 30px;
+                // display: list-item;
+                // z-index: -9999;
+                
+                @for $i from 1 through 13 {
+                    .moon#{$i} {
+                        background: url(../image/icon/skill_moon/moon_#{$i}.png) no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                    }
+                }
+
+                @include responsive(large-tablet-screens) {
+                    width: 700px;
+                    height: 700px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    margin: 0 0px;
+                    transform-origin: center;
+                    animation: moon-anim linear 10s forwards infinite; 
+
+                    @for $i from 1 through 12 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: calc(#{$i}0s / 12 );
+                        }
+                    }
+                    
+                    a {
+                        transform: rotate(-45deg);
+                        background-color: antiquewhite;
+                    }
+                    
+                }
+                
+                a {
+                    position: absolute;
+                    width: 140px;
+                    height: 140px;
+                    // background-color: #999;
+                    z-index: 9999;
+                    
+                    .skill_moon {
+                        // position: relative;
+                        // cursor: pointer;
+                        // width: 100%;
+                        // height: 100%;
+                    }
+                    
+                    img {
+                        @include pos-center();
+                        width: 70px;
+                    }
+                }
+            } // li
+            
+        } // skills_list
+
+        .circle_area {
+            @include responsive(large-tablet-screens) {
+                margin: 500px 0;
+            }
+            .modal {
+                @include pos-center();
+            }
+
+            .area_wrap {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60vw;
+                min-width: 450px;
+                max-width: 600px;
+                height: 60vh;
+                text-align: center;
+                background: url(../image/blue_moon.png) no-repeat;
+                background-size: contain;
+                background-position: center;
+
+
+                .area_con {
+                    @include pos-center();
+                    width: 300px;
+                    height: 300px;
+                    .area_text {
+                        margin-top: 2rem;
+                        strong {
+                            margin: 10px;
+                            font-size: 3rem;
+                            font-weight: 900;
+                        }
+                    }
+                } // area_con
+            } // area_wrap
+
+            img {
+                width: 100px;
+            }
+        } // circle_area
+    } // skills
+
+    .gradiunt {
+        width: 100%;
+        height: 100px;
+        
+    }
+
+
+    /* === protfolio === */ 
+    .protfolio {
+        padding-top: 300px;
+        background-color: $main-color;
+        
+        
+        .protfolio_wrap {
+
+            /* protfolio_list  */ 
+            .protfolio_list {
+                margin-top: 200px;
+                margin-bottom: 500px;
+
+                @include responsive(large-tablet-screens) {
+                    margin-top: 300px;
+                    margin-bottom: 0px;
+                }
+
+                .list {
+                    margin: 0 auto;
+                    margin-bottom: 200px;
+                    
+                    @include responsive(large-tablet-screens) {
+                        padding-bottom: 800px;
+
+                        &:last-child {
+                            padding-bottom: 600px;
+                        }
+                    }
+                }
+
+                .list_box {
+                    position: relative;
+                    margin: 0 auto;
+
+                    .container {
+                        z-index: 9999;
+                    }
+
+                    .protfolio_circle {
+                        @include pos-center-x();
+                        bottom: -40px;
+                        width: 80vw;
+                        min-width: 500px;
+                        height: 80vw;
+                        min-height: 500px;
+                        border-radius: 50%;
+                        background-color: white;
+                        z-index: 10;
+                    }
+                    
+                    .protfolio_circle_blue {
+                        @include pos-center-x();
+
+                        @include responsive(large-tablet-screens) {
+                            position: absolute;
+                            border-radius: 50%;
+                            // background-color: thistle;
+                            background-color: $main-color;
+                            z-index: 50;
+                        }
+                    }
+                    
+                    // 애슐리 원
+                    .as_c {
+                        @include responsive(large-tablet-screens) {
+                            width: 700px;
+                            height: 700px;
+                            top: -150px; 
+                            transform: translateX(-10%);
+                        }
+                    }
+
+                    .as_c_b {
+                        @include responsive(large-tablet-screens) {
+                            width: 700px;
+                            height: 700px;
+                            top: -150px; 
+                            transform: translateX(-100%);
+                            animation: moon_open_as 1s;
+                        }
+                    }
+
+                    
+                    // 블루스퀘어 원
+                    .bs_c {
+                        @include responsive(large-tablet-screens) {
+                            top: -300px;
+                            width: 900px;
+                            height: 900px;
+                            transform: translateX(-70%);
+                        }
+                    }
+                    .bs_c_b {
+                        @include responsive(large-tablet-screens) {
+                            top: -480px;
+                            width: 1000px;
+                            height: 1000px;
+                            transform: translateX(-15%);
+                            animation: moon_open_bs 1s;
+                        }
+                    }
+
+
+                    // 프로필 원
+                    .pro_c {
+                        @include responsive(large-tablet-screens) {
+                            width: 900px;
+                            height: 900px;
+                            top: -270px;
+                            transform: translateX(-35%);
+                        }
+                    }
+
+                    .pro_c_b {
+                        @include responsive(large-tablet-screens) {
+                            top: -480px;
+                            width: 1000px;
+                            height: 1000px;
+                            transform: translateX(-90%);
+                            animation: moon_open_pro 1s;
+                        }
+                    }
+
+                    
+                    .flex-box {
+                        @include responsive(large-tablet-screens) {
+                            margin: 0 auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            img {
+                                margin: 0 30px;
+                                width: 550px;
+                            } 
+
+                            .order_img {
+                                order: 2;
+                            }
+                            .order_text {
+                                order: 1;
+                            }
+                        }
+                    } // flex-box
+    
+                    img {
+                        display: block;
+                        margin: 0 auto;
+                        width: 350px;
+                    }
+                    
+                    .protfolio_text {
+                        margin: 0 auto;
+                        display: flex;
+                        width: 350px;
+                        flex-direction: column;
+                        margin-top: 30px;
+                        
+
+                        
+                        .protfolio_text_title {
+                            margin: 0 auto;
+                            margin-bottom: 30px;
+                            text-align: left;
+                            line-height: 1.3;
+                            
+                            @include responsive(large-tablet-screens) {
+                                margin: 0;
+                                margin-bottom: 30px;
+                            }
+
+                            p {
+                                font-size: $sub-font-size;
+                                font-weight: 900;
+                            }
+    
+                            h2 {
+                                margin-bottom: 10px;
+                                background: url(../image/text_deco.png) no-repeat;
+                                background-position: bottom left;
+                                background-size: 100% 40%;
+                            }
+                            
+                            // 형광펜 사이즈
+                            @include responsive(large-tablet-screens) {
+                                .title_h2_1 {
+                                    background-size: 50% 40%;
+                                }
+    
+                                .title_h2_2 {
+                                    background-size: 70% 40%;
+                                }
+    
+                                .title_h2_3 {
+                                    background-size: 90% 40%;
+                                }
+                            }
+                            
+                            span {
+                                color: $main-color;
+                                font: {
+                                    size: $text-font-size;
+                                    weight: 600;
+                                }
+                            }
+                        } // protfolio_text_title
+    
+                        .protfolio_text_con {
+                            line-height: 1.5;
+                            p {
+                                font: {
+                                    size: 1.4rem;
+                                    weight: 500;
+                                }
+        
+                                span {
+                                    margin-right: 0.5rem;
+                                    font: {
+                                        size: 1.5rem;
+                                        weight: 700;
+                                    }
+                                }
+                            }
+
+                            .text_con {
+                                margin-top: 20px;
+                                color: #777;
+                            }
+                        } // protfolio_text_con
+                    } // protfolio_text
+    
+                    .protfolio_btn {
+                        display: flex;
+                        justify-content: center;
+    
+                        .design_btns {
+                            display: flex;
+                            height: 7vh;
+                            text-indent: 50px;
+    
+                            &:first-child {
+                                margin-right: 30px;
+                            }
+                            
+                            // moon button
+                            background: url(../image/icon/button/Moon_btn.png) no-repeat;
+                            background-size: inherit;
+                            background-position: left;
+                            
+                            &:last-child {
+                                background: url(../image/icon/button/Moon_btn_yellow.png) no-repeat;
+                                background-size: inherit;
+                                background-position: left;
+                            }
+                            
+                            p {
+                                display: flex;
+                                align-items: center;
+                                margin-left: 8px;
+                                font-weight: 600;
+                            }
+                        } // design_btns
+                    } // protfolio_btn
+                } // list_box
+            } // protfolio_list
+
+
+            /* js_re_rotfolio  */ 
+            .js_re_protfolio {
+                padding: 300px 0;
+                // background-color: $night_bg;
+
+                background: -webkit-linear-gradient(top,rgb(43, 32, 72) 10%, rgb(25, 19, 39)30%, rgb(0, 0, 0));
+                
+                // animation: twinkle 1s;
+
+                .notice {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    overflow: hidden;
+                }
+
+                .constelacao {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    animation: rotate 600s infinite linear;
+                }
+
+                .mini_title {
+                    text-align: center;
+
+                    h2 {
+                        font-family: $point-font;
+                        font-size: $sub-title-font-size;
+                        color: white;
+                        width: 100%;
+                        margin: 100px 0;
+                        background: url(../image/text_deco.png) no-repeat;
+                        background-position: bottom;
+                        background-size: 25rem 40%;
+                    }
+                } // title
+                
+                .jr_list_right {
+                    width: 100%;
+                    margin: 0 auto;
+                    padding-top: 300px;
+                    text-align: right;
+
+                    @include responsive(medium-tablet-screens) {
+                        .flex-box {
+                            display: flex;
+                            .jr_mockup {
+                                order: 1;
+                            }
+                            
+                            .half_circle_right {
+                                order: 2;
+                            }
+                        }
+                        img {
+                            max-width: 900px;
+                        }
+                    }
+                }
+
+                .jr_list_left {
+                    width: 100%;
+                    margin: 0 auto;
+                    margin-top: 600px;
+                    text-align: left;
+
+                    @include responsive(medium-tablet-screens) {
+                        .flex-box {
+                            .jr_mockup {
+                                order: 2;
+                            }
+                            
+                            .half_circle_top {
+                                order: 1;
+                            }
+                        }
+
+                        img {
+                            position: absolute;
+                            bottom: 0; right: -100px;
+                        }
+                    }
+                }
+
+                .jr_list_box {
+                    position: relative;
+
+                    @include responsive(medium-tablet-screens) {
+                        .flex-box {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                        }
+                    }
+
+                    // circle
+                    .jr_circle {
+                        position: absolute;
+                        top: -180px; 
+                        background-color: white;
+                        width: 800px;
+                        height: 800px;  
+
+                        @include responsive(medium-tablet-screens) {
+                            display: none;
+                        }
+                    }
+                    
+                    .c_right {
+                        left: 10vw;
+                        border-radius: 50%;
+
+                        @include responsive(small-tablet-screens) {
+                            left: 15%;
+                        }
+                    }
+
+                    .c_left {
+                        right: 10vw;
+                        border-radius: 50%;  
+                        
+                        @include responsive(small-tablet-screens) {
+                            right: 15%;
+                        }
+                    }
+
+                    @include responsive(medium-tablet-screens) {
+                        .half_circle_right {
+                            position: relative;
+                            max-width: 400px;
+                            width: 100%;
+                            height: 800px;
+                            max-height: 800px;
+                            border-radius: 0 400px 400px 0 ;
+                            background-color: white;
+                        }
+
+                        .half_circle_top {
+                            position: relative;
+                            transform: translateX(-30%);
+                            margin: 0;
+                            width: 800px;
+                            height: 400px;
+                            border-radius: 400px 400px 0 0;
+                            background-color: white;
+                        }
+
+                        .half_circle_bottom {
+                            position: relative;
+                            transform: translateX(0%);
+                            margin: 0;
+                            width: 800px;
+                            // max-width: 800px;
+                            height: 400px;
+                            // max-height: 400px;
+                            border-radius: 0 0 400px 400px;
+                            background-color: white;
+                        }
+
+                        .jr_protfolio_text {
+                            @include pos-center();
+                        }
+                    }
+
+                    // image
+                    .jr_mockup {
+                        position: relative;
+                        margin-top: 30px;
+                        z-index: 9999;
+                        
+                        img {
+                            width: 35vw;
+                            
+                        }
+
+                        @include responsive(small-tablet-screens) {
+                            margin: 0 10%;
+                        }
+
+                        @include responsive(medium-tablet-screens) {
+                            margin: 0;
+                            img {
+                                width: 40vw;
+                                max-width: 530px;
+                            }
+                        }
+                    }
+
+                    .row_pic {
+                        img {
+                            margin-top: 50px;
+                            width: 75vw;
+                            max-width: 360px;
+
+                            @include responsive(medium-tablet-screens) {
+                                margin-top: 0;
+                                width: 50vw;
+                                max-width: 900px;
+                            }
+                        }
+                    } // row_pic
+
+
+                    // text
+                    .jr_protfolio_text {
+                        @include responsive(small-tablet-screens) {
+                            margin: 0 10vw;
+                            order: 2;
+                        }
+
+                        @include responsive(medium-tablet-screens) {
+                            margin: 0;
+                            text-align: left;
+                        }
+                        
+                        p {
+                            font-size: $sub-font-size;
+                            font-weight: 900;
+                        }
+                        
+                        h3 {
+                            font-size: 2.4rem;
+                        }
+
+                        .pro_title_zone {
+                            margin-bottom: 20px;
+
+                            .pro_title {
+                                margin-bottom: 10px;
+                                background: url(../image/text_deco.png) no-repeat;
+                            }
+                            
+                            .text_right {
+                                background-position: bottom right;
+                                background-size: 20rem 40%;
+    
+                                @include responsive(medium-tablet-screens) {
+                                    background-position: bottom left;
+                                    background-size: 20rem 50%;
+                                }
+                            }
+    
+                            .text_left {
+                                background-position: bottom left;
+                                background-size: 27rem 40%;
+                            }
+                        }
+
+
+                        .jr_con {
+                            margin: 20px 0;
+
+                            font: {
+                                size: 1.6rem;
+                                weight: 500;
+                            }
+                        }
+                        
+                        span {
+                            color: $main-color;
+                            font: {
+                                size: $text-font-size;
+                                weight: 600;
+                            }
+                        }
+
+                        // button
+                        .jr_protfolio_btn {
+                            position: relative;
+                            // margin-top: 40px;
+    
+                            .design {
+                                position: absolute;
+                                display: flex;
+                                height: 7vh;
+                                text-indent: 50px;
+                                &:first-child {
+                                    margin-right: 30px;
+                                }
+                                
+                                // moon
+                                background: url(../image/icon/button/Moon_btn.png) no-repeat;
+                                background-size: inherit;
+                                background-position: left;
+                                
+                                p {
+                                    display: flex;
+                                    align-items: center;
+                                    margin-left: 8px;
+                                    font-weight: 600;
+                                }
+                            } // design
+    
+                            .btn_right {
+                                right: 0;
+                                @include responsive(medium-tablet-screens) {
+                                    width: 100%;
+                                    transform: translateX(20%);
+                                }
+                            }
+    
+                            .btn_left {
+                                left: 0;
+                                @include responsive(medium-tablet-screens) {
+                                    width: 100%;
+                                    transform: translateX(30%);
+                                }
+                            }
+                        } // protfolio_btn
+                    } // js_protfolio_text
+                } // js_list_box
+
+                .re_protfolio {
+                    margin-top: 500px;
+
+                    .jr_mockup {
+                        order: 1;
+                        // left: -30vw;
+                        // max-width: 600px;
+                    }
+
+                    .jr_protfolio_text {
+                        @include responsive(small-tablet-screens) {
+                            margin: 0 10vw;
+                            order: 2;
+                        }
+
+                        @include responsive(medium-tablet-screens) {
+                            margin: -50px 0;
+                        }
+                    }
+
+                    .half_circle_bottom {
+                        order: 2;
+                        left: 0;
+                        // position: absolute;
+                        // top: 0; right: -20vw;
+                    }
+                } // re_protfolio
+            } // js_re_protfolio 
+        } // protfolio_wrap
+    } // protfolio
+} // main
+
+
+
+
+// ============== footer ============== //
+footer {
+    position: relative;
+    background-color: black;
+    padding-top: 500px;
+
+    .contact {
+        position: relative; 
+        margin: 0 auto;
+        width: 95vw;
+        min-width: 400px;
+        max-width: 800px;
+        height: 95vh;
+        background: url(../image/moon.png) no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        @include responsive(large-tablet-screens) {
+            min-width: 500px;
+            max-width: 1000px;
+        }
+
+        .contact_text {
+            width: 70vw;
+            min-width: 200px;
+            max-width: 400px;
+            position: absolute;
+            @include pos-center();
+
+            
+            strong {
+                font-size: $text-font-size;
+                line-height: 1.5;
+                margin-bottom: 20px;
+                
+                span {
+                    font-size: 2rem;
+                    color: $main-color;
+                    font-family: $point-font;
+                }
+            }
+            
+            .contact_info {
+                p {
+                    line-height: 1.5;
+                    font: {
+                        size: $text-font-size;
+                    }
+                    span {
+                        color: $main-color;
+                        font-weight: 600;
+                    }
+                }
+
+            }
+            
+            @include responsive(large-tablet-screens) {
+                width: 60vw;
+                min-width: 200px;
+                max-width: 600px;
+
+                strong {
+                    font-size: ($text-font-size + 1rem);
+                    margin-bottom: 20px;
+                    
+                    span {
+                        font-size: calc(2rem + 2rem);
+                    }
+                }
+                
+                .contact_info {
+                    p {
+                        line-height: 2;
+                        font: {
+                            size: calc(1.8rem + 1rem);
+                        }
+                    }
+                }
+            } // large-tablet-screens
+        } // contact_text
+
+        .contact_icon {
+            position: absolute;
+            @include pos-center();
+            width: 370px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+
+            a {
+                img {
+                    width: 80px;
+                    margin: 0 20px;
+
+                    &:hover {
+                        transform: scale(1.2);
+                        transition: 0.3s ease;
+                    }
+                }
+                .message {
+                    padding-top: 10px;
+                }
+            }
+
+            @include responsive(large-tablet-screens) {
+                @include pos-center-x();
+                margin-top: 200px;
+            }
+        }
+    } // contact
+
+    .footer_img {
+        position: relative;
+        img {
+            width: 100%;
+            
+        }
+
+        .copyright {
+            @include pos-center-x();
+            position: absolute;
+            bottom: 30px;
+            p {
+                color: white;
+            }
+        }
+    } // footer_img
+} // footer
+
+.cloud_top {
+    position: fixed;
+    bottom: 30px; right: 20px;
+    width: 120px;
+    height: 100px;
+    animation: cloud_move 1s infinite;
+    background: url(../image/icon/button/mini_cloud.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include responsive(desktop-screens) {
+        top: 20%; right: 80px;
+    }
+}
+

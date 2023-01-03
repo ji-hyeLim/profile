@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- <script src="./js/index.js"></script> -->
+    <title>Protofolio</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            
+            <div class="menu">
+                <div class="container">
+                    <ul class="menu_icon">
+                        <li><a href="#tab" class="desktop-non-only"><img src="./image/icon/button/Moon_btn.png" alt="main manu button"></a></li>
+                        <li class="mobile-only">
+                            <a href="javascript:void(0)" onclick="mobile_menu()">
+                                <img src="./image/icon/button/menu.png" alt="manu list button">
+                            </a>
+                        </li>
+                    </ul> 
+                </div> <!-- container -->
+                <nav class="nav_menu">
+                    <ul class="gnb">
+                        <li><a href="#aboutMe">About Me</a></li>
+                        <li><a href="#skill">Skill</a></li>
+                        <li class="gnb_pf"><a href="#protfolio">Protfolio</a> 
+                            <ul class="lnb">
+                                <li><a href="#protfolio01">Protfolio #01</a></li>
+                                <li><a href="#protfolio02">Protfolio #02</a></li>
+                                <li><a href="#protfolio03">Protfolio #03</a></li>
+                                <li><a href="#javascriptProtfolio">Javascript protfolio</a></li>
+                                <li><a href="#reactProtfolio">React protfolio</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="#contact">Contact</a></li>
+                    </ul><!-- gnb -->
+                </nav>
+            </div> <!-- menu -->
+            
+            <div class="header_video">
+                    <video autoplay muted data-keepplaying loop>
+                        <source src="./video/sky.mp4">
+                    </video>
+                <div class="window_circle"></div>
+                <div class="container">
+                    <div class="header_text">
+                        <h1>Dreamer</h1><p>: 꿈을 꾸는 사람</p>
+                    </div>
+                </div>
+            </div> <!-- header_video -->
+            
+        </header>
+
+        <main>
+            <div id="aboutMe" class="introduce" >
+                <div class="container">
+                    <div class="intro_order">
+                        <div class="flex-box">
+                            <div class="intro-main">
+                                <p><b>어제</b>보다 <b>내일</b>이 더 기대되는</p>
+                                <strong>“ Dreamer ”</strong>
+                                <p><b>개발자</b> <span>임지혜</span> 입니다.</p>
+                            </div>
+                        
+                            <div class="intro_contents">
+                                <p>
+                                    그 끝을 가늠할 수 없는 하늘처럼 <span>넓은 시야를 가지고 꿈을 향해 나아가는</span> 임지혜입니다.<br>
+                                    저는 <span>하나를 하더라도 최선을 다하자</span>라는 마인드를 가지고 있어 무엇을 하든 이전보다 발전시키려 노력하는 사람입니다.<br>   
+                                    또한, 풍부한 사회경험을 통해 고착화되지 않은 <span>유연한 사고</span>를 가지고 있고, 제가 맡은 일은 끝까지 <span>책임</span>지는 개발자의 덕목을 갖추고 있습니다.<br>
+                                    <br>
+                                    방송정보국제교육원에서 스마트웹 과정을 들으며 웹퍼블리싱과 프론트엔드 개발의 기본 틀을 마련했습니다.<br>
+                                    <span>HTML, CSS, SASS, Javascript, JQuery, React</span>를 사용하여 웹페이지를 구축할 수 있으며, <span>Git</span>을 사용한 협업도 가능합니다.<br> 
+                                    일을 배울 때 가리지 않고 다양한 지식과 정보를 습득하여 7년 후에는 풀스텍 개발자가 되는 것이 저의 목표입니다.
+                                </p>
+                            </div> <!-- intro_contents -->
+                        </div><!-- flex-box --> 
+                        <div class="profile">
+                            <div class="profile_img"><img src="./image/profile_image.png" alt="증명사진"></div>
+                            <div class="profile_text">
+                                <ul>
+                                    <li>
+                                        <h4>Profile</h4>
+                                        <h4>Education</h4>
+                                        
+                                    </li>
+                                    <li>
+                                        <p>임지혜<br>Lim Ji Hye</p>
+                                        <p>
+                                            2022<br>
+                                            IBII 방송정보국제교육원<br>
+                                            (스마트웹&콘텐츠개발)
+                                            UIUX기반웹퍼블리싱&프론트앤드2
+                                            과정 수료 
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div><!-- profile_text -->
+                        </div> <!-- profile --> 
+                    </div> <!-- intro_order -->
+                </div> <!-- container -->
+            </div> <!-- introduce -->
+
+
+            <div id="skill" class="skills">
+                <div class="container">
+                    <div class="title">
+                        <p><span>01</span></p>
+                        <h2>Skills</h2>
+                    </div>
+                    <div class="skills_wrap">
+                        <div class="circle_menu">
+                            <div class="circle"></div>
+                            <div class="skills_list">
+                                <div class="lists">
+                                    <a href="#tab1" class="btn moon1">
+                                        <!-- <div class="skill_moon "> -->
+                                            <img src="./image/icon/skill/icon_html5.svg" alt="html">
+                                        <!-- </div> -->
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab2" class="btn moon2">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_css3.svg" alt="css">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab3" class="btn moon3">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_sass.svg" alt="sass">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab4" class="btn moon4">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_illustrator.svg" alt="illustrator">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab5" class="btn moon5">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_ps.svg" alt="photoshap">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab6" class="btn moon6">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_git.svg" alt="git">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab7" class="btn moon7">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_javascript.svg" alt="javascript">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab8" class="btn moon8">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_JQuery.png" alt="JQuery">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab9" class="btn moon9">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_react.svg" alt="React">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab10" class="btn moon10">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_Nodejs.svg" alt="Nodejs">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab11" class="btn moon11">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_mysql.svg" alt="sql">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lists">
+                                    <a href="#tab12" class="btn moon12">
+                                        <div class="skill_moon ">
+                                            <img src="./image/icon/skill/icon_Bootstrap.svg" alt="Bootstrap">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div> <!-- circle_menu -->
+
+                        <div class="circle_area">
+                            <div class="modal">
+                                <div class="area_wrap">
+                                    <div id="tab1" class="area_con">
+                                        <img src="./image/icon/skill/icon_html5.svg" alt="html">
+                                        <div class="area_text">
+                                            <h3>HTML</h3>
+                                            <strong>90%</strong>
+                                            <p>
+                                                웹표준에 맞게 적절한 태그를 사용할 수 있으며,
+                                                시맨틱 태그를 통하여 웹표준과 웹접근성에
+                                                맞는 구조를 만들 수 있습니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab1 -->
+    
+                                    <div id="tab2" class="area_con">
+                                        <img src="./image/icon/skill/css.png" alt="css">
+                                        <div class="area_text">
+                                            <h3>CSS</h3>
+                                            <strong>90%</strong>
+                                            <p>
+                                                css를 적용하여 페이지의 디자인을 구현할 수 있고,
+                                                다양한 호버 효과와 애니메이션을 적용할수 있습니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab2 -->
+    
+                                    <div id="tab3" class="area_con">
+                                        <img src="./image/icon/skill/sass.png" alt="sass">
+                                        <div class="area_text">
+                                            <h3>SASS</h3>
+                                            <strong>85%</strong>
+                                            <p>
+                                                반응형으로 구현할 수 있으며, 중복을 최소화하여 변수로 만들거나
+                                                믹스인을 적절히 사용하여 코드를 간결하게 작성할 수 있습니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab3 -->
+    
+                                    <div id="tab4" class="area_con">
+                                        <img src="./image/icon/skill/icon_illustrator.svg" alt="illustrator">
+                                        <div class="area_text">
+                                            <h3>Illustrator</h3>
+                                            <strong>80%</strong>
+                                            <p>
+                                                로고 제작, 간단한 편집 디자인을 할수 있으며, 웹페이지 시안 작업이 가능합니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab4 -->
+    
+                                    <div id="tab5" class="area_con">
+                                        <img src="./image/icon/skill/icon_ps.svg" alt="photoshap">
+                                        <div class="area_text">
+                                            <h3>Photoshap</h3>
+                                            <strong>90%</strong>
+                                            <p>
+                                                포토샵을 활용한 대부분의 편집이 가능하고, 웹페이지 디자인가이드를 작성할 수 있습니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab5 -->
+    
+                                    <div id="tab6" class="area_con">
+                                        <img src="./image/icon/skill/icon_git.svg" alt="git">
+                                        <div class="area_text">
+                                            <h3>Git</h3>
+                                            <strong>80%</strong>
+                                            <p>
+                                                작업물을 업로드 하여 깃을 사용한 협업이 가능하고, 수정이 가능합니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab6 -->
+    
+                                    <div id="tab7" class="area_con">
+                                        <img src="./image/icon/skill/icon_javascript.svg" alt="javascript">
+                                        <div class="area_text">
+                                            <h3>Javascript</h3>
+                                            <strong>70%</strong>
+                                            <p>
+                                                오픈소스를 수정하여 활용이 가능하고, 소스코드를 읽고 이해하며 간단한 기능 구현이 가능합니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab7 -->
+    
+                                    <div id="tab8" class="area_con">
+                                        <img src="./image/icon/skill/icon_JQuery.png" alt="JQuery">
+                                        <div class="area_text">
+                                            <h3>JQuery</h3>
+                                            <strong>70%</strong>
+                                            <p>
+                                                JQUERY의 선택자와 이벤트, 주요 메서드를 이해하고 사용이 가능하며, 동적인 페이지를 구현할 수 있습니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab8 -->
+    
+                                    <div id="tab9" class="area_con">
+                                        <img src="./image/icon/skill/icon_react.svg" alt="react">
+                                        <div class="area_text">
+                                            <h3>React</h3>
+                                            <strong>70%</strong>
+                                            <p>
+                                                React의 구조를 이해하며 간단한 작업이 가능합니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab9 -->
+    
+                                    <div id="tab10" class="area_con">
+                                        <img src="./image/icon/skill/icon_Nodejs.png" alt="Nodejs">
+                                        <div class="area_text">
+                                            <h3>Nodejs</h3>
+                                            <strong>50%</strong>
+                                            <p>
+                                                ^^
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab10 -->
+    
+                                    <div id="tab11" class="area_con">
+                                        <img src="./image/icon/skill/icon_mysql.svg" alt="mysql">
+                                        <div class="area_text">
+                                            <h3>MySQL</h3>
+                                            <strong>40%</strong>
+                                            <p>
+                                                SQL을 이해하고 간단한 데이터를 저장하여 관리할 수 있습니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab11 -->
+    
+                                    <div id="tab12" class="area_con">
+                                        <img src="./image/icon/skill/icon_Bootstrap.svg" alt="Bootstrap">
+                                        <div class="area_text">
+                                            <h3>Bootstrap</h3>
+                                            <strong>80%</strong>
+                                            <p>
+                                                Bootstrap을 활용하여 페이지 구현이 가능합니다.
+                                            </p>
+                                        </div> <!-- area_text -->
+                                    </div> <!-- tab12 -->
+                                </div>
+                            </div> <!-- area_wrap -->
+                        </div><!-- circle_area -->
+                    </div> <!-- skills_wrap -->
+                </div> <!-- container -->
+            </div> <!-- skills -->
+            
+
+
+
+            <div id="protfolio" class="protfolio">
+                <div class="protfolio_wrap">
+                    <div class="container">
+                        <div class="title">
+                            <p><span>02</span></p>
+                            <h2>Protfolio</h2>
+                        </div>
+                    </div><!-- container -->
+                    
+                    <div class="protfolio_list">
+                        <div id="protfolio01" class="list">
+                            <div class="list_box">
+                                <div class="protfolio_circle as_c"></div>
+                                <div class="protfolio_circle_blue as_c_b"></div>
+                                
+                                <div class="container">
+                                    <div class="flex-box">
+                                        <img src="./image/mock_up/ashley_mockup.png" alt="mockup">
+                                        <div class="pro_text_zone">
+                                            <div class="protfolio_text">
+                                                <div class="protfolio_text_title">
+                                                    <p>01</p>   
+                                                    <h2 class="title_h2_1">ASHLEY</h2>
+                                                    <span>Personal Project</span>
+                                                </div>
+                                                <div class="protfolio_text_con">
+                                                    <p>
+                                                        <span>Type:</span> 리뉴얼 웹페이지<br>
+                                                        <span>Period:</span> 2주<br>
+                                                        <span>Tools:</span> HTML, CSS<br>
+                                                    </p>
+                                                    <p class="large-only text_con">
+                                                        Html과 Css를 사용하여 만든 저의 첫 웹페이지 입니다.<br> 외식브랜드
+                                                        애슐리의 사이트를 심플하고 한눈에 들어오는 디자인으로 
+                                                        리뉴얼하였습니다.  
+                                                    </p>
+                                                </div>
+                                                <div class="protfolio_btn">
+                                                    <div class="design_btns"><p>Design Guide</p></div>
+                                                    <div class="design_btns"><p>Web Page</p></div>
+                                                </div><!-- protfolio_btn -->
+                                            </div> <!-- protfolio_text -->
+                                        </div> <!-- pro_text_zone -->
+                                    </div> <!-- flex-box -->
+                                </div> <!-- container --> 
+                            </div> <!-- list_box -->
+                        </div> <!-- list -->
+
+
+                        <div id="protfolio02" class="list">
+                            <div class="list_box">
+                                <div class="protfolio_circle bs_c"></div>
+                                <div class="protfolio_circle_blue bs_c_b"></div>
+
+                                <div class="container">
+                                    <div class="flex-box">
+                                        <img src="./image/mock_up/bluesquare_mockup.png" alt="mockup" class="order_img">
+                                        <div class="pro_text_zone order_text">
+                                            <div class="protfolio_text">
+                                                <div class="protfolio_text_title">
+                                                    <p>02</p>
+                                                    <h2 class="title_h2_2">Blue Square</h2>
+                                                    <span>Team Project</span>
+                                                </div>
+                                                <div class="protfolio_text_con">
+                                                    <p>
+                                                        <span>Type:</span> 반응형 리뉴얼 웹페이지<br>
+                                                        <span>Period:</span> 4주<br>
+                                                        <span>Tools:</span> HTML, SASS, JAVASCRIPT, JQUERY<br>
+                                                    </p>
+                                                    <p class="large-only text_con">
+                                                        블루스퀘어의 사이트를 반응형으로 리뉴얼한 페이지입니다.<br>
+                                                        기존 페이지에서 부족했던 접근성과 주목성을 위주로 사용자의
+                                                        편의성을 고려하였고, 깃을 활용하여 조원 4명이서 함께 제작하였습니다.     
+                                                    </p>
+                                                </div>
+            
+                                                <div class="protfolio_btn">
+                                                    <div class="design_btns"><p>Design Guide</p></div>
+                                                    <div class="design_btns"><p>Web Page</p></div>
+                                                </div><!-- protfolio_btn -->
+                                            </div> <!-- protfolio_text -->
+                                        </div> <!-- pro_text_zone -->
+                                    </div> <!-- flex-box -->
+                                </div> <!-- container --> 
+                            </div> <!-- list_box -->
+                        </div> <!-- list -->
+
+                        <div id="protfolio03" class="list">
+                            <div class="list_box">
+                                <div class="protfolio_circle pro_c"></div>
+                                <div class="protfolio_circle_blue pro_c_b"></div>
+                                
+                                <div class="container">
+                                    <div class="flex-box">
+                                        <img src="./image/mock_up/bluesquare_mockup.png" alt="mockup">
+                                        <div class="pro_text_zone">
+                                            <div class="protfolio_text">
+                                                <div class="protfolio_text_title">
+                                                    <p>03</p>
+                                                    <h2 class="title_h2_3">Profile Protfolio</h2>
+                                                    <span>Personal Project</span>
+                                                </div>
+                                                <div class="protfolio_text_con">
+                                                    <p>
+                                                        <span>Type:</span> 반응형 프로필 웹페이지<br>
+                                                        <span>Period:</span> 4주<br>
+                                                        <span>Tools:</span> HTML, SASS, JAVASCRIPT, JQUERY<br>
+                                                    </p>
+                                                    <p class="large-only text_con">
+                                                        개인 포트폴리오를 담기 위해 만든 반응형 페이지입니다.<br>
+                                                        사이트 방문자로 하여금 시각적 즐거움을 느낄 수 있도록 여러가지 
+                                                        동적 요소를 추가하였고, 하늘과 달을 테마로 스크롤에 따라 
+                                                        밤하늘로 변하는 이벤트를 구현하였습니다.  
+                                                    </p>
+                                                </div>
+                                                <div class="protfolio_btn">
+                                                    <div class="design_btns"><p>Design Guide</p></div>
+                                                    <div class="design_btns"><p>Web Page</p></div>
+                                                </div><!-- protfolio_btn -->
+                                            </div> <!-- protfolio_text -->
+                                        </div> <!-- pro_text_zone -->
+                                    </div> <!-- flex-box -->
+                                </div> <!-- container --> 
+                            </div> <!-- list_box -->
+                        </div> <!-- list -->
+                    </div> <!-- protfolio_list -->
+
+
+
+                    <div class="js_re_protfolio">
+                        <!-- <div class="notice"></div> -->
+                        <!-- <div class="constelacao"></div> -->
+                        <div id="javascriptProtfolio" class="js_protfolio">
+                            <div class="container">
+                                <div class="mini_title">
+                                    <h2>JavaScript Protfolio</h2>
+                                </div>
+                            </div>
+
+                            <div class="jr_list_right">
+                                <div class="jr_list_box">
+                                    <div class="jr_circle c_right"></div>
+                                        <div class="container">
+                                            <div class="flex-box">
+                                                <div class="jr_mockup row_pic">
+                                                    <img src="./image/mock_up/gomusin.png" alt="mockup">
+                                                </div>
+                                                <div class="half_circle_right">
+                                                    <div class="jr_protfolio_text">
+                                                        <div class="pro_title_zone">
+                                                            <p>01</p>
+                                                            <h2 class="pro_title text_right">검정고무신</h2>
+                                                            <h3>캐릭터소개 페이지</h3>
+                                                            <span>Personal Project</span>
+                                                        </div>    
+                                                        <p class="large-only">제작 기간: 10일</p>
+                                                        <p class="large-only jr_con">
+                                                            추억의 만화 ’검정고무신’의 캐릭터 소개 페이지를 새롭게 제작해보았습니다. 
+                                                        </p>
+                                                        
+                                                        <div class="jr_protfolio_btn"> 
+                                                            <div class="design btn_right">
+                                                                <p>Web Page</p>
+                                                            </div>
+                                                        </div><!-- js_protfolio_btn -->
+                                                    </div> <!-- jr_protfolio_text -->
+                                                </div> <!-- half_circle -->
+                                            </div> <!-- flex-box -->
+                                        </div> <!-- container --> 
+                                </div> <!-- js_list_box -->
+                            </div> <!-- js_list -->
+
+                            <div class="jr_list_left">
+                                <div class="jr_list_box">
+                                    <div class="jr_circle c_left"></div>
+                                    <div class="container">
+                                        <div class="flex-box">
+                                            <div class="jr_mockup">
+                                                <img src="./image/mock_up/whac_a_mole.png" alt="mockup">
+                                            </div>
+                                            <div class="half_circle_top">
+                                                <div class="jr_protfolio_text">
+                                                    <div class="pro_title_zone">
+                                                        <p>02</p>
+                                                        <h2 class="pro_title text_left">Whac A Mole!</h2>
+                                                        <span>Personal Project</span>
+                                                    </div>
+                                                    <p class="large-only">제작기간 :  1주</p>
+                                                    <p class="large-only jr_con">
+                                                        자바스크립트를 이용하여 두더지 게임을 제작해보았습니다. 
+                                                    </p>
+                                                    <div class="jr_protfolio_btn"> 
+                                                        <div class="design btn_left">
+                                                            <p>Web Page</p>
+                                                        </div>
+                                                    </div> <!-- js_protfolio_btn -->
+                                                </div> <!-- jr_protfolio_text -->
+                                            </div> <!-- half_circle_top -->
+                                        </div> <!-- flex-box -->
+                                    </div> <!-- container --> 
+                                </div> <!-- js_list_box -->
+                            </div> <!-- js_list -->
+                        </div> <!-- js_protfolio -->
+
+
+                        <div id="reactProtfolio" class="re_protfolio">
+                            <div class="container">
+                                <div class="mini_title">
+                                    <h2>React Protfolio</h2>
+                                </div>
+                            </div>
+
+                            <div class="jr_list_right">
+                                <div class="jr_list_box">
+                                    <div class="jr_circle c_right"></div>
+                                    <div class="container">
+                                        <div class="flex-box">
+                                            <div class="jr_mockup">
+                                                <img src="./image/mock_up/whac_a_mole.png" alt="mockup">
+                                            </div>
+
+                                            <div class="half_circle_bottom">
+                                                <div class="jr_protfolio_text">
+                                                    <div class="pro_title_zone">
+                                                        <p>01</p>
+                                                        <h2 class="pro_title text_right">To Do List</h2>
+                                                        <span>Personal Project</span>
+                                                    </div>
+                                                        <p class="large-only">제작 기간: 1주</p>
+                                                        <p class="large-only jr_con">
+                                                            리액트를 활용하여 To Do List를 제작해보았습니다. 
+                                                        </p>
+                                                        <div class="jr_protfolio_btn"> 
+                                                            <div class="design btn_right">
+                                                                <p>Web Page</p>
+                                                            </div>
+                                                        </div><!-- js_protfolio_btn -->
+                                                </div> <!-- protfolio_text -->
+                                            </div> <!-- half_circle_bottom -->
+                                        </div> <!-- flex-box -->
+                                    </div> <!-- container --> 
+                                </div> <!-- js_list_box -->
+                            </div> <!-- js_list -->
+                        </div> <!-- re_protfolio -->
+                    </div> <!--js_re_protfolio -->
+                </div> <!-- protfolio_wrap -->
+            </div> <!-- protfolio -->
+        </main>
+
+        <footer>
+            <div class="footer_wrap">
+                <div id="contact" class="contact">
+                    <div class="large-only contact_text">
+                        <strong>
+                            <span>“시간과 노력은 삶을 배신하지 않는다. ”</span> 라는 말처럼 
+                            모든 일에 최선을 다하는 모습을 보여드리겠습니다.
+                        </strong>
+                        <div class="contact_info">
+                            <p>
+                                <span>Tel. </span> 010-8212-6852<br>
+                                <span>Email. </span> wisdomyoungster@naver.com<br>
+                                <span>Git. </span> https://github.com/ji-hyeLim
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact_icon">
+                        <a href="#"><img src="./image/icon/contact/git.png" alt="git"></a>
+                        <a href="#"><img src="./image/icon/contact/kakao.png" alt="kakao"></a>
+                        <a href="#"><img src="./image/icon/contact/message.png" alt="message" class="message"></a>
+                    </div>
+                </div> <!-- contact -->
+                <div class="footer_img">
+                    <img src="./image/footer_img.png" alt="">
+                    <div class="copyright">
+                        <p>copyright&copy; ji-hyeLim</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a href="#" class="cloud_top"></a> 
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>
