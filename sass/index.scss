@@ -8,7 +8,6 @@
     100% { background-color: white; }
 }
 
-
 // 헤더메인 달 나타나는 효과
 @keyframes circle_move {
     from {  left: 0px; background-color: black;  }
@@ -112,7 +111,6 @@ body {
 }
 
 
-
 .container {
     position: relative;
     margin: 0 auto;
@@ -133,12 +131,19 @@ body {
     }
 }
 
-
 .large-only {    
     display: none;
     
     @include responsive(large-tablet-screens) {
         display: block;
+    }
+}
+
+.large-non-only {    
+    display: block;
+    
+    @include responsive(large-tablet-screens) {
+        display: none;
     }
 }
 
@@ -173,21 +178,27 @@ header {
             li {
                 position: relative;
                 margin-top: 20px;              
+                width: 70px;
+                height: 70px;
                 
                 &:first-child {
-                    width: 70px;
-                    height: 70px;
+                    // width: 70px;
+                    // height: 70px;
+
+                    img {
+                        position: absolute;
+                        @include pos-center();
+
+                    }
                 }
                 
                 &:last-child {
-                    width: 50px;
-                    height: 50px;
                     a {
                         position: absolute;
                         @include pos-center();
                     }
                 }
-            }
+            } // li
         } // ul
 
 
@@ -218,6 +229,32 @@ header {
                         font-weight: 600;
                         padding-left: 20px;
                     }
+
+                    .lnb {
+                        display: none;
+                        transition: 1s ease;
+                        
+                        li {
+                            // margin: 0;
+                            // width: 160px;
+                            background-color: $gray-bg;
+
+                            &:hover {
+                                background-color: $gray-bg;
+                                transition: 0.3s ease;
+                                a {
+                                    color: black;
+                                    font-weight: 600;    
+                                }
+                            }
+
+                            a {
+                                color: $main-color;
+                                font-size: $text-font-size;
+                                font-weight: 500;
+                            }
+                        }
+                    }
                 } // li
             } // gnb
 
@@ -240,7 +277,7 @@ header {
                             transition: 0.3s ease;
                             a {
                                 color: black;
-                                font-size: calc($sub-font-size + 2px) ;    
+                                transform: scale(1.05);
                             }
                         }
 
@@ -256,9 +293,10 @@ header {
                     .lnb {
                         position: absolute;
                         left: 0;
+                        display: none;
+                        transition: 1s ease;
                         
                         li {
-                            display: none;
                             margin: 0;
                             width: 160px;
                             background-color: $main-color;
@@ -319,6 +357,22 @@ header {
                                 transform: translateX(-20px);
                                 background: url(../image/icon/button/Moon_btn.png) no-repeat;
                                 background-position: left;
+                            }
+                        }
+
+                        .lnb {
+                            display: none;
+                            transition: 1s ease;
+                            
+                            li {
+                                background-color: $main-color;
+                                a {
+                                    color: white;
+                                    font-size: $mini-text-font-size;
+                                    font-weight: 300;
+                                    text-indent: 10px;
+                                    background: none;   
+                                }
                             }
                         }
                     } // li
@@ -648,8 +702,11 @@ main {
         
         .skills_wrap {
             position: relative;
+            width: 100%;
+            height: 600px;
             margin-top: 200px;
             margin-bottom: 200px;
+            background-color: thistle;
 
             @include responsive(large-tablet-screens) {
                 margin-top: 0;
@@ -661,19 +718,18 @@ main {
         .skills_list {
             width: 100%;
             margin: 0 auto;
-            // display: flex;
-            // flex-wrap: wrap;
-            // justify-content: center;
-
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             
             @include responsive(large-tablet-screens) {
                 position: absolute;
-                @include pos-center();
+                @include pos-center-x();
                 display: block;
                 height: 700px;
                 width: 700px;
                 border-radius: 50%;
-
+                
                 &:hover {
                     .lists {
                         animation-play-state: paused;
@@ -682,87 +738,91 @@ main {
             }
             
             .lists {
-                // position: relative;
-                margin: 0 15px;
+                position: relative;
+                margin: 10px 20px;
                 margin-bottom: 30px;
-                // display: list-item;
-                // z-index: -9999;
                 
                 @for $i from 1 through 13 {
                     .moon#{$i} {
                         background: url(../image/icon/skill_moon/moon_#{$i}.png) no-repeat;
                         background-position: center;
-                        background-size: contain;
+                        background-size: 130px;
                     }
                 }
-
+                
+                .btn {
+                    position: relative;
+                    width: 130px;
+                    height: 130px;
+                    
+                    @include responsive(large-tablet-screens) {
+                        position: absolute;
+                    }
+                    
+                    img {
+                        @include pos-center();
+                        width: 50px;
+                    }
+                }
+                
+                @include responsive(small-tablet-screens) {
+                }
+                
                 @include responsive(large-tablet-screens) {
-                    width: 700px;
-                    height: 700px;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    margin: 0 0px;
+                    margin: 0 -100px;
                     transform-origin: center;
                     animation: moon-anim linear 10s forwards infinite; 
-
+                    
                     @for $i from 1 through 12 {
                         &:nth-child(#{$i}) {
                             animation-delay: calc(#{$i}0s / 12 );
                         }
                     }
                     
-                    a {
-                        transform: rotate(-45deg);
-                        background-color: antiquewhite;
-                    }
-                    
-                }
-                
-                a {
-                    position: absolute;
-                    width: 140px;
-                    height: 140px;
-                    // background-color: #999;
-                    z-index: 9999;
-                    
-                    .skill_moon {
-                        // position: relative;
-                        // cursor: pointer;
-                        // width: 100%;
-                        // height: 100%;
-                    }
-                    
-                    img {
-                        @include pos-center();
-                        width: 70px;
+                    .btn {
+                        width: 800px;
+                        height: 800px;
+                        transform: rotate(180deg);
                     }
                 }
-            } // li
-            
+            } // lists
         } // skills_list
 
         .circle_area {
+            
             @include responsive(large-tablet-screens) {
+                position: relative;
                 margin: 500px 0;
             }
             .modal {
-                @include pos-center();
+                // @include pos-center();
+                // margin-top: 100px;
+
+                // @include responsive(large-tablet-screens) {
+                //     @include pos-center();
+                // }
             }
 
             .area_wrap {
                 position: relative;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 60vw;
-                min-width: 450px;
-                max-width: 600px;
-                height: 60vh;
+                width: 30vw;
+                min-width: 400px;
+                max-width: 400px;
+                height: 30vh;
                 text-align: center;
                 background: url(../image/blue_moon.png) no-repeat;
                 background-size: contain;
                 background-position: center;
 
+                @include responsive(large-tablet-screens) {
+                    @include pos-center();
+                    width: 60vw;
+                    min-width: 600px;
+                    max-width: 600px;
+                    height: 60vh;
+                }
 
                 .area_con {
                     @include pos-center();
@@ -1025,6 +1085,7 @@ main {
                     } // protfolio_text
     
                     .protfolio_btn {
+                        margin-top: 20px;
                         display: flex;
                         justify-content: center;
     
@@ -1441,12 +1502,12 @@ footer {
 
             
             strong {
-                font-size: $text-font-size;
+                font-size: $protfolio-title-font-size;
                 line-height: 1.5;
                 margin-bottom: 20px;
                 
                 span {
-                    font-size: 2rem;
+                    font-size: $text-font-size;
                     color: $main-color;
                     font-family: $point-font;
                 }
@@ -1472,11 +1533,11 @@ footer {
                 max-width: 600px;
 
                 strong {
-                    font-size: ($text-font-size + 1rem);
+                    font-size: $sub-font-size;
                     margin-bottom: 20px;
                     
                     span {
-                        font-size: calc(2rem + 2rem);
+                        font-size: $protfolio-title-font-size;
                     }
                 }
                 
@@ -1484,7 +1545,7 @@ footer {
                     p {
                         line-height: 2;
                         font: {
-                            size: calc(1.8rem + 1rem);
+                            size: $sub-font-size;
                         }
                     }
                 }

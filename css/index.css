@@ -276,6 +276,15 @@ body {
   }
 }
 
+.large-non-only {
+  display: block;
+}
+@media screen and (min-width: 1024px) {
+  .large-non-only {
+    display: none;
+  }
+}
+
 .desktop-non-only {
   display: block;
 }
@@ -307,14 +316,15 @@ header .menu .menu_icon {
 header .menu .menu_icon li {
   position: relative;
   margin-top: 20px;
-}
-header .menu .menu_icon li:first-child {
   width: 70px;
   height: 70px;
 }
-header .menu .menu_icon li:last-child {
-  width: 50px;
-  height: 50px;
+header .menu .menu_icon li:first-child img {
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 header .menu .menu_icon li:last-child a {
   position: absolute;
@@ -350,6 +360,26 @@ header .menu nav .gnb li a {
   font-weight: 600;
   padding-left: 20px;
 }
+header .menu nav .gnb li .lnb {
+  display: none;
+  transition: 1s ease;
+}
+header .menu nav .gnb li .lnb li {
+  background-color: #eee;
+}
+header .menu nav .gnb li .lnb li:hover {
+  background-color: #eee;
+  transition: 0.3s ease;
+}
+header .menu nav .gnb li .lnb li:hover a {
+  color: black;
+  font-weight: 600;
+}
+header .menu nav .gnb li .lnb li a {
+  color: #5a7cb1;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
 @media screen and (min-width: 768px) {
   header .menu nav {
     position: absolute;
@@ -371,7 +401,7 @@ header .menu nav .gnb li a {
   }
   header .menu nav .gnb li:hover a {
     color: black;
-    font-size: calc(2rem + 2px);
+    transform: scale(1.05);
   }
   header .menu nav .gnb li a {
     color: #5a7cb1;
@@ -382,9 +412,10 @@ header .menu nav .gnb li a {
   header .menu nav .gnb .lnb {
     position: absolute;
     left: 0;
+    display: none;
+    transition: 1s ease;
   }
   header .menu nav .gnb .lnb li {
-    display: none;
     margin: 0;
     width: 160px;
     background-color: #5a7cb1;
@@ -437,6 +468,20 @@ header .menu nav .gnb li a {
     transform: translateX(-20px);
     background: url(../image/icon/button/Moon_btn.png) no-repeat;
     background-position: left;
+  }
+  header .menu nav .gnb li .lnb {
+    display: none;
+    transition: 1s ease;
+  }
+  header .menu nav .gnb li .lnb li {
+    background-color: #5a7cb1;
+  }
+  header .menu nav .gnb li .lnb li a {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-indent: 10px;
+    background: none;
   }
   header .menu nav .gnb .gnb_change {
     display: block;
@@ -701,8 +746,11 @@ main .skills {
 }
 main .skills .skills_wrap {
   position: relative;
+  width: 100%;
+  height: 600px;
   margin-top: 200px;
   margin-bottom: 200px;
+  background-color: thistle;
 }
 @media screen and (min-width: 1024px) {
   main .skills .skills_wrap {
@@ -714,14 +762,16 @@ main .skills .skills_wrap {
 main .skills .skills_list {
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 @media screen and (min-width: 1024px) {
   main .skills .skills_list {
     position: absolute;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     display: block;
     height: 700px;
     width: 700px;
@@ -733,82 +783,95 @@ main .skills .skills_list {
   }
 }
 main .skills .skills_list .lists {
-  margin: 0 15px;
+  position: relative;
+  margin: 10px 20px;
   margin-bottom: 30px;
 }
 main .skills .skills_list .lists .moon1 {
   background: url(../image/icon/skill_moon/moon_1.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon2 {
   background: url(../image/icon/skill_moon/moon_2.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon3 {
   background: url(../image/icon/skill_moon/moon_3.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon4 {
   background: url(../image/icon/skill_moon/moon_4.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon5 {
   background: url(../image/icon/skill_moon/moon_5.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon6 {
   background: url(../image/icon/skill_moon/moon_6.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon7 {
   background: url(../image/icon/skill_moon/moon_7.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon8 {
   background: url(../image/icon/skill_moon/moon_8.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon9 {
   background: url(../image/icon/skill_moon/moon_9.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon10 {
   background: url(../image/icon/skill_moon/moon_10.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon11 {
   background: url(../image/icon/skill_moon/moon_11.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon12 {
   background: url(../image/icon/skill_moon/moon_12.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
 }
 main .skills .skills_list .lists .moon13 {
   background: url(../image/icon/skill_moon/moon_13.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: 130px;
+}
+main .skills .skills_list .lists .btn {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+@media screen and (min-width: 1024px) {
+  main .skills .skills_list .lists .btn {
+    position: absolute;
+  }
+}
+main .skills .skills_list .lists .btn img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
 }
 @media screen and (min-width: 1024px) {
   main .skills .skills_list .lists {
-    width: 700px;
-    height: 700px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 0 0px;
+    margin: 0 -100px;
     transform-origin: center;
     -webkit-animation: moon-anim linear 10s forwards infinite;
             animation: moon-anim linear 10s forwards infinite;
@@ -861,47 +924,42 @@ main .skills .skills_list .lists .moon13 {
     -webkit-animation-delay: calc(120s / 12 );
             animation-delay: calc(120s / 12 );
   }
-  main .skills .skills_list .lists a {
-    transform: rotate(-45deg);
-    background-color: antiquewhite;
+  main .skills .skills_list .lists .btn {
+    width: 800px;
+    height: 800px;
+    transform: rotate(180deg);
   }
-}
-main .skills .skills_list .lists a {
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  z-index: 9999;
-}
-main .skills .skills_list .lists a img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
 }
 @media screen and (min-width: 1024px) {
   main .skills .circle_area {
+    position: relative;
     margin: 500px 0;
   }
-}
-main .skills .circle_area .modal {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 main .skills .circle_area .area_wrap {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  width: 60vw;
-  min-width: 450px;
-  max-width: 600px;
-  height: 60vh;
+  width: 30vw;
+  min-width: 400px;
+  max-width: 400px;
+  height: 30vh;
   text-align: center;
   background: url(../image/blue_moon.png) no-repeat;
   background-size: contain;
   background-position: center;
+}
+@media screen and (min-width: 1024px) {
+  main .skills .circle_area .area_wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    min-width: 600px;
+    max-width: 600px;
+    height: 60vh;
+  }
 }
 main .skills .circle_area .area_wrap .area_con {
   position: absolute;
@@ -1128,6 +1186,7 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_text .protf
   color: #777;
 }
 main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_btn {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
@@ -1477,12 +1536,12 @@ footer .contact .contact_text {
   transform: translate(-50%, -50%);
 }
 footer .contact .contact_text strong {
-  font-size: 1.8rem;
+  font-size: 3.6rem;
   line-height: 1.5;
   margin-bottom: 20px;
 }
 footer .contact .contact_text strong span {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #5a7cb1;
   font-family: "InkLipquid";
 }
@@ -1501,15 +1560,15 @@ footer .contact .contact_text .contact_info p span {
     max-width: 600px;
   }
   footer .contact .contact_text strong {
-    font-size: 2.8rem;
+    font-size: 2rem;
     margin-bottom: 20px;
   }
   footer .contact .contact_text strong span {
-    font-size: 4rem;
+    font-size: 3.6rem;
   }
   footer .contact .contact_text .contact_info p {
     line-height: 2;
-    font-size: 2.8rem;
+    font-size: 2rem;
   }
 }
 footer .contact .contact_icon {
