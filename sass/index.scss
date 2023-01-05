@@ -19,6 +19,17 @@
     to {  left: -280px; background-color: white;  }
 }
 
+// 스크롤 배경색
+@keyframes fadeInUp{
+    0% {
+        transform: translate3d(0,55%,0);
+        opacity:0;
+    } to {
+        opacity: 1;
+        transform:translate3d(0,0,0);
+    }
+}
+
 // 구름 움직이는 효과
 @keyframes cloud_move {
     0% { transform: translateY(0%); }
@@ -26,7 +37,7 @@
     100% { transform: translateY(0%); }
 }
 
-// 달 돌아가는 효과
+// 달 회전하는 효과
 @keyframes moon-anim {
     0% { transform: rotateZ(0deg); }
     100% { transform: rotateZ(360deg); }
@@ -68,34 +79,108 @@
     }
 }
 
-// 별 반짝이는 효과
-// @keyframes twinkle {
-//     0% {
-//         -webkit-transform: scale(1, 1);
-//                 transform: scale(1, 1);
-//         background: rgba(255, 255, 255, 0);
-//         -webkit-animation-timing-function: ease-in;
-//                 animation-timing-function: ease-in;
-//     }
-//     60% {
-//         -webkit-transform: scale(0.8, 0.8);
-//                 transform: scale(0.8, 0.8);
-//         background: white;
-//         -webkit-animation-timing-function: ease-out;
-//                 animation-timing-function: ease-out;
-//     }
-//     80% {
-//         background: rgba(255, 255, 255, 0);
-//         -webkit-transform: scale(1, 1);
-//                 transform: scale(1, 1);
-//     }
-//     100% {
-//         background: rgba(255, 255, 255, 0);
-//         -webkit-transform: scale(1, 1);
-//                 transform: scale(1, 1);
-//     }
-// }
+// 포트폴리오 형광펜 그어지는 효과
+@keyframes highlighter_1 {
+    0% { background-size: 0% 40% }
+    100% { background-size: 50% 40%}
+}
 
+@keyframes highlighter_2 {
+    0% { background-size: 0% 40%}
+    100% { background-size: 70% 40%}
+}
+
+@keyframes highlighter_3 {
+    0% { background-size: 0% 40%}
+    100% { background-size: 90% 40%}
+}
+
+@keyframes highlighter_right {
+    0% { background-size: 0rem 45%}
+    100% { background-size: 20rem 45%}
+}
+
+@keyframes highlighter_left {
+    0% { background-size: 0rem 40%}
+    100% { background-size: 27rem 40%}
+}
+
+.estrela {
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    animation-name: estrela;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.estrela.style1 { animation-duration: 0.5s; animation-name: estrela; }
+.estrela.style2 { animation-duration: 1s; animation-name: estrela; }
+.estrela.style3 { animation-duration: 1.5s; animation-name: estrela; }
+.estrela.style4 { animation-duration: 2s; animation-name: estrelaDestacada; }
+
+.estrela.tam1 { width: 1px; height: 1px; }
+.estrela.tam2 { width: 2px; height: 2px; }
+.estrela.tam3 { width: 3px; height: 3px; }
+
+.estrela.opacity1 { opacity:  1; }
+.estrela.opacity2 { opacity: .5; }
+.estrela.opacity3 { opacity: .1; }
+
+@keyframes escurecer {
+    0%   { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes estrela {
+0% {
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+}
+50% {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+}
+100% {
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+}
+}
+
+@keyframes estrelaDestacada {
+0% {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 1);
+}
+20% {
+    background-color: #FFC4C4;
+    box-shadow: 0 0 10px 0px rgb(255, 196, 196, 1);
+}
+80% {
+    background-color: #C4CFFF;
+    box-shadow: 0 0 10px 0px rgb(196, 207, 255, 1);
+}
+100% {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2);
+}
+}
+
+
+@keyframes rotate {
+    0% {
+    -webkit-transform: rotate(0deg);
+    }
+    100% {
+    -webkit-transform: rotate(360deg);
+    }
+}
+
+.constelacao {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // animation: rotate 100s infinite linear;
+}
 
 
 html,
@@ -938,9 +1023,9 @@ main {
     .protfolio {
         padding-top: 300px;
         background-color: $main-color;
-        
-        
+
         .protfolio_wrap {
+            position: relative;
 
             /* protfolio_list  */ 
             .protfolio_list {
@@ -1092,7 +1177,8 @@ main {
                         margin: 0 auto;
                         width: 350px;
                     }
-                    
+
+                    // 텍스트
                     .protfolio_text {
                         margin: 0 auto;
                         display: flex;
@@ -1129,14 +1215,17 @@ main {
                             @include responsive(large-tablet-screens) {
                                 .title_h2_1 {
                                     background-size: 50% 40%;
+                                    animation: highlighter_1 2s;
                                 }
     
                                 .title_h2_2 {
                                     background-size: 70% 40%;
+                                    animation: highlighter_2 2s;
                                 }
     
                                 .title_h2_3 {
                                     background-size: 90% 40%;
+                                    animation: highlighter_3 2s;
                                 }
                             }
                             
@@ -1234,28 +1323,10 @@ main {
 
             /* js_re_rotfolio  */ 
             .js_re_protfolio {
+                position: relative;
                 padding: 300px 0;
-                // background-color: $night_bg;
 
                 background: -webkit-linear-gradient(top,rgb(43, 32, 72) 10%, rgb(25, 19, 39)30%, rgb(0, 0, 0));
-                
-                // animation: twinkle 1s;
-
-                .notice {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    overflow: hidden;
-                }
-
-                .constelacao {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    animation: rotate 600s infinite linear;
-                }
 
                 .mini_title {
                     text-align: center;
@@ -1469,17 +1540,20 @@ main {
                             
                             .text_right {
                                 background-position: bottom right;
-                                background-size: 20rem 40%;
+                                background-size: 20rem 45%;
+                                animation: highlighter_right 2s;
     
                                 @include responsive(medium-tablet-screens) {
                                     background-position: bottom left;
-                                    background-size: 20rem 50%;
+                                    background-size: 20rem 45%;
+                                    animation: highlighter_right 2s;
                                 }
                             }
     
                             .text_left {
                                 background-position: bottom left;
                                 background-size: 27rem 40%;
+                                animation: highlighter_left 2s;
                             }
                         }
 
@@ -1503,6 +1577,7 @@ main {
 
                         // button
                         .jr_protfolio_btn {
+                            cursor: pointer;
                             position: relative;
                             
                             .git_btn {
@@ -1554,12 +1629,23 @@ main {
                                 background-size: inherit;
                                 background-position: left;
 
-                                
                                 p {
                                     display: flex;
                                     align-items: center;
                                     margin-left: 8px;
                                     font-weight: 600;
+                                }
+
+                                &:hover {
+                                    background: url(../image/icon/button/Moon_btn_yellow.png) no-repeat;
+                                    background-size: inherit;
+                                    background-position: left;
+                                    transition: 0.2s;
+
+                                    p {
+                                        transition: 0.2s;
+                                        font-weight: 700;
+                                    }
                                 }
                             } // design
     
@@ -1620,30 +1706,31 @@ main {
 
 // ============== footer ============== //
 footer {
-    position: relative;
     background-color: black;
     padding-top: 200px;
 
     .contact {
         position: relative; 
         margin: 0 auto;
-        width: 95vw;
+        width: 60vw;
+        height: 70vh;
         min-width: 400px;
-        max-width: 800px;
-        height: 95vh;
+        max-width: 700px;
         background: url(../image/moon.png) no-repeat;
         background-position: center;
         background-size: contain;
 
         @include responsive(large-tablet-screens) {
-            min-width: 500px;
-            max-width: 1000px;
+            width: 70vw;
+            height: 70vh;
+            min-width: 700px;
+            max-width: 700px;
         }
 
         .contact_text {
             text-align: center;
-            width: 75vw;
-            min-width: 200px;
+            width: 35vw;
+            min-width: 300px;
             max-width: 400px;
             @include pos-center();
 
@@ -1651,7 +1738,7 @@ footer {
             strong {
                 font-size: $text-font-size;
                 line-height: 1.5;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
                 
                 span {
                     font-size: calc($protfolio-title-font-size - 1.3rem);
@@ -1661,9 +1748,9 @@ footer {
             }
 
             @include responsive(small-tablet-screens) {
-                width: 60vw;
+                width: 50vw;
                 min-width: 200px;
-                max-width: 600px;
+                max-width: 500px;
 
                 strong {
                     font-size: $sub-font-size;
@@ -1698,15 +1785,9 @@ footer {
                     
                     @include responsive(small-tablet-screens) {
                         p {
-                            line-height: 2;
+                            line-height: 1.7;
                             font: {
                                 size: $sub-font-size;
-                            }
-                        }
-
-                        @include responsive(large-tablet-screens) {
-                            p {
-                                line-height: 2;
                             }
                         }
                     } // small-tablet-screens
@@ -1717,7 +1798,7 @@ footer {
         .contact_icon {
             position: absolute;
             @include pos-center-x();
-            bottom: 0;
+            bottom: 0px;
             width: 370px;
             margin: 0 auto;
             display: flex;
@@ -1758,8 +1839,7 @@ footer {
             }
 
             @include responsive(large-tablet-screens) {
-                // @include pos-center-x();
-                // margin-top: 200px;
+                bottom: 15%;
             }
         }
     } // contact

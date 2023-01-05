@@ -110,37 +110,149 @@ del.addEventListener("click", function() {
 });
 
 
+// ==== protfolio star ==== // 
+function init() {
+    
+    //estrelas
+    var style = ["style1", "style2", "style3", "style4"];
+    var tam = ["tam1", "tam1", "tam1", "tam2", "tam3"];
+    var opacity = ["opacity1", "opacity1", "opacity1", "opacity2", "opacity2", "opacity3"];
+
+    function getRandomArbitrary(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    var estrela = "";
+    var qtdeEstrelas = 2000;
+    var noite = document.querySelector(".constelacao");
+    var widthWindow = window.innerWidth;
+    var heightWindow = document.body.scrollHeight;
+
+    for (var i = 0; i < qtdeEstrelas; i++) {
+        estrela += "<span class='estrela " + style[getRandomArbitrary(0, 4)] + " " + opacity[getRandomArbitrary(0, 6)] + " "
+        + tam[getRandomArbitrary(0, 5)] + "' style='animation-delay: ." +getRandomArbitrary(0, 9)+ "s; left: "
+        + getRandomArbitrary(0, widthWindow) + "px; top: " + getRandomArbitrary(0, heightWindow) + "px;'></span>";
+    }
+
+noite.innerHTML = estrela;
+}
+
+window.onload = init;
+
+
+// ==== contact ==== //
+// let con_arr = ["git", "kakao", "message"];
+// const contact_icon = document.querySelectorAll(".tablet_icon");
+// let icon_id = document.getElementById(`${con_arr}`);
+
+
+// icon_id.forEach(function(icon) {
+//     console.log(icon);
+//     icon.addEventListener("mouseover", function() {
+//         console.log(icon);
+//         // for(let i = 0; i < 3; i++) {
+//             // if(con_arr[i] === icon_id) {
+//             //     console.log("오버!");
+//             //     icon_id.src = `./image/icon/contact/contact_y_${con_arr[i]}.png`;
+//             // }
+//         // }
+//     });
+// });
+
+
+
+
+
+// $(document).ready(function(){
+//     // a클릭시 부드럽게 이동
+//     $('a').click(function() {
+//         $('html, body').animate({
+//             scrollTop: $($.attr(this, 'href')).offset().top
+//         }, 500);
+//         return false;
+//     });
+
+//     // 퀵메뉴
+//     $('.quick_menu li a').click(function() {
+//         // 버튼 hover 이벤트
+//         return false
+//         $(this).parent().addClass('on');
+//         $(this).parent().siblings().removeClass('on');
+//     });
+//     // target 위치 표시와, 이동  
+//     var sections = $('.target'),
+//         nav = $('.quick_menu'),
+//         nav_height = nav.outerHeight();
+
+//     $(window).on('scroll', function() {
+//         var cur_pos = $(this).scrollTop();
+
+//         sections.each(function() {
+//             var top = $(this).offset().top - nav_height,
+//                 bottom = top + $(this).outerHeight();
+
+//             if (cur_pos >= top && cur_pos <= bottom) {
+//                 nav.find('a').parent().removeClass('on');
+//                 sections.removeClass('active');
+
+//                 $(this).parent().addClass('on');
+//                 nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('on');
+//             }
+//         });
+//     });
+
+//     nav.find('a').on('click', function() {
+//         var $el = $(this),
+//             id = $el.attr('href');
+
+//         $('html, body').animate({
+//             scrollTop: $(id).offset().top 
+//         }, 500);
+
+//         return false;
+// });
+
+
+// // 원하는 위치에서 스크롤 이벤트
+// $(window).on('scroll', function() {
+//     if ($(window).scrollTop() > 520) {
+//         $('.quick_menu').addClass("fixed");
+//     } else {
+//         $('.quick_menu').removeClass("fixed");
+//     }
+// })
+// });
+
 
 // //** 스크롤 배경색 변경 이벤트 **//
-// function checkVisible( element, check = 'above' ) {
-//     const viewportHeight = $(window).height(); // Viewport Height
-//     const scrolltop = $(window).scrollTop(); // Scroll Top
-//     const y = $(element).offset().top;
-//     const elementHeight = $(element).height();   
+function checkVisible( element, check = 'above' ) {
+    const viewportHeight = $(window).height(); // Viewport Height
+    const scrolltop = $(window).scrollTop(); // Scroll Top
+    const y = $(element).offset().top;
+    const elementHeight = $(element).height();   
     
-//     // 반드시 요소가 화면에 보여야 할경우
-//     if (check == "visible") 
-//         return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+    // 반드시 요소가 화면에 보여야 할경우
+    if (check == "visible") 
+        return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
         
-//     // 화면에 안보여도 요소가 위에만 있으면 (페이지를 로드할때 스크롤이 밑으로 내려가 요소를 지나쳐 버릴경우)
-//     if (check == "above") 
-//         return ((y < (viewportHeight + scrolltop)));
-// }
+    // 화면에 안보여도 요소가 위에만 있으면 (페이지를 로드할때 스크롤이 밑으로 내려가 요소를 지나쳐 버릴경우)
+    if (check == "above") 
+        return ((y < (viewportHeight + scrolltop)));
+}
 
-// // 리소스가 로드 되면 함수 실행을 멈출지 말지 정하는 변수
-// let isVisible = false;
+// 리소스가 로드 되면 함수 실행을 멈출지 말지 정하는 변수
+let isVisible = false;
 
-// // 이벤트에 등록할 함수
-// const func = function () {
-//     if ( !isVisible && checkVisible('#second') ) {
-//         alert("엘리먼트 보임 !!");
-        
-//         isVisible = true;
-//     }
-    
-//     // 만일 리소스가 로드가 되면 더이상 이벤트 스크립트가 있을 필요가 없으니 삭제
-//     isVisible && window.removeEventListener('scroll', func);
-// }
+// 이벤트에 등록할 함수
+$('.gnb').hide();
+const func = function () {
+    if ( !isVisible && checkVisible('.intro_contents') ) {
+        $('.gnb').fadeIn();
+        isVisible = true;
+    }
+    // 만일 리소스가 로드가 되면 더이상 이벤트 스크립트가 있을 필요가 없으니 삭제
+    isVisible && window.removeEventListener('scroll', func);
+}
 
-// // 스크롤 이벤트 등록
-// window.addEventListener('scroll', func);
+// 스크롤 이벤트 등록
+window.addEventListener('scroll', func);
