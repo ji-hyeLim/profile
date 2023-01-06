@@ -163,14 +163,14 @@ window.onload = init;
 
 
 
-// $(document).ready(function(){
-//     // a클릭시 부드럽게 이동
-//     $('a').click(function() {
-//         $('html, body').animate({
-//             scrollTop: $($.attr(this, 'href')).offset().top
-//         }, 500);
-//         return false;
-//     });
+$( function(){
+    // a클릭시 부드럽게 이동
+    $('a').click(function() {
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+        return false;
+    });
 
 //     // 퀵메뉴
 //     $('.quick_menu li a').click(function() {
@@ -213,15 +213,14 @@ window.onload = init;
 // });
 
 
-// // 원하는 위치에서 스크롤 이벤트
-// $(window).on('scroll', function() {
-//     if ($(window).scrollTop() > 520) {
-//         $('.quick_menu').addClass("fixed");
-//     } else {
-//         $('.quick_menu').removeClass("fixed");
-//     }
-// })
-// });
+// 원하는 위치에서 스크롤 이벤트
+$(window).on('scroll', function() {
+    if ($(window).scrollTop() > 520) {
+        $('.quick_menu').addClass("fixed");
+    } else {
+        $('.quick_menu').removeClass("fixed");
+    }
+})
 
 
 // //** 스크롤 배경색 변경 이벤트 **//
@@ -245,14 +244,62 @@ let isVisible = false;
 
 // 이벤트에 등록할 함수
 $('.gnb').hide();
-const func = function () {
+const side_menu = function() {
     if ( !isVisible && checkVisible('.intro_contents') ) {
         $('.gnb').fadeIn();
         isVisible = true;
     }
     // 만일 리소스가 로드가 되면 더이상 이벤트 스크립트가 있을 필요가 없으니 삭제
-    isVisible && window.removeEventListener('scroll', func);
+    // isVisible && window.removeEventListener('scroll', func);
+
 }
 
 // 스크롤 이벤트 등록
-window.addEventListener('scroll', func);
+window.addEventListener('scroll', side_menu);
+
+
+// $(function() {
+//     $(window).scroll(function() {
+//         // $('.title').hide();
+//         // 배경색
+//         if ($(this).scrollTop() >= Math.ceil($('.protfolio').offset().top)) {
+//             // 스크롤이 끝에 도달했을때 실행될 이벤트
+//             $('#protfolio').css('background', '#5a7cb1');
+//         } else {
+//             // 아닐때 이벤트
+//             $('#protfolio').css('background', 'white');
+//         }
+//     });
+// });
+
+// const backColor= function() {
+    if ( !isVisible && checkVisible('.pro_text_zone') ) {
+    }
+// }
+$('.as_c_b').hide();
+$(window).on('scroll',function() {
+    if (checkVisible($('#protfolio').find('.title'))&&!isVisible) {
+        $('#protfolio').css('background', '#5a7cb1');
+    }
+
+    if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
+        $('.as_c_b').show();
+    }
+
+    
+});
+
+function checkVisible( elm, eval ) {
+    eval = eval || "object visible";
+    var viewportHeight = $(window).height(),
+        scrolltop = $(window).scrollTop(),
+        y = $(elm).offset().top,
+        elementHeight = $(elm).height();   
+    
+    if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+    if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+}
+    
+});
+
+

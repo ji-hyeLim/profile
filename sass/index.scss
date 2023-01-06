@@ -393,12 +393,10 @@ header {
                         transition: 1s ease;
                         
                         li {
-                            // margin: 0;
-                            // width: 160px;
                             background-color: $gray-bg;
 
                             &:hover {
-                                background-color: $gray-bg;
+                                background-color: $gray-bg-sub;
                                 a {
                                     color: black;
                                     font-weight: 600;    
@@ -458,7 +456,7 @@ header {
                             margin: 0;
                             width: 160px;
                             background-color: $main-color;
-
+                            
                             &:hover {
                                 background-color: $gray-bg;
                                 transition: 0.3s ease;
@@ -502,7 +500,7 @@ header {
                         }
 
                         &:hover {
-                            transition: 0.3s ease;
+                            transition: none;
                             background-color: transparent;
 
                             a {
@@ -513,6 +511,7 @@ header {
                                 color: $main-color;
                                 text-indent: 50px;
                                 transform: translateX(-20px);
+                                transition: none;
                                 background: url(../image/icon/button/Moon_btn.png) no-repeat;
                                 background-position: left;
                             }
@@ -1022,7 +1021,7 @@ main {
     /* === protfolio === */ 
     .protfolio {
         padding-top: 300px;
-        background-color: $main-color;
+        // background-color: $main-color;
 
         .protfolio_wrap {
             position: relative;

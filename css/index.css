@@ -689,7 +689,7 @@ header .menu nav .gnb li .lnb li {
   background-color: #eee;
 }
 header .menu nav .gnb li .lnb li:hover {
-  background-color: #eee;
+  background-color: #e1e1e1;
 }
 header .menu nav .gnb li .lnb li:hover a {
   color: black;
@@ -778,7 +778,7 @@ header .menu nav .gnb li .lnb li a {
     background-size: 10px;
   }
   header .menu nav .gnb li:hover {
-    transition: 0.3s ease;
+    transition: none;
     background-color: transparent;
   }
   header .menu nav .gnb li:hover a {
@@ -787,6 +787,7 @@ header .menu nav .gnb li .lnb li a {
     color: #5a7cb1;
     text-indent: 50px;
     transform: translateX(-20px);
+    transition: none;
     background: url(../image/icon/button/Moon_btn.png) no-repeat;
     background-position: left;
   }
@@ -1330,7 +1331,6 @@ main .gradiunt {
 }
 main .protfolio {
   padding-top: 300px;
-  background-color: #5a7cb1;
 }
 main .protfolio .protfolio_wrap {
   position: relative;
