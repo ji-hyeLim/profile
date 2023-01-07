@@ -141,36 +141,94 @@ window.onload = init;
 
 
 // ==== contact ==== //
-// let con_arr = ["git", "kakao", "message"];
-// const contact_icon = document.querySelectorAll(".tablet_icon");
-// let icon_id = document.getElementById(`${con_arr}`);
+let con_arr = ["git", "kakao", "message"];
+const contact_icon = document.querySelectorAll(".tablet_icon");
 
 
-// icon_id.forEach(function(icon) {
-//     console.log(icon);
-//     icon.addEventListener("mouseover", function() {
-//         console.log(icon);
-//         // for(let i = 0; i < 3; i++) {
-//             // if(con_arr[i] === icon_id) {
-//             //     console.log("오버!");
-//             //     icon_id.src = `./image/icon/contact/contact_y_${con_arr[i]}.png`;
-//             // }
-//         // }
-//     });
-// });
+const icon_last = document.querySelectorAll(".icon");
 
-
-
-
-
-$( function(){
-    // a클릭시 부드럽게 이동
-    $('a').click(function() {
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 500);
-        return false;
+icon_last.forEach(function(con){
+ con.addEventListener("mouseover", function() {
+        
+            if(con.id == "git") {
+                git.src = `./image/icon/contact/git_yellow.png`;
+            }
+            if (con.id == "kakao"){
+                kakao.src = `./image/icon/contact/kakao_yellow.png`;
+            }
+            if (con.id == "message"){
+                message.src = `./image/icon/contact/message_yellow.png`;
+            }                
     });
+
+    con.addEventListener("mouseout", function() {
+        
+        if(con.id == "git") {
+            git.src = `./image/icon/contact/git.png`;
+        }
+        if (con.id == "kakao"){
+            kakao.src = `./image/icon/contact/kakao.png`;
+        }
+        if (con.id == "message"){
+            message.src = `./image/icon/contact/message.png`;
+        }                
+});
+
+})
+
+
+
+
+
+
+// 스크롤 이벤트
+const sections = document.querySelectorAll("section");
+const protfolio01 = document.getElementById("protfolio01");
+
+window.addEventListener("scroll", () => {
+   let currentSection = "";
+   
+   sections.forEach(section => {
+    const sectionTop = window.scrollY + section.getBoundingClientRect().top - 1;
+
+    if(window.scrollY >= sectionTop) {
+        currentSection = section.getAttribute("id");
+    }
+   });
+
+   const as_c_b = document.querySelector(".as_c_b");
+   
+   if(currentSection == "protfolio") {
+       document.body.style.backgroundColor = "#5a7cb1";
+    //    title.style.display = "block";
+       
+       protfolio01.style.opacity = 1;
+       as_c_b.style.animation = "moon_open_as 1s";
+   } else {
+       document.body.style.backgroundColor = "#ffffff";
+    //    title.style.display = "none";
+       protfolio01.style.opacity = 0;
+       
+   }
+});
+
+
+
+
+
+
+
+
+
+
+// $( function(){
+//     // a클릭시 부드럽게 이동
+//     $('a').click(function() {
+//         $('html, body').animate({
+//             scrollTop: $($.attr(this, 'href')).offset().top
+//         }, 500);
+//         return false;
+//     });
 
 //     // 퀵메뉴
 //     $('.quick_menu li a').click(function() {
@@ -214,13 +272,13 @@ $( function(){
 
 
 // 원하는 위치에서 스크롤 이벤트
-$(window).on('scroll', function() {
-    if ($(window).scrollTop() > 520) {
-        $('.quick_menu').addClass("fixed");
-    } else {
-        $('.quick_menu').removeClass("fixed");
-    }
-})
+// $(window).on('scroll', function() {
+//     if ($(window).scrollTop() > 520) {
+//         $('.quick_menu').addClass("fixed");
+//     } else {
+//         $('.quick_menu').removeClass("fixed");
+//     }
+// })
 
 
 // //** 스크롤 배경색 변경 이벤트 **//
@@ -273,33 +331,40 @@ window.addEventListener('scroll', side_menu);
 // });
 
 // const backColor= function() {
-    if ( !isVisible && checkVisible('.pro_text_zone') ) {
-    }
+    // if ( !isVisible && checkVisible('.pro_text_zone') ) {
+    // }
 // }
-$('.as_c_b').hide();
-$(window).on('scroll',function() {
-    if (checkVisible($('#protfolio').find('.title'))&&!isVisible) {
-        $('#protfolio').css('background', '#5a7cb1');
-    }
+// $('.as_c_b').hide();
+// $(window).on('scroll',function() {
+//     if (checkVisible($('#protfolio').find('.title'))&&!isVisible) {
+//         $('#protfolio').fadeOut(function() {
+//             $(this).css('background', '#5a7cb1');
+//             $(this).fadeIn();
 
-    if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
-        $('.as_c_b').show();
-    }
+
+
+//         });
+//     }
+//     isVisible && window.removeEventListener('scroll', func);
+
+    // if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
+    //     $('.as_c_b').show();
+    // }
 
     
-});
+// });
 
-function checkVisible( elm, eval ) {
-    eval = eval || "object visible";
-    var viewportHeight = $(window).height(),
-        scrolltop = $(window).scrollTop(),
-        y = $(elm).offset().top,
-        elementHeight = $(elm).height();   
+// function checkVisible( elm, eval ) {
+//     eval = eval || "object visible";
+//     var viewportHeight = $(window).height(),
+//         scrolltop = $(window).scrollTop(),
+//         y = $(elm).offset().top,
+//         elementHeight = $(elm).height();   
     
-    if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-    if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-}
+//     if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+//     if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+// }
     
-});
+// });
 
 

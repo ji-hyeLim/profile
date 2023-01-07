@@ -1408,9 +1408,11 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_circle_blue
     height: 700px;
     top: -150px;
     transform: translateX(-100%);
-    -webkit-animation: moon_open_as 1s;
-            animation: moon_open_as 1s;
   }
+}
+main .protfolio .protfolio_wrap .protfolio_list .list_box .as_b .as_c_b {
+  -webkit-animation: moon_open_as 1s;
+          animation: moon_open_as 1s;
 }
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list .list_box .bs_c {

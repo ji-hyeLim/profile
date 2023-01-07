@@ -1021,7 +1021,6 @@ main {
     /* === protfolio === */ 
     .protfolio {
         padding-top: 300px;
-        // background-color: $main-color;
 
         .protfolio_wrap {
             position: relative;
@@ -1078,7 +1077,6 @@ main {
                         @include responsive(large-tablet-screens) {
                             position: absolute;
                             border-radius: 50%;
-                            // background-color: thistle;
                             background-color: $main-color;
                             z-index: 50;
                         }
@@ -1100,6 +1098,11 @@ main {
                             height: 700px;
                             top: -150px; 
                             transform: translateX(-100%);
+                            
+                        }
+                    }
+                    .as_b {
+                        .as_c_b {
                             animation: moon_open_as 1s;
                         }
                     }
