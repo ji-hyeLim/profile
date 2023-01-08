@@ -1,0 +1,78 @@
+// 반응형
+@mixin responsive($break-point) {
+    @if($break-point == mobile-screens) {
+        @media screen and (min-width:$break-mobile) {
+            @content;
+        }
+    }
+
+    @else if($break-point == small-tablet-screens) {
+        @media screen and (min-width:$break-small-tablet) {
+            @content;
+        }
+    }
+
+    @else if($break-point == medium-tablet-screens) {
+        @media screen and (min-width:$break-medium-tablet) {
+            @content;
+        }
+    }
+
+    @else if($break-point == large-tablet-screens) {
+        @media screen and (min-width:$break-large-tablet) {
+            @content;
+        }
+    }
+
+    @else if($break-point == desktop-screens) {
+        @media screen and (min-width:$break-desktop) {
+            @content;
+        }
+    }
+}
+
+
+// 수평 가운데 정렬
+@mixin pos-center-x($type: absolute) { 
+    @if($type == fixed or $type == absolute ){
+        position: $type;
+        left: 50%;
+        transform: translateX(-50%);
+        @content;
+    }
+}
+
+
+// 수직 가운데 정렬
+@mixin pos-center-y($type: absolute) { 
+    @if($type == fixed or $type == absolute ){
+        position: $type;
+        top: 50%;
+        transform: translateY(-50%);
+        @content;
+    }
+}
+
+
+// 수직수평 가운데 정렬
+@mixin pos-center($type: absolute) { 
+    @if($type == fixed or $type == absolute) {
+        position: $type;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        @content;
+    }
+}
+
+// background-gradiunt 넣기
+// @mixin background-gradiunt {
+//     background: linear-gradient(
+//         to bottom,
+//         rgba(255,255,255,0) 95%,
+//         rgba(255,255,255,1) 100%
+//     );
+//     background-repeat: no-repeat;
+//     background-position-x: center;
+//     background-size: 100%;
+// }
