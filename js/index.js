@@ -1,5 +1,6 @@
 // 반응형 중단점
 let moblieWidth = window.matchMedia("screen and (max-width: 767px)");
+// let medium_tabletWidth = window.matchMedia("screen and (min-width: 900px)");
 let tabletWidth = window.matchMedia("screen and (max-width: 1023px)");
 let largeTabletWidth = window.matchMedia("screen and (min-width: 1024px)"); //
 let tablet_pcWidth = window.matchMedia("screen and (max-width: 1800px)");
@@ -28,7 +29,7 @@ if(moblieWidth.matches) {
         lnb.style.display = 'none';
     });
 
-} else if(tablet_pcWidth) {
+} else if(tablet_pcWidth.matches) {
     // 태블릿 & pc
     gnb.addEventListener("mouseover", function() {
         lnb.style.display = 'block';
@@ -74,7 +75,7 @@ skills.forEach(function(lists) {
     lists.addEventListener("click", function(e) {
         e.preventDefault();
 
-        if(tabletWidth) {
+        if(tabletWidth.matches) {
             circle_area.style.display = "block";
             del.style.display = "block";
             area_con.forEach(function(area_c) {
@@ -85,7 +86,6 @@ skills.forEach(function(lists) {
             document.querySelector(activeCont).style.display = "block";
         } else {
             del.style.display = "none"; 
-            // largeTablet에서는 클릭할때 del이 안나왔으면 좋겠는데 안된다..
         }
     });
 
@@ -153,7 +153,7 @@ const contact_icon = document.querySelectorAll(".tablet_icon");
 const icon_last = document.querySelectorAll(".icon");
 
 icon_last.forEach(function(con){
- con.addEventListener("mouseover", function() {
+    con.addEventListener("mouseover", function() {
         
             if(con.id == "git") {
                 git.src = `./image/icon/contact/git_yellow.png`;
@@ -177,13 +177,13 @@ icon_last.forEach(function(con){
         if (con.id == "message"){
             message.src = `./image/icon/contact/message.png`;
         }                
+    });
 });
-});
 
 
 
-
-// 스크롤 이벤트
+// ==== 스크롤 이벤트 ==== //
+// 스크롤 배경색 이벤트
 const pro_bg = document.querySelectorAll(".pro_bg");
 const constelacao = document.querySelector(".constelacao");
 
@@ -194,93 +194,99 @@ window.addEventListener("scroll", () => {
         const sectionTop = window.scrollY + section.getBoundingClientRect().top - 1;
         if(window.scrollY >= sectionTop) {
             currentSection = section.getAttribute("id");
-            console.log(currentSection);
         }
         const title_p = document.querySelector(".second p");
         const mini_title = document.getElementById("mini_title")
-        const nav_menu = document.querySelector(".nav_menu");
-        const gnb = document.querySelector(".gnb");
+        const gnb = document.getElementById("gnb");
+        const cloud_top = document.getElementById("cloud_top");
         
         if (currentSection == "protfolio_list") {
             document.body.style.background= "#5a7cb1";
             title_p.style.display = "block";
             mini_title.style.opacity = 0;
-            // nav_menu.classList.add("gnb_change");
-            // nav_menu.classList.remove("gnb");
             constelacao.style.opacity = 0;
+            gnb.classList.replace("gnb", "gnb_change");
+            cloud_top.classList.replace("cloud_top", "cloud_top_white");
             
         } else if(currentSection == "js_re_protfolio" || currentSection == "reactProtfolio") {
-            document.body.style.background = "-webkit-linear-gradient(top,rgb(43, 32, 72) 15%, rgb(25, 19, 39)70%, rgb(0, 0, 0))";
+            document.body.style.background = "-webkit-linear-gradient(top,rgb(43, 32, 72)50%, rgb(0, 0, 0))25%";
             constelacao.style.opacity = 1;
             mini_title.style.opacity = 1;
+            cloud_top.classList.replace("cloud_top_white", "cloud_top");
         } else {
             document.body.style.background = "#ffffff";
             title_p.style.display = "none";
+            gnb.classList.replace("gnb_change", "gnb");
+            cloud_top.classList.replace("cloud_top_white", "cloud_top");
         } 
     });
     
 });
 
-window.addEventListener("scroll", () => {
-    const pro_list = document.querySelectorAll(".pro_list");
+// 스크롤 동작 이벤트
+if(largeTabletWidth.matches) {
+    window.addEventListener("scroll", () => {
+        const pro_list = document.querySelectorAll(".pro_list");
 
-    let pro_01 = "";
-    let pro_02 = "";
-    let pro_03 = "";
-    
-    pro_list.forEach(list => {
-        const sectionTop = window.scrollY + list.getBoundingClientRect().top - 1;
-        
-        if(window.scrollY >= sectionTop) {
-            pro_01 = list.getAttribute("id");
-            pro_02 = list.getAttribute("id");
-            pro_03 = list.getAttribute("id");
-        }
-        
-        const protfolio01 = document.getElementById("protfolio01");
-        const protfolio02 = document.getElementById("protfolio02");
-        const protfolio03 = document.getElementById("protfolio03");
-        const as_c_b = document.querySelector(".as_c_b");
-        const bs_c_b = document.querySelector(".bs_c_b");
-        const pro_c_b = document.querySelector(".pro_c_b");
-        const title_h2_1 = document.querySelector(".title_h2_1");
-        const title_h2_2 = document.querySelector(".title_h2_2");
-        const title_h2_3 = document.querySelector(".title_h2_3");
-        
-        if (pro_01 == "protfolio01") {
-            protfolio01.style.opacity = 1;
-            as_c_b.style.animation = "moon_open_as 1s";
-            title_h2_1.style.animation = "highlighter_1 1s";
+        let pro_01 = "";
+        let pro_02 = "";
+        let pro_03 = "";
+
+        pro_list.forEach(list => {
+            const sectionTop = window.scrollY + list.getBoundingClientRect().top;
             
-        } else {
-            protfolio01.style.opacity = 0;
-            as_c_b.style.animation = "none";
-            title_h2_1.style.animation = "none";
-        }
-        
-        if (pro_02 == "protfolio02") {
-            protfolio02.style.opacity = 1;
-            bs_c_b.style.animation = "moon_open_bs 1s";
-            title_h2_2.style.animation = "highlighter_2 1s";
+            if(window.scrollY >= sectionTop) {
+                pro_01 = list.getAttribute("id");
+                pro_02 = list.getAttribute("id");
+                pro_03 = list.getAttribute("id");
+            }
             
-        } else {
-            protfolio02.style.opacity = 0;
-            bs_c_b.style.animation = "none";
-            title_h2_2.style.animation = "none";
-        }
-        
-        if (pro_03 == "protfolio03") {
-            protfolio03.style.opacity = 1;
-            pro_c_b.style.animation = "moon_open_pro 1s";
-            title_h2_3.style.animation = "highlighter_3 1s";
+            const protfolio01 = document.getElementById("protfolio01");
+            const protfolio02 = document.getElementById("protfolio02");
+            const protfolio03 = document.getElementById("protfolio03");
+            const as_c_b = document.querySelector(".as_c_b");
+            const bs_c_b = document.querySelector(".bs_c_b");
+            const pro_c_b = document.querySelector(".pro_c_b");
+            const title_h2_1 = document.querySelector(".title_h2_1");
+            const title_h2_2 = document.querySelector(".title_h2_2");
+            const title_h2_3 = document.querySelector(".title_h2_3");
+
+            if (pro_01 == "protfolio01") {
+                protfolio01.style.opacity = 1;
+                as_c_b.style.animation = "moon_open_as 1s";
+                title_h2_1.style.animation = "highlighter_1 1s";
+                
+            } else {
+                protfolio01.style.opacity = 0;
+                // as_c_b.style.animation = "none";
+                // title_h2_1.style.animation = "none";
+            }
             
-        } else {
-            protfolio03.style.opacity = 0;
-            pro_c_b.style.animation = "none";
-            title_h2_3.style.animation = "none";
-        }
+            if (pro_02 == "protfolio02") {
+                protfolio02.style.opacity = 1;
+                bs_c_b.style.animation = "moon_open_bs 1s";
+                title_h2_2.style.animation = "highlighter_2 1s";
+                
+            } else {
+                protfolio02.style.opacity = 0;
+                // bs_c_b.style.animation = "none";
+                // title_h2_2.style.animation = "none";
+            }
+            
+            if (pro_03 == "protfolio03") {
+                protfolio03.style.opacity = 1;
+                pro_c_b.style.animation = "moon_open_pro 1s";
+                title_h2_3.style.animation = "highlighter_3 1s";
+                
+            } else {
+                protfolio03.style.opacity = 0;
+                // pro_c_b.style.animation = "none";
+                // title_h2_3.style.animation = "none";
+            }
+        });
     });
-});
+}
+
 
 
 const js_protfolio = document.querySelectorAll(".js_protfolio");
@@ -395,92 +401,4 @@ const js_protfolio = document.querySelectorAll(".js_protfolio");
 //         $('.quick_menu').removeClass("fixed");
 //     }
 // })
-
-
-// //** 스크롤 배경색 변경 이벤트 **//
-function checkVisible( element, check = 'above' ) {
-    const viewportHeight = $(window).height(); // Viewport Height
-    const scrolltop = $(window).scrollTop(); // Scroll Top
-    const y = $(element).offset().top;
-    const elementHeight = $(element).height();   
-    
-    // 반드시 요소가 화면에 보여야 할경우
-    if (check == "visible") 
-        return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-        
-    // 화면에 안보여도 요소가 위에만 있으면 (페이지를 로드할때 스크롤이 밑으로 내려가 요소를 지나쳐 버릴경우)
-    if (check == "above") 
-        return ((y < (viewportHeight + scrolltop)));
-}
-
-// 리소스가 로드 되면 함수 실행을 멈출지 말지 정하는 변수
-let isVisible = false;
-
-// 이벤트에 등록할 함수
-$('.gnb').hide();
-const side_menu = function() {
-    if ( !isVisible && checkVisible('.intro_contents') ) {
-        $('.gnb').fadeIn();
-        isVisible = true;
-    }
-    // 만일 리소스가 로드가 되면 더이상 이벤트 스크립트가 있을 필요가 없으니 삭제
-    // isVisible && window.removeEventListener('scroll', func);
-
-}
-
-// 스크롤 이벤트 등록
-window.addEventListener('scroll', side_menu);
-
-
-// $(function() {
-//     $(window).scroll(function() {
-//         // $('.title').hide();
-//         // 배경색
-//         if ($(this).scrollTop() >= Math.ceil($('.protfolio').offset().top)) {
-//             // 스크롤이 끝에 도달했을때 실행될 이벤트
-//             $('#protfolio').css('background', '#5a7cb1');
-//         } else {
-//             // 아닐때 이벤트
-//             $('#protfolio').css('background', 'white');
-//         }
-//     });
-// });
-
-// const backColor= function() {
-    // if ( !isVisible && checkVisible('.pro_text_zone') ) {
-    // }
-// }
-// $('.as_c_b').hide();
-// $(window).on('scroll',function() {
-//     if (checkVisible($('#protfolio').find('.title'))&&!isVisible) {
-//         $('#protfolio').fadeOut(function() {
-//             $(this).css('background', '#5a7cb1');
-//             $(this).fadeIn();
-
-
-
-//         });
-//     }
-//     isVisible && window.removeEventListener('scroll', func);
-
-    // if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
-    //     $('.as_c_b').show();
-    // }
-
-    
-// });
-
-// function checkVisible( elm, eval ) {
-//     eval = eval || "object visible";
-//     var viewportHeight = $(window).height(),
-//         scrolltop = $(window).scrollTop(),
-//         y = $(elm).offset().top,
-//         elementHeight = $(elm).height();   
-    
-//     if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-//     if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-// }
-    
-// });
-
 

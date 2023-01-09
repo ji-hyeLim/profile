@@ -532,15 +532,6 @@ body {
   }
 }
 
-.mobile-non-only {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .mobile-non-only {
-    display: block;
-  }
-}
-
 .large-only {
   display: none;
 }
@@ -568,18 +559,10 @@ body {
   }
 }
 
-.desktop-only {
-  display: none;
-}
-@media screen and (min-width: 1800px) {
-  .desktop-only {
-    display: block;
-  }
-}
-
 .title {
   display: flex;
   margin: 100px 0;
+  margin-top: 200px;
 }
 .title p {
   margin-right: 10px;
@@ -676,11 +659,11 @@ header .menu nav .gnb li:hover a {
   color: #0a121e;
 }
 header .menu nav .gnb li a {
-  padding: 18px 0;
   color: white;
+  padding: 18px 0;
+  padding-left: 20px;
   font-size: 2rem;
   font-weight: 600;
-  padding-left: 20px;
 }
 header .menu nav .gnb li .lnb {
   display: none;
@@ -743,8 +726,8 @@ header .menu nav .gnb li .lnb li a {
     background-color: #5a7cb1;
   }
   header .menu nav .gnb .lnb li:hover {
-    background-color: #eee;
     transition: 0.3s ease;
+    background-color: #eee;
   }
   header .menu nav .gnb .lnb li:hover a {
     color: black;
@@ -807,31 +790,68 @@ header .menu nav .gnb li .lnb li a {
     background: none;
   }
 }
-header .menu .gnb_change {
+header .menu nav .gnb_change {
   display: block;
 }
-header .menu .gnb_change li {
+header .menu nav .gnb_change li {
+  width: 100%;
+  margin: 0 5vw;
   background-color: transparent;
 }
-header .menu .gnb_change li a {
-  color: #b2b2b2;
-  text-indent: 30px;
-  background: url(../image/icon/button/gray_circle.png) no-repeat;
+header .menu nav .gnb_change li a {
+  color: white;
+  padding: 18px 0;
+  text-indent: 25px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-left: 20px;
+  background: url(../image/icon/button/white_circle.png) no-repeat;
   background-position: left;
   background-size: 10px;
 }
-header .menu .gnb_change li:hover {
-  transition: 0.3s ease;
+header .menu nav .gnb_change li:hover {
+  transition: none;
   background-color: transparent;
 }
-header .menu .gnb_change li:hover a {
+header .menu nav .gnb_change li:hover a {
   font-weight: 800;
   font-size: 1.8rem;
   color: white;
   text-indent: 50px;
   transform: translateX(-20px);
-  background: url(../image/icon/button/Moon_btn_white.png) no-repeat;
+  transition: none;
+  background: url(../image/icon/button/Moon_btn_yellow.png) no-repeat;
   background-position: left;
+}
+header .menu nav .gnb_change li .gnb_pf {
+  position: relative;
+}
+header .menu nav .gnb_change li .lnb {
+  position: absolute;
+  right: 0;
+  display: none;
+  transition: 1s ease;
+}
+header .menu nav .gnb_change li .lnb li {
+  margin: 0;
+  width: 100%;
+  background-color: #eee;
+}
+header .menu nav .gnb_change li .lnb li a {
+  color: black;
+  transition: 0.3s ease;
+  background: none;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+header .menu nav .gnb_change li .lnb li:hover {
+  transition: 0.3s ease;
+  background-color: #eee;
+}
+header .menu nav .gnb_change li .lnb li:hover a {
+  color: #5a7cb1;
+  font-weight: 600;
+  background: none;
 }
 header .menu .on {
   display: block;
@@ -1412,10 +1432,6 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_circle_blue
     transform: translateX(-100%);
   }
 }
-main .protfolio .protfolio_wrap .protfolio_list .list_box .as_b .as_c_b {
-  -webkit-animation: moon_open_as 1s;
-          animation: moon_open_as 1s;
-}
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list .list_box .bs_c {
     top: -300px;
@@ -1921,7 +1937,6 @@ main .protfolio .protfolio_wrap .js_re_protfolio .re_protfolio .half_circle_bott
 }
 
 footer {
-  background-color: black;
   padding-top: 200px;
 }
 footer .contact {
@@ -1963,7 +1978,7 @@ footer .contact .contact_text strong span {
   color: #5a7cb1;
   font-family: "InkLipquid";
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   footer .contact .contact_text {
     width: 50vw;
     min-width: 200px;
@@ -1977,7 +1992,7 @@ footer .contact .contact_text strong span {
     font-size: 3.6rem;
   }
 }
-@media screen and (min-width: 768px) and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (min-width: 1024px) {
   footer .contact .contact_text {
     width: 50vw;
   }
@@ -1985,7 +2000,7 @@ footer .contact .contact_text strong span {
 footer .contact .contact_text .contact_info {
   display: none;
 }
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 768px) {
   footer .contact .contact_text .contact_info {
     display: block;
     text-align: left;
@@ -1999,7 +2014,7 @@ footer .contact .contact_text .contact_info {
     font-weight: 600;
   }
 }
-@media screen and (min-width: 480px) and (min-width: 768px) {
+@media screen and (min-width: 768px) and (min-width: 900px) {
   footer .contact .contact_text .contact_info p {
     line-height: 1.7;
     font-size: 2rem;
@@ -2027,7 +2042,7 @@ footer .contact .contact_icon a img:hover {
 footer .contact .contact_icon a .message {
   padding-top: 10px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   footer .contact .contact_icon .mobile_icon {
     display: none;
   }
@@ -2035,20 +2050,15 @@ footer .contact .contact_icon a .message {
 footer .contact .contact_icon .tablet_icon {
   display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   footer .contact .contact_icon .tablet_icon {
     display: block;
   }
 }
-@media screen and (min-width: 768px) {
-  footer .contact .contact_icon {
-    position: absolute;
-    bottom: 20%;
-  }
-}
 @media screen and (min-width: 1024px) {
   footer .contact .contact_icon {
-    bottom: 15%;
+    position: absolute;
+    bottom: 25%;
   }
 }
 footer .footer_img {
@@ -2083,6 +2093,25 @@ footer .footer_img .copyright p {
 }
 @media screen and (min-width: 1800px) {
   .cloud_top {
+    top: 20%;
+    right: 80px;
+  }
+}
+
+.cloud_top_white {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 120px;
+  height: 100px;
+  -webkit-animation: cloud_move 1s infinite;
+          animation: cloud_move 1s infinite;
+  background: url(../image/icon/button/mini_cloud_white.png) no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+@media screen and (min-width: 1800px) {
+  .cloud_top_white {
     top: 20%;
     right: 80px;
   }

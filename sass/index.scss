@@ -105,6 +105,7 @@
     100% { background-size: 27rem 40%}
 }
 
+// 반짝이는 별 효과
 .estrela {
     background-color: white;
     border-radius: 50%;
@@ -201,7 +202,6 @@ body {
     margin: 0 auto;
     max-width: calc(100% - 40px);
     width: 100%;
-    // background-color: thistle;
 
     @include responsive(large-tablet-screens) {
         width: 1320px;
@@ -213,14 +213,6 @@ body {
 
     @include responsive(small-tablet-screens) {
         display: none;
-    }
-}
-
-.mobile-non-only {
-    display: none;
-
-    @include responsive(small-tablet-screens) {
-        display: block;
     }
 }
 
@@ -248,17 +240,10 @@ body {
     }
 }
 
-.desktop-only {
-    display: none;
-
-    @include responsive(desktop-screens) {
-        display: block;
-    }
-}
-
 .title {
     display: flex;
     margin: 100px 0;
+    margin-top: 200px;
     
     p {
         margin-right: 10px;
@@ -385,11 +370,13 @@ header {
                     }
                     
                     a {
-                        padding: 18px 0;
                         color: white;
-                        font-size: $sub-font-size;
-                        font-weight: 600;
+                        padding: 18px 0;
                         padding-left: 20px;
+                        font: {
+                            size: $sub-font-size;
+                            weight: 600;
+                        }
                     }
 
                     .lnb {
@@ -462,8 +449,9 @@ header {
                             background-color: $main-color;
                             
                             &:hover {
-                                background-color: $gray-bg;
                                 transition: 0.3s ease;
+                                background-color: $gray-bg;
+
                                 a {
                                     color: black;
                                     font-weight: 600;    
@@ -540,44 +528,94 @@ header {
 
                 } // gnb
             } // desktop-screens
-        } // nav
-        .gnb_change {
-            display: block;
 
-            li {
-                background-color: transparent;
-
-                a {
-                    color: $gray-font;
-                    text-indent: 30px;
-                    background: url(../image/icon/button/gray_circle.png) no-repeat;
-                    background-position: left;
-                    background-size: 10px;
-                }
-
-                &:hover {
-                    transition: 0.3s ease;
+            .gnb_change {
+                display: block;
+        
+                li {
+                    width: 100%;
+                    margin: 0 5vw;
                     background-color: transparent;
-
+        
                     a {
-                        font: {
-                            weight: 800;
-                            size: 1.8rem;
-                        }
                         color: white;
-                        text-indent: 50px;
-                        transform: translateX(-20px);
-                        background: url(../image/icon/button/Moon_btn_white.png) no-repeat;
+                        padding: 18px 0;
+                        text-indent: 25px;
+                        font: {
+                            size: $sub-font-size;
+                            weight: 600;
+                        }
+                        padding-left: 20px;
+                        background: url(../image/icon/button/white_circle.png) no-repeat;
                         background-position: left;
+                        background-size: 10px;
                     }
-                }
-            } // li
-        } // gnb_change
-
+        
+                    &:hover {
+                        transition: none;
+                        background-color: transparent;
+        
+                        a {
+                            font: {
+                                weight: 800;
+                                size: 1.8rem;
+                            }
+                            color: white;
+                            text-indent: 50px;
+                            transform: translateX(-20px);
+                            transition: none;
+                            background: url(../image/icon/button/Moon_btn_yellow.png) no-repeat;
+                            background-position: left;
+                        }
+                    }
+        
+                    .gnb_pf {
+                        position: relative;
+                    }
+        
+                    .lnb {
+                        position: absolute;
+                        right: 0;
+                        display: none;
+                        transition: 1s ease;
+                        
+                        li {
+                            margin: 0;
+                            width: 100%;
+                            background-color: $gray-bg;
+                            
+                            a {
+                                color: black;
+                                transition: 0.3s ease;
+                                background: none;
+                                font: {
+                                    size: $mini-text-font-size;
+                                    weight: 300;
+                                }
+                            }
+                            
+                            &:hover {
+                                transition: 0.3s ease;
+                                background-color: $gray-bg;
+        
+                                a {
+                                    color: $main-color;
+                                    font-weight: 600;
+                                    // text-indent: 10px;
+                                    background: none;     
+                                }
+                            }
+                        }
+                    }
+                } // li
+            } // gnb_change
+        } // nav
+        
         .on {
             display: block;
         }
     } // menu
+
     
     .header_video {
         position: relative;
@@ -1105,12 +1143,6 @@ main {
                             height: 700px;
                             top: -150px; 
                             transform: translateX(-100%);
-                            
-                        }
-                    }
-                    .as_b {
-                        .as_c_b {
-                            animation: moon_open_as 1s;
                         }
                     }
 
@@ -1717,7 +1749,6 @@ main {
 
 // ============== footer ============== //
 footer {
-    background-color: black;
     padding-top: 200px;
 
     .contact {
@@ -1758,7 +1789,7 @@ footer {
                 }
             }
 
-            @include responsive(small-tablet-screens) {
+            @include responsive(large-tablet-screens) {
                 width: 50vw;
                 min-width: 200px;
                 max-width: 500px;
@@ -1780,7 +1811,7 @@ footer {
             .contact_info {
                 display: none;
                 
-                @include responsive(mobile-screens) {
+                @include responsive(small-tablet-screens) {
                     display: block;
                     text-align: left;
                     p {
@@ -1794,7 +1825,7 @@ footer {
                         }
                     }
                     
-                    @include responsive(small-tablet-screens) {
+                    @include responsive(medium-tablet-screens) {
                         p {
                             line-height: 1.7;
                             font: {
@@ -1831,27 +1862,27 @@ footer {
             }
 
             .mobile_icon {
-                @include responsive(small-tablet-screens) {
+                @include responsive(large-tablet-screens) {
                     display: none;
                 }
             }
 
             .tablet_icon {
                 display: none;
-                @include responsive(small-tablet-screens) {
+                @include responsive(large-tablet-screens) {
                     display: block;
                 }
             }
 
-            @include responsive(small-tablet-screens) {
-                position: absolute;
-                bottom: 20%;
-
-            }
-
             @include responsive(large-tablet-screens) {
-                bottom: 15%;
+                position: absolute;
+                bottom: 25%;
+
             }
+
+            // @include responsive(large-tablet-screens) {
+            //     bottom: 15%;
+            // }
         }
     } // contact
 
@@ -1881,6 +1912,21 @@ footer {
     height: 100px;
     animation: cloud_move 1s infinite;
     background: url(../image/icon/button/mini_cloud.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include responsive(desktop-screens) {
+        top: 20%; right: 80px;
+    }
+}
+
+.cloud_top_white {
+    position: fixed;
+    bottom: 30px; right: 20px;
+    width: 120px;
+    height: 100px;
+    animation: cloud_move 1s infinite;
+    background: url(../image/icon/button/mini_cloud_white.png) no-repeat;
     background-position: center;
     background-size: contain;
 
