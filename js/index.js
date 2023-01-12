@@ -61,9 +61,6 @@ const modal = document.querySelector(".modal");
 const del = document.querySelector(".delete");
 let activeCont = '';
 
-console.log(skills);
-console.log(skills_a);
-
 
 for(let i = 1; i < 12; i++) {
     area_con[i].style.display = "none";
@@ -292,49 +289,84 @@ if(largeTabletWidth.matches) {
 const js_protfolio = document.querySelectorAll(".js_protfolio");
 
 
-// window.addEventListener("scroll", () => {
-//     let jr_con = "";
+window.addEventListener("scroll", () => {
+    let jr_con = "";
 
-//     js_protfolio.forEach(list => {
-//     const jr_Top = window.scrollY + list.getBoundingClientRect().top - 1;
-//     if(window.scrollY >= jr_Top) {
-//         jr_con = list.getAttribute("id");
-//     }
+    js_protfolio.forEach(list => {
+    const jr_Top = window.scrollY + list.getBoundingClientRect().top - 1;
+    if(window.scrollY >= jr_Top) {
+        jr_con = list.getAttribute("id");
+    }
 
-//     if(jr_con == "javascriptProtfolio") {
-//         document.body.style.background = "-webkit-linear-gradient(top,rgb(43, 32, 72) 15%, rgb(25, 19, 39)82%, rgb(0, 0, 0))";
-//     //  constelacao.removeAttribute("class");
-//     } else {
-//         document.body.style.backgroundColor = "#5a7cb1";
-//     }
-//     });
-// });
+    if(jr_con == "javascriptProtfolio") {
+        document.body.style.background = "-webkit-linear-gradient(top,rgb(43, 32, 72) 15%, rgb(25, 19, 39)82%, rgb(0, 0, 0))";
+    //  constelacao.removeAttribute("class");
+    } else {
+        document.body.style.backgroundColor = "#5a7cb1";
+    }
+    });
+});
 
-// const js_list = document.querySelectorAll(".js_list");
-// const text_right = document.querySelectorAll(".text_right");
+const js_list = document.querySelectorAll(".js_list");
 
-// window.addEventListener("scroll", () => {
-//     let js_01 = "";
-//     let js_02 = "";
+window.addEventListener("scroll", () => {
+    let js_01 = "";
+    let js_02 = "";
     
-//     js_list.forEach(list => {
-//         console.log(js_listnTop);
-//         const js_listTop = window.scrollY + list.getBoundingClientRect().top - 1;
+    js_list.forEach(jsList => {
+        const js_listTop = window.scrollY + jsList.getBoundingClientRect().top - 1;
+        if(window.scrollY >= js_listTop) {
+            js_01 = jsList.getAttribute("id");
+            js_02 = jsList.getAttribute("id");
+        }
         
-//         if(window.scrollY >= js_listTop) {
-//             js_01 = list.getAttribute("id");
-//             js_02 = list.getAttribute("id");
-//         }
-
-//         if (js_01 == "js_re_protfolio") {
-//             text_right.style.animation = "highlighter_right 2s";
+        const gomusin = document.getElementById("gomusin");
+        const gomusin_text = document.getElementById("gomusin_text");
+        
+        if (js_01 == "gomusin") {
+            // console.log("동작");
+            // console.log(gomusin_text);
+            gomusin.style.opacity = 1;
+            gomusin.style.transition = "3s";
             
-//             // document.body.style.background = "linear-gradient(to top,rgb(43, 32, 72) 33%, rgb(25, 19, 39)33%, rgb(0, 0, 0))";
-//             // document.body.style.backgroundColor = "#5a7cb1";
-//         }
-//     });
-// });
+            // if(js_01 == "gomusin_text") {
+            // }
+        }  else {
+            gomusin.style.opacity = 0;
+        }
 
+        console.log(js_02);
+        if(js_02 == "gomusin_text") {
+            console.log("고무신");
+            gomusin_text.style.opacity = 0;
+            half_circle_right.style.animation = "moon_move_to_left 3s linear";
+        }
+    });
+
+});
+
+// (function() {
+    // const gomusin = document.getElementById("gomusin");
+    // const gomusin_text = document.getElementById("gomusin_text");
+    // const half_circle_right = document.querySelector(".half_circle_right");
+    
+    // function gomusin_move() {
+    //     let posY = gomusin_text.getBoundingClientRect().top;
+	// 	gomusin.innerHTML = posY;
+
+	// 	if (posY < window.innerHeight * 0.2) {
+	// 		// gomusin_text.style.opacity = 0;
+    //         half_circle_right.style.animation = "moon_move_to_left 3s linear";
+	// 	} else {
+	// 		gomusin_text.style.opacity = 1;
+    //         // half_circle_right.style.animation = "moon_move_to_left 3s linear";
+	// 	}
+	// }
+
+	// window.addEventListener('scroll', function() {
+	// 	gomusin_move();
+	// });
+// })
 
 
 
@@ -401,4 +433,15 @@ const js_protfolio = document.querySelectorAll(".js_protfolio");
 //         $('.quick_menu').removeClass("fixed");
 //     }
 // })
+
+
+
+// $(window).on('scroll', function() {
+//     if ($(window).scrollTop() > 520) {
+//         $('.quick_menu').addClass("fixed");
+//     } else {
+//         $('.quick_menu').removeClass("fixed");
+//     }
+// })
+
 

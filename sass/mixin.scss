@@ -75,13 +75,6 @@
     }
 }
 
-// jr text 밑줄
-// @mixin jr_text_left($width,$format:rem) {
-//     background-position: bottom left;
-//     background-size: $width$format 40%;
-//     animation: highlighter_left 2s;
-// }
-
 // moon btn 
 @mixin moon_btn_back($path:'../image/icon/button/',$moonColor,$format:".png") {
     background: url("#{$path}#{$moonColor}#{$format}") no-repeat;
@@ -90,15 +83,16 @@
 }
 
 // cloud
-@include cloud_color($path:'../image/icon/button/',$cloudColor,$format:".png") {
+@mixin cloud_color($path2:'../image/icon/button/',$cloudColor,$format2:".png") {
     position: fixed;
     bottom: 30px; right: 20px;
     width: 120px;
     height: 100px;
     animation: cloud_move 1s infinite;
-    background: url("#{$path}#{$cloudColor}#{$format}") no-repeat;
+    background: url("#{$path2}#{$cloudColor}#{$format2}") no-repeat;
     background-position: center;
     background-size: contain;
+    z-index: 9999;
 
     @include responsive(desktop-screens) {
         top: 20%; right: 80px;
