@@ -80,6 +80,10 @@
 }
 
 // 포트폴리오 형광펜 그어지는 효과
+@keyframes highlighter_main {
+    0% { background-size: 0% 40%}
+    100% { background-size: 80% 35%}
+}
 @keyframes highlighter_1 {
     0% { background-size: 0% 40% }
     100% { background-size: 50% 40%}
@@ -331,8 +335,17 @@ header {
     animation: shine 2s;
 
     .menu {
-        position: relative;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 9999;
 
+        @include responsive(medium-tablet-screens) {
+            position: relative;
+            background-color: transparent;
+        }
+        
         .menu_icon {
             display: flex;
             justify-content: space-between;
@@ -348,7 +361,6 @@ header {
                     img {
                         position: absolute;
                         @include pos-center();
-
                     }
                 }
                 
@@ -477,7 +489,7 @@ header {
                                 font-weight: 300;
                             }
                         }
-                    }
+                    } // lnb
                 } // gnb
             } // small-tablet-screens
 
@@ -1380,7 +1392,7 @@ main {
                 .jr_list_right {
                     width: 100%;
                     margin: 0 auto;
-                    padding-top: 600px;
+                    margin-top: 600px;
                     text-align: right;
 
                     @include responsive(medium-tablet-screens) {
@@ -1548,13 +1560,12 @@ main {
 
                     // text
                     .jr_protfolio_text {
+                        // width: 50%;
                         @include responsive(small-tablet-screens) {
-                            margin: 0 10vw;
                             order: 2;
                         }
 
                         @include responsive(medium-tablet-screens) {
-                            margin: 0;
                             text-align: left;
                         }
                         
@@ -1615,7 +1626,6 @@ main {
                             }
                         }
 
-
                         .jr_con {
                             margin: 20px 0;
 
@@ -1637,45 +1647,16 @@ main {
                         .jr_protfolio_btn {
                             cursor: pointer;
                             position: relative;
-                            
-                            .git_btn {
-                                cursor: pointer;
-                                width: 60px;
-                                position: absolute;
-                                
-                                &:hover {
-                                    transform: scale(1.1);
-                                    transition: 0.3s;
-                                }
-                            }
-                            
-                            .btn_g {
-                                top: 100px; right: 0px;
-                                @include responsive(medium-tablet-screens) {
-                                    top: 80px; left: 0px;
-                                }
-                            }
+                            display: flex;
+                            flex-direction: column;
 
-                            .btn_wam {
-                                top: 100px; left: 0px;
-                                @include responsive(medium-tablet-screens) {
-                                    top: 0px; 
-                                }
+                            @include responsive(large-tablet-screens) {
+                                flex-direction: row;
                             }
-
-                            // .btn_tdl {
-                            //     top: 100px; right: 0px;
-                            //     @include responsive(medium-tablet-screens) {
-                            //         top: 80px; left: 0px;
-                            //     }
-                            //     @include responsive(large-tablet-screens) {
-                            //         top: 0px; left: 230px;
-                            //     }
-                            // }
 
                             .design {
-                                position: absolute;
                                 display: flex;
+                                justify-content: left;
                                 height: 7vh;
                                 text-indent: 50px;
                                 &:first-child {
@@ -1688,31 +1669,63 @@ main {
                                 p {
                                     display: flex;
                                     align-items: center;
-                                    margin-left: 8px;
                                     font-weight: 600;
                                 }
 
                                 &:hover {
                                     @include moon_btn_back($moonColor:"Moon_btn_yellow");
                                     transition: 0.2s;
-
+                                    
                                     p {
                                         transition: 0.2s;
                                         font-weight: 700;
                                     }
                                 }
-
+                                
                                 @include responsive(medium-tablet-screens) {
                                     position: static;
+                                    &:first-child {
+                                        margin-right: 0px;
+                                    }
                                 }
                             } // design
-    
+                            
+                            .git_btn {
+                                display: flex;
+                                height: 7vh;
+                                text-indent: 60px;
+                                margin-right: 90px;
+                                background: url(../image/icon/button/mini_git.png) no-repeat;
+                                background-position: left bottom;
+                                background-size: contain;
+
+                                p {
+                                    display: flex;
+                                    align-items: center;
+                                    margin-left: 8px;
+                                    font-weight: 600;
+                                }
+                                
+                                &:hover {
+                                    transform: scale(1.1);
+                                    transition: 0.3s;
+                                }
+
+                                @include responsive(medium-tablet-screens) {
+                                    margin-right: 0px;
+                                }
+                            }
+
                             .btn_right {
+                                position: absolute;
                                 right: 0;
+
+                                &:last-child {
+                                    top: 60px;
+                                }
 
                                 @include responsive(medium-tablet-screens) {
                                     width: 100%;
-                                    // transform: translateX(20%);
                                 }
                             }
 
@@ -1852,9 +1865,6 @@ footer {
                         transition: 0.3s ease;
                     }
                 }
-                .message {
-                    padding-top: 10px;
-                }
             }
 
             .mobile_icon {
@@ -1902,8 +1912,36 @@ footer {
 
 .cloud_top {
     @include cloud_color($cloudColor:"mini_cloud");
+
+    a {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        font: {
+            size: 2rem;
+            weight: 700;
+        }
+    }
+    @include responsive(large-tablet-screens) {
+        a {
+            color: transparent;
+            &:hover {
+                color: white;
+            }
+        }
+    }
 }
 
 .cloud_top_white {
     @include cloud_color($cloudColor:"mini_cloud_white");
+    a {
+        @include pos-center();
+        color: black;
+        font: {
+            size: 2rem;
+            weight: 700;
+        }
+    }
 }

@@ -253,6 +253,22 @@ p {
     transform: translateX(-90%);
   }
 }
+@-webkit-keyframes highlighter_main {
+  0% {
+    background-size: 0% 40%;
+  }
+  100% {
+    background-size: 80% 35%;
+  }
+}
+@keyframes highlighter_main {
+  0% {
+    background-size: 0% 40%;
+  }
+  100% {
+    background-size: 80% 35%;
+  }
+}
 @-webkit-keyframes highlighter_1 {
   0% {
     background-size: 0% 40%;
@@ -661,7 +677,17 @@ header {
           animation: shine 2s;
 }
 header .menu {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 9999;
+}
+@media screen and (min-width: 900px) {
+  header .menu {
+    position: relative;
+    background-color: transparent;
+  }
 }
 header .menu .menu_icon {
   display: flex;
@@ -1663,7 +1689,7 @@ main .protfolio .protfolio_wrap .js_re_protfolio .mini_title h2 {
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_right {
   width: 100%;
   margin: 0 auto;
-  padding-top: 600px;
+  margin-top: 600px;
   text-align: right;
 }
 @media screen and (min-width: 900px) {
@@ -1810,13 +1836,11 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .row_pic img {
 }
 @media screen and (min-width: 768px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text {
-    margin: 0 10vw;
     order: 2;
   }
 }
 @media screen and (min-width: 900px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text {
-    margin: 0;
     text-align: left;
   }
 }
@@ -1877,38 +1901,17 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn {
   cursor: pointer;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
-main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
-  cursor: pointer;
-  width: 60px;
-  position: absolute;
-}
-main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn:hover {
-  transform: scale(1.1);
-  transition: 0.3s;
-}
-main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_g {
-  top: 100px;
-  right: 0px;
-}
-@media screen and (min-width: 900px) {
-  main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_g {
-    top: 80px;
-    left: 0px;
-  }
-}
-main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_wam {
-  top: 100px;
-  left: 0px;
-}
-@media screen and (min-width: 900px) {
-  main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_wam {
-    top: 0px;
+@media screen and (min-width: 1024px) {
+  main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn {
+    flex-direction: row;
   }
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .design {
-  position: absolute;
   display: flex;
+  justify-content: left;
   height: 7vh;
   text-indent: 50px;
   background: url("../image/icon/button/Moon_btn.png") no-repeat;
@@ -1921,7 +1924,6 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .design p {
   display: flex;
   align-items: center;
-  margin-left: 8px;
   font-weight: 600;
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .design:hover {
@@ -1938,9 +1940,40 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .design {
     position: static;
   }
+  main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .design:first-child {
+    margin-right: 0px;
+  }
+}
+main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
+  display: flex;
+  height: 7vh;
+  text-indent: 60px;
+  margin-right: 90px;
+  background: url(../image/icon/button/mini_git.png) no-repeat;
+  background-position: left bottom;
+  background-size: contain;
+}
+main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn p {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  font-weight: 600;
+}
+main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+@media screen and (min-width: 900px) {
+  main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
+    margin-right: 0px;
+  }
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_right {
+  position: absolute;
   right: 0;
+}
+main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_right:last-child {
+  top: 60px;
 }
 @media screen and (min-width: 900px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_right {
@@ -2067,9 +2100,6 @@ footer .contact .contact_icon a img:hover {
   transform: scale(1.2);
   transition: 0.3s ease;
 }
-footer .contact .contact_icon a .message {
-  padding-top: 10px;
-}
 @media screen and (min-width: 1024px) {
   footer .contact .contact_icon .mobile_icon {
     display: none;
@@ -2118,8 +2148,8 @@ footer .footer_img .copyright p {
   position: fixed;
   bottom: 30px;
   right: 20px;
-  width: 120px;
-  height: 100px;
+  width: 100px;
+  height: 50px;
   -webkit-animation: cloud_move 1s infinite;
           animation: cloud_move 1s infinite;
   background: url("../image/icon/button/mini_cloud.png") no-repeat;
@@ -2133,13 +2163,30 @@ footer .footer_img .copyright p {
     right: 80px;
   }
 }
+.cloud_top a {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+@media screen and (min-width: 1024px) {
+  .cloud_top a {
+    color: transparent;
+  }
+  .cloud_top a:hover {
+    color: white;
+  }
+}
 
 .cloud_top_white {
   position: fixed;
   bottom: 30px;
   right: 20px;
-  width: 120px;
-  height: 100px;
+  width: 100px;
+  height: 50px;
   -webkit-animation: cloud_move 1s infinite;
           animation: cloud_move 1s infinite;
   background: url("../image/icon/button/mini_cloud_white.png") no-repeat;
@@ -2152,4 +2199,13 @@ footer .footer_img .copyright p {
     top: 20%;
     right: 80px;
   }
+}
+.cloud_top_white a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 2rem;
+  font-weight: 700;
 }/*# sourceMappingURL=index.css.map */

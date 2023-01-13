@@ -86,8 +86,8 @@
 @mixin cloud_color($path2:'../image/icon/button/',$cloudColor,$format2:".png") {
     position: fixed;
     bottom: 30px; right: 20px;
-    width: 120px;
-    height: 100px;
+    width: 100px;
+    height: 50px;
     animation: cloud_move 1s infinite;
     background: url("#{$path2}#{$cloudColor}#{$format2}") no-repeat;
     background-position: center;

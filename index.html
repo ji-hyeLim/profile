@@ -16,10 +16,14 @@
             <div class="menu">
                 <div class="container">
                     <ul class="menu_icon">
-                        <li><a href="#tab" class="main_moon desktop-non-only"><img src="./image/icon/button/Moon_btn.png" alt="main manu button"></a></li>
+                        <li>
+                            <a href="#tab" class="main_moon desktop-non-only">
+                                <img id="main_btn" src="./image/icon/button/Moon_btn.png" alt="main manu button">
+                            </a>
+                        </li>
                         <li class="mobile-only">
                             <a href="javascript:void(0)" onclick="mobile_menu()">
-                                <img src="./image/icon/button/menu.png" alt="manu list button">
+                                <img id="menu_btn" src="./image/icon/button/menu.png" alt="manu list button">
                             </a>
                         </li>
                     </ul> 
@@ -58,12 +62,12 @@
 
         <main id="all">
             <section id="aboutMe" class="introduce">
-                <div class="container">
+                <div class="container" id="aboutMe_box">
                     <div class="intro_order">
                         <div class="flex-box">
                             <div class="intro-main">
                                 <p><b>어제</b>보다 <b>내일</b>이 더 기대되는</p>
-                                <strong>“ Dreamer ”</strong>
+                                <strong id="intro-main">“ Dreamer ”</strong>
                                 <p><b>개발자</b> <span>임지혜</span> 입니다.</p>
                             </div>
                         
@@ -212,7 +216,7 @@
                                         <img src="./image/icon/skill/sass.png" alt="sass">
                                         <div class="area_text">
                                             <h3>SASS</h3>
-                                            <strong>85%</strong>
+                                            <strong>90%</strong>
                                             <p>
                                                 반응형으로 구현할 수 있으며, 중복을 최소화하여 변수로 만들거나
                                                 믹스인을 적절히 사용하여 코드를 간결하게 작성할 수 있습니다.
@@ -226,7 +230,7 @@
                                             <h3>Illustrator</h3>
                                             <strong>80%</strong>
                                             <p>
-                                                로고 제작, 간단한 편집 디자인을 할수 있으며, 웹페이지 시안 작업이 가능합니다.
+                                                로고 제작, 기본적인 편집 디자인을 할수 있으며, 웹페이지 시안 작업이 가능합니다.
                                             </p>
                                         </div> <!-- area_text -->
                                     </div> <!-- tab4 -->
@@ -259,7 +263,7 @@
                                             <h3>Javascript</h3>
                                             <strong>70%</strong>
                                             <p>
-                                                오픈소스를 수정하여 활용이 가능하고, 소스코드를 읽고 이해하며 간단한 기능 구현이 가능합니다.
+                                                오픈소스를 수정하여 활용이 가능하고, 소스코드를 읽고 이해하며 기본적인 기능 구현이 가능합니다.
                                             </p>
                                         </div> <!-- area_text -->
                                     </div> <!-- tab7 -->
@@ -281,7 +285,7 @@
                                             <h3>React</h3>
                                             <strong>70%</strong>
                                             <p>
-                                                React의 구조를 이해하며 간단한 작업이 가능합니다.
+                                                React의 구조를 이해하며 React를 사용한 기본적인 작업이 가능합니다.
                                             </p>
                                         </div> <!-- area_text -->
                                     </div> <!-- tab9 -->
@@ -292,7 +296,7 @@
                                             <h3>Nodejs</h3>
                                             <strong>40%</strong>
                                             <p>
-                                                nodejs의 설치 및 express 프레임워크를 이용한 API 구동이 가능하고 간단한 기능을 구현할 수 있습니다.
+                                                nodejs의 설치 및 express 프레임워크를 이용한 API 구동이 가능하고 기초적인 기능을 구현할 수 있습니다.
                                             </p>
                                         </div> <!-- area_text -->
                                     </div> <!-- tab10 -->
@@ -303,7 +307,7 @@
                                             <h3>MySQL</h3>
                                             <strong>30%</strong>
                                             <p>
-                                                SQL을 이해하고 간단한 데이터를 저장하여 관리할 수 있습니다.
+                                                SQL의 특성을 이해하고 데이터를 저장하여 관리할 수 있습니다.
                                             </p>
                                         </div> <!-- area_text -->
                                     </div> <!-- tab11 -->
@@ -466,7 +470,7 @@
                             </div>
 
                             <div class="jr_list_right js_list" id="gomusin">
-                                <div class="jr_list_box">
+                                <div class="jr_list_box" id="gomusin_box">
                                     <div class="jr_circle c_right"></div>
                                         <div class="container">
                                             <div class="flex-box">
@@ -490,17 +494,19 @@
                                                             <div class="design btn_right">
                                                                 <p>Web Page</p>
                                                             </div>
-                                                            <img src="./image/icon/contact/git.png" alt="git" class="git_btn btn_g">
+                                                            <div class="git_btn btn_right">
+                                                                <p>git</p>
+                                                            </div>
                                                         </div><!-- js_protfolio_btn -->
                                                     </div> <!-- jr_protfolio_text -->
                                                 </div> <!-- half_circle -->
                                             </div> <!-- flex-box -->
                                         </div> <!-- container --> 
                                 </div> <!-- js_list_box -->
-                            </div> <!-- js_list -->
+                            </div> <!-- jr_list -->
 
                             <div class="jr_list_left js_list" id="whac_a_mole">
-                                <div class="jr_list_box">
+                                <div class="jr_list_box" id="whac_a_mole_box">
                                     <div class="jr_circle c_left"></div>
                                     <div class="container">
                                         <div class="flex-box">
@@ -522,7 +528,9 @@
                                                         <div class="design btn_left">
                                                             <p>Web Page</p>
                                                         </div>
-                                                        <img src="./image/icon/contact/git.png" alt="git" class="git_btn btn_wam">
+                                                        <div class="git_btn btn_left">
+                                                            <p>git</p>
+                                                        </div>
                                                     </div> <!-- js_protfolio_btn -->
                                                 </div> <!-- jr_protfolio_text -->
                                             </div> <!-- half_circle_top -->
@@ -540,8 +548,8 @@
                                 </div>
                             </div>
 
-                            <div class="jr_list_left js_list" id="whac_a_mole">
-                                <div class="jr_list_box">
+                            <div class="jr_list_left js_list" id="todolist">
+                                <div class="jr_list_box" id="todolist_box">
                                     <div class="jr_circle c_left"></div>
                                     <div class="container">
                                         <div class="flex-box">
@@ -563,7 +571,9 @@
                                                         <div class="design btn_left">
                                                             <p>Web Page</p>
                                                         </div>
-                                                        <img src="./image/icon/contact/git.png" alt="git" class="git_btn btn_wam">
+                                                        <div class="git_btn btn_left">
+                                                            <p>git</p>
+                                                        </div>
                                                     </div><!-- js_protfolio_btn -->
                                                 </div> <!-- protfolio_text -->
                                             </div> <!-- half_circle_top -->
@@ -573,8 +583,8 @@
                             </div> <!-- js_list -->
                         </div> <!-- js_protfolio -->
 
-                        <div class="jr_list_right js_list" id="gomusin">
-                            <div class="jr_list_box">
+                        <div class="jr_list_right js_list" id="vibe">
+                            <div class="jr_list_box" id="vibe_box">
                                 <div class="jr_circle c_right"></div>
                                     <div class="container">
                                         <div class="flex-box">
@@ -585,7 +595,7 @@
                                                 <div class="jr_protfolio_text">
                                                     <div class="pro_title_zone">
                                                         <p>02</p>
-                                                        <h2 class="pro_title text_vibe">Vibe</h2>
+                                                        <h2 class="pro_title text_vibe"> Vibe </h2>
                                                         <span>Personal Project</span>
                                                     </div>    
                                                     <p class="large-only">제작 기간: 10일</p>
@@ -597,7 +607,9 @@
                                                         <div class="design btn_right">
                                                             <p>Web Page</p>
                                                         </div>
-                                                        <img src="./image/icon/contact/git.png" alt="git" class="git_btn btn_g">
+                                                        <div class="git_btn btn_right">
+                                                            <p>git</p>
+                                                        </div>
                                                     </div><!-- js_protfolio_btn -->
                                                 </div> <!-- jr_protfolio_text -->
                                             </div> <!-- half_circle -->
@@ -612,7 +624,7 @@
         </main>
 
         <footer>
-            <div class="footer_wrap">
+            <div id="contact" class="footer_wrap">
                 <!-- <div class="constelacao"></div> -->
                 <div class="container">
                     <div class="title third">
@@ -620,27 +632,29 @@
                         <h2>Contact</h2>
                     </div>
                 </div><!-- container -->
-                <div id="contact" class="contact">
-                    <div class="contact_text">
-                        <strong>
-                            <span>“시간과 노력은 삶을 배신하지 않는다. ”</span> 라는 말처럼 
-                            모든 일에 최선을 다하는 모습을 보여드리겠습니다.
-                        </strong>
-                        <div class="contact_info">
-                            <p>
-                                <span>Tel. </span> 010-8212-6852<br>
-                                <span>Email. </span> wisdomyoungster@naver.com<br>
-                                <span>Git. </span> https://github.com/ji-hyeLim
-                            </p>
+                <div class="contact">
+                    <div class="contact_box">
+                        <div class="contact_text">
+                            <strong>
+                                <span>“시간과 노력은 삶을 배신하지 않는다. ”</span> 라는 말처럼 
+                                모든 일에 최선을 다하는 모습을 보여드리겠습니다.
+                            </strong>
+                            <div class="contact_info">
+                                <p>
+                                    <span>Tel. </span> 010-8212-6852<br>
+                                    <span>Email. </span> wisdomyoungster@naver.com<br>
+                                    <span>Git. </span> https://github.com/ji-hyeLim
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact_icon">
-                        <a href="#" class="mobile_icon"><img src="./image/icon/contact/git_yellow.png" alt="git"></a>
-                        <a href="#" class="mobile_icon"><img src="./image/icon/contact/kakao_yellow.png" alt="kakao"></a>
-                        <a href="#" class="mobile_icon"><img src="./image/icon/contact/message_yellow.png" alt="message" class="message"></a>
-                        <a href="#" class="tablet_icon"><img class="icon" id="git" src="./image/icon/contact/git.png" alt="git"></a>
-                        <a href="#" class="tablet_icon"><img class="icon"  id="kakao" src="./image/icon/contact/kakao.png" alt="kakao"></a>
-                        <a href="#" class="tablet_icon"><img  class="icon" id="message" src="./image/icon/contact/message.png" alt="message" class="message"></a>
+                        <div class="contact_icon">
+                            <a href="https://github.com/ji-hyeLim" class="mobile_icon"><img src="./image/icon/contact/git_yellow.png" alt="git"></a>
+                            <a href="https://open.kakao.com/o/saKC6yYe" class="mobile_icon"><img src="./image/icon/contact/kakao_yellow.png" alt="kakao"></a>
+                            <a href="mailto:wisdmoyoungster@naver.com" class="mobile_icon"><img src="./image/icon/contact/message_yellow.png" alt="message" class="message"></a>
+                            <a href="https://github.com/ji-hyeLim" class="tablet_icon"><img class="icon" id="git" src="./image/icon/contact/git.png" alt="git"></a>
+                            <a href="https://open.kakao.com/o/saKC6yYe" class="tablet_icon"><img class="icon"  id="kakao" src="./image/icon/contact/kakao.png" alt="kakao"></a>
+                            <a href="mailto:wisdmoyoungster@naver.com" class="tablet_icon"><img  class="icon" id="message" src="./image/icon/contact/message.png" alt="message" class="message"></a>
+                        </div>
                     </div>
                 </div> <!-- contact -->
                 <div class="footer_img">
@@ -651,7 +665,9 @@
                 </div>
             </div>
         </footer>
-        <a href="#" id="cloud_top" class="cloud_top"></a> 
+        <div id="cloud_top" class="cloud_top">
+            <a href="#">Top</a> 
+        </div>
     </div>
     <script src="./js/index.js"></script>
 </body>
