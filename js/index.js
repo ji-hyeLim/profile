@@ -1,5 +1,7 @@
 // 반응형 중단점
 let moblieWidth = window.matchMedia("screen and (max-width: 767px)");
+let nonMoblieWidth = window.matchMedia("screen and (min-width: 767px)");
+// let medium_tabletWidth = window.matchMedia("screen and (min-width: 900px)");
 let tabletWidth = window.matchMedia("screen and (max-width: 1023px)");
 let largeTabletWidth = window.matchMedia("screen and (min-width: 1024px)"); //
 let tablet_pcWidth = window.matchMedia("screen and (max-width: 1800px)");
@@ -7,8 +9,9 @@ let tablet_pcWidth = window.matchMedia("screen and (max-width: 1800px)");
 
 // =============== header =============== //
 // 모바일 메뉴 버튼
+const nav_menu = document.querySelector(".nav_menu");
+
 function mobile_menu() {
-    const nav_menu = document.querySelector(".nav_menu");
     nav_menu.classList.toggle("on");
 }
 
@@ -16,6 +19,11 @@ function mobile_menu() {
 const lnb = document.querySelector(".lnb");
 const gnb = document.querySelector(".gnb_pf");
 const gnb_a = document.querySelector(".gnb_pf a");
+const lnb_a = document.querySelector(".lnb a");
+
+lnb_a.addEventListener('click', function() {
+    nav_menu.style.display = 'none';
+});
 
 if(moblieWidth.matches) {
     // 모바일
@@ -28,7 +36,7 @@ if(moblieWidth.matches) {
         lnb.style.display = 'none';
     });
 
-} else if(tablet_pcWidth) {
+} else if(tablet_pcWidth.matches) {
     // 태블릿 & pc
     gnb.addEventListener("mouseover", function() {
         lnb.style.display = 'block';
@@ -60,9 +68,6 @@ const modal = document.querySelector(".modal");
 const del = document.querySelector(".delete");
 let activeCont = '';
 
-console.log(skills);
-console.log(skills_a);
-
 
 for(let i = 1; i < 12; i++) {
     area_con[i].style.display = "none";
@@ -74,7 +79,7 @@ skills.forEach(function(lists) {
     lists.addEventListener("click", function(e) {
         e.preventDefault();
 
-        if(tabletWidth) {
+        if(tabletWidth.matches) {
             circle_area.style.display = "block";
             del.style.display = "block";
             area_con.forEach(function(area_c) {
@@ -85,7 +90,6 @@ skills.forEach(function(lists) {
             document.querySelector(activeCont).style.display = "block";
         } else {
             del.style.display = "none"; 
-            // largeTablet에서는 클릭할때 del이 안나왔으면 좋겠는데 안된다..
         }
     });
 
@@ -110,7 +114,10 @@ del.addEventListener("click", function() {
 });
 
 
-// ==== protfolio star ==== // 
+
+// ==== protfolio ==== //
+
+// protfolio star
 function init() {
     
     //estrelas
@@ -134,7 +141,7 @@ function init() {
         + getRandomArbitrary(0, widthWindow) + "px; top: " + getRandomArbitrary(0, heightWindow) + "px;'></span>";
     }
 
-noite.innerHTML = estrela;
+    noite.innerHTML = estrela;
 }
 
 window.onload = init;
@@ -148,7 +155,7 @@ const contact_icon = document.querySelectorAll(".tablet_icon");
 const icon_last = document.querySelectorAll(".icon");
 
 icon_last.forEach(function(con){
- con.addEventListener("mouseover", function() {
+    con.addEventListener("mouseover", function() {
         
             if(con.id == "git") {
                 git.src = `./image/icon/contact/git_yellow.png`;
@@ -172,199 +179,216 @@ icon_last.forEach(function(con){
         if (con.id == "message"){
             message.src = `./image/icon/contact/message.png`;
         }                
+    });
 });
 
-})
 
 
-
-
-
-
-// 스크롤 이벤트
-const sections = document.querySelectorAll("section");
-const protfolio01 = document.getElementById("protfolio01");
+// ==== 스크롤 이벤트 ==== //
+// 스크롤 배경색 이벤트
+const pro_bg = document.querySelectorAll(".pro_bg");
+const constelacao = document.querySelector(".constelacao");
 
 window.addEventListener("scroll", () => {
-   let currentSection = "";
-   
-   sections.forEach(section => {
-    const sectionTop = window.scrollY + section.getBoundingClientRect().top - 1;
+    let currentSection = "";
+    
+    pro_bg.forEach(section => {
+        const sectionTop = window.scrollY + section.getBoundingClientRect().top - 1;
+        if(window.scrollY >= sectionTop) {
+            currentSection = section.getAttribute("id");
+        }
+        const title_p = document.querySelector(".second p");
+        const mini_title = document.getElementById("mini_title")
+        const gnb = document.getElementById("gnb");
+        const cloud_top = document.getElementById("cloud_top");
+        const main_btn = document.getElementById("main_btn");
+        const menu_btn = document.getElementById("menu_btn");
+        
+        if (currentSection == "protfolio_list") {
+            document.body.style.background= "#5a7cb1";
+            main_btn.src = "./image/icon/button/Moon_btn_white.png";
+            menu_btn.src = "./image/icon/button/menu_white.png";
+            title_p.style.display = "block";
+            mini_title.style.opacity = 0;
+            constelacao.style.opacity = 0;
+            cloud_top.classList.replace("cloud_top", "cloud_top_white");
 
-    if(window.scrollY >= sectionTop) {
-        currentSection = section.getAttribute("id");
-    }
-   });
+            if (nonMoblieWidth.matches) {
+                gnb.classList.replace("gnb", "gnb_change");
+            }
 
-   const as_c_b = document.querySelector(".as_c_b");
-   
-   if(currentSection == "protfolio") {
-       document.body.style.backgroundColor = "#5a7cb1";
-    //    title.style.display = "block";
-       
-       protfolio01.style.opacity = 1;
-       as_c_b.style.animation = "moon_open_as 1s";
-   } else {
-       document.body.style.backgroundColor = "#ffffff";
-    //    title.style.display = "none";
-       protfolio01.style.opacity = 0;
-       
-   }
+            
+        } else if(currentSection == "js_re_protfolio" || currentSection == "reactProtfolio") {
+            document.body.style.background = "-webkit-linear-gradient(top,rgb(43, 32, 72)50%, rgb(0, 0, 0))25%";
+            main_btn.src = "./image/icon/button/Moon_btn.png";
+            menu_btn.src = "./image/icon/button/menu.png";
+            constelacao.style.opacity = 1;
+            mini_title.style.opacity = 1;
+            cloud_top.classList.replace("cloud_top_white", "cloud_top");
+
+        } else {
+            document.body.style.background = "#ffffff";
+            main_btn.src = "./image/icon/button/Moon_btn.png";
+            menu_btn.src = "./image/icon/button/menu.png";
+            title_p.style.display = "none";
+            cloud_top.classList.replace("cloud_top_white", "cloud_top");
+
+            if (nonMoblieWidth.matches) {
+                gnb.classList.replace("gnb_change", "gnb");
+            }
+        } 
+    });
+    
 });
 
+// 스크롤 동작 이벤트
+if(largeTabletWidth.matches) {
+    window.addEventListener("scroll", () => {
+        const pro_list = document.querySelectorAll(".pro_list");
 
+        let pro_01 = "";
+        let pro_02 = "";
+        let pro_03 = "";
 
+        pro_list.forEach(list => {
+            const sectionTop = window.scrollY + list.getBoundingClientRect().top;
+            
+            if(window.scrollY >= sectionTop) {
+                pro_01 = list.getAttribute("id");
+                pro_02 = list.getAttribute("id");
+                pro_03 = list.getAttribute("id");
+            }
+            
+            const protfolio01 = document.getElementById("protfolio01");
+            const protfolio02 = document.getElementById("protfolio02");
+            const protfolio03 = document.getElementById("protfolio03");
+            const as_c_b = document.querySelector(".as_c_b");
+            const bs_c_b = document.querySelector(".bs_c_b");
+            const pro_c_b = document.querySelector(".pro_c_b");
+            const title_h2_1 = document.querySelector(".title_h2_1");
+            const title_h2_2 = document.querySelector(".title_h2_2");
+            const title_h2_3 = document.querySelector(".title_h2_3");
 
-
-
-
-
-
-
-// $( function(){
-//     // a클릭시 부드럽게 이동
-//     $('a').click(function() {
-//         $('html, body').animate({
-//             scrollTop: $($.attr(this, 'href')).offset().top
-//         }, 500);
-//         return false;
-//     });
-
-//     // 퀵메뉴
-//     $('.quick_menu li a').click(function() {
-//         // 버튼 hover 이벤트
-//         return false
-//         $(this).parent().addClass('on');
-//         $(this).parent().siblings().removeClass('on');
-//     });
-//     // target 위치 표시와, 이동  
-//     var sections = $('.target'),
-//         nav = $('.quick_menu'),
-//         nav_height = nav.outerHeight();
-
-//     $(window).on('scroll', function() {
-//         var cur_pos = $(this).scrollTop();
-
-//         sections.each(function() {
-//             var top = $(this).offset().top - nav_height,
-//                 bottom = top + $(this).outerHeight();
-
-//             if (cur_pos >= top && cur_pos <= bottom) {
-//                 nav.find('a').parent().removeClass('on');
-//                 sections.removeClass('active');
-
-//                 $(this).parent().addClass('on');
-//                 nav.find('a[href="#' + $(this).attr('id') + '"]').parent().addClass('on');
-//             }
-//         });
-//     });
-
-//     nav.find('a').on('click', function() {
-//         var $el = $(this),
-//             id = $el.attr('href');
-
-//         $('html, body').animate({
-//             scrollTop: $(id).offset().top 
-//         }, 500);
-
-//         return false;
-// });
-
-
-// 원하는 위치에서 스크롤 이벤트
-// $(window).on('scroll', function() {
-//     if ($(window).scrollTop() > 520) {
-//         $('.quick_menu').addClass("fixed");
-//     } else {
-//         $('.quick_menu').removeClass("fixed");
-//     }
-// })
-
-
-// //** 스크롤 배경색 변경 이벤트 **//
-function checkVisible( element, check = 'above' ) {
-    const viewportHeight = $(window).height(); // Viewport Height
-    const scrolltop = $(window).scrollTop(); // Scroll Top
-    const y = $(element).offset().top;
-    const elementHeight = $(element).height();   
-    
-    // 반드시 요소가 화면에 보여야 할경우
-    if (check == "visible") 
-        return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-        
-    // 화면에 안보여도 요소가 위에만 있으면 (페이지를 로드할때 스크롤이 밑으로 내려가 요소를 지나쳐 버릴경우)
-    if (check == "above") 
-        return ((y < (viewportHeight + scrolltop)));
+            if (pro_01 == "protfolio01") {
+                protfolio01.style.opacity = 1;
+                as_c_b.style.animation = "moon_open_as 1s";
+                title_h2_1.style.animation = "highlighter_1 1s";
+                
+            } else {
+                protfolio01.style.opacity = 0;
+            }
+            
+            if (pro_02 == "protfolio02") {
+                protfolio02.style.opacity = 1;
+                bs_c_b.style.animation = "moon_open_bs 1s";
+                title_h2_2.style.animation = "highlighter_2 1s";
+                
+            } else {
+                protfolio02.style.opacity = 0;
+            }
+            
+            if (pro_03 == "protfolio03") {
+                protfolio03.style.opacity = 1;
+                pro_c_b.style.animation = "moon_open_pro 1s";
+                title_h2_3.style.animation = "highlighter_3 1s";
+                
+            } else {
+                protfolio03.style.opacity = 0;
+            }
+        });
+    });
 }
 
-// 리소스가 로드 되면 함수 실행을 멈출지 말지 정하는 변수
-let isVisible = false;
+const prot01 = document.getElementById("protfolio01");
 
-// 이벤트에 등록할 함수
-$('.gnb').hide();
-const side_menu = function() {
-    if ( !isVisible && checkVisible('.intro_contents') ) {
-        $('.gnb').fadeIn();
-        isVisible = true;
-    }
-    // 만일 리소스가 로드가 되면 더이상 이벤트 스크립트가 있을 필요가 없으니 삭제
-    // isVisible && window.removeEventListener('scroll', func);
 
+// 클릭 이벤트
+console.log(prot01);
+function protfolio01() {
+    prot01.style.opacity = 1;
 }
 
-// 스크롤 이벤트 등록
-window.addEventListener('scroll', side_menu);
 
 
-// $(function() {
-//     $(window).scroll(function() {
-//         // $('.title').hide();
-//         // 배경색
-//         if ($(this).scrollTop() >= Math.ceil($('.protfolio').offset().top)) {
-//             // 스크롤이 끝에 도달했을때 실행될 이벤트
-//             $('#protfolio').css('background', '#5a7cb1');
-//         } else {
-//             // 아닐때 이벤트
-//             $('#protfolio').css('background', 'white');
-//         }
-//     });
-// });
+// //** 스크롤 이벤트 **//
+$( function() {
+    $(document).ready(function() {
+        function checkVisible( element, check = 'above' ) {
+            const viewportHeight = $(window).height();
+            const scrolltop = $(window).scrollTop();
+            const y = $(element).offset().top;
+            const elementHeight = $(element).height();   
+            
 
-// const backColor= function() {
-    // if ( !isVisible && checkVisible('.pro_text_zone') ) {
-    // }
-// }
-// $('.as_c_b').hide();
-// $(window).on('scroll',function() {
-//     if (checkVisible($('#protfolio').find('.title'))&&!isVisible) {
-//         $('#protfolio').fadeOut(function() {
-//             $(this).css('background', '#5a7cb1');
-//             $(this).fadeIn();
+            if (check == "visible") 
+                return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+                
+            if (check == "above") 
+                return ((y < (viewportHeight + scrolltop)));
+        }
 
+        let isVisible = false;
 
+        $('.gnb').hide();
+        $('#aboutMe_box').hide();
+        $('#cloud_top').hide();
+        const side_menu = function() {
+            if ( !isVisible && checkVisible('.introduce') ) {
+                $('.gnb').fadeIn('slow');
+                $('#aboutMe_box').fadeIn('slow');
+                $('#cloud_top').fadeIn('slow');
+                $('#intro-main').css('animation','highlighter_main 1s')
+                isVisible = true;
+            }
+        }
 
-//         });
-//     }
-//     isVisible && window.removeEventListener('scroll', func);
+        // 스크롤 이벤트
+        window.addEventListener('scroll', side_menu );
 
-    // if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
-    //     $('.as_c_b').show();
-    // }
+        $('.as_c_b').hide();
+        $('#gomusin_box').hide();
+        $('#whac_a_mole_box').hide();
+        $('#todolist_box').hide();
+        $('#vibe_box').hide();
+        $('.contact').hide();
 
+        $(window).on('scroll',function() {
+            
+            if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
+                $('.as_c_b').show();
+            }
+            
+            if (checkVisible($('#gomusin'))&&!isVisible) {
+                $('#gomusin_box').fadeIn("slow");
+            }
+
+            if (checkVisible($('#whac_a_mole'))&&!isVisible) {
+                $('#whac_a_mole_box').fadeIn("slow");
+            } 
+
+            if (checkVisible($('#todolist'))&&!isVisible) {
+                $('#todolist_box').fadeIn("slow");
+            } 
+
+            if (checkVisible($('#vibe'))&&!isVisible) {
+                $('#vibe_box').fadeIn("slow");
+            } 
+
+            if (checkVisible($('.third'))&&!isVisible) {
+                $('.contact').fadeIn("slow");
+            } 
+        });
     
-// });
-
-// function checkVisible( elm, eval ) {
-//     eval = eval || "object visible";
-//     var viewportHeight = $(window).height(),
-//         scrolltop = $(window).scrollTop(),
-//         y = $(elm).offset().top,
-//         elementHeight = $(elm).height();   
-    
-//     if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
-//     if (eval == "above") return ((y < (viewportHeight + scrolltop)));
-// }
-    
-// });
-
+        function checkVisible( elm, eval ) {
+            eval = eval || "object visible";
+            var viewportHeight = $(window).height(),
+                scrolltop = $(window).scrollTop(),
+                y = $(elm).offset().top,
+                elementHeight = $(elm).height();   
+            
+            if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+            if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+        }
+    });
+});
 

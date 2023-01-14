@@ -65,14 +65,36 @@
     }
 }
 
-// background-gradiunt 넣기
-// @mixin background-gradiunt {
-//     background: linear-gradient(
-//         to bottom,
-//         rgba(255,255,255,0) 95%,
-//         rgba(255,255,255,1) 100%
-//     );
-//     background-repeat: no-repeat;
-//     background-position-x: center;
-//     background-size: 100%;
-// }
+
+// 특정 반응형 지정
+@mixin Respon_non($screen_size) {
+    display: block;
+
+    @include responsive($screen_size) {
+        display: none;
+    }
+}
+
+// moon btn 
+@mixin moon_btn_back($path:'../image/icon/button/',$moonColor,$format:".png") {
+    background: url("#{$path}#{$moonColor}#{$format}") no-repeat;
+    background-size: inherit;
+    background-position: left;
+}
+
+// cloud
+@mixin cloud_color($path2:'../image/icon/button/',$cloudColor,$format2:".png") {
+    position: fixed;
+    bottom: 30px; right: 20px;
+    width: 100px;
+    height: 50px;
+    animation: cloud_move 1s infinite;
+    background: url("#{$path2}#{$cloudColor}#{$format2}") no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 9999;
+
+    @include responsive(desktop-screens) {
+        top: 20%; right: 80px;
+    }
+}
