@@ -338,10 +338,10 @@ header {
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: white;
+        // background-color: white;
         z-index: 9999;
 
-        @include responsive(medium-tablet-screens) {
+        @include responsive(desktop-tablet-screens) {
             position: relative;
             background-color: transparent;
         }
@@ -549,9 +549,11 @@ header {
                             }
                         }
                     } // li
-
                 } // gnb
             } // desktop-screens
+
+
+            
 
             .gnb_change {
                 display: block;
@@ -637,13 +639,17 @@ header {
         .on {
             display: block;
         }
+
+        .off {
+            display: none;
+        }
     } // menu
 
     
     .header_video {
         position: relative;
         margin: 0 auto;
-        margin-top: 50px;
+        margin-top: 200px;
         margin-bottom: 200px; 
         width: 300px;
         height: 400px; 
@@ -1231,6 +1237,7 @@ main {
                     img {
                         display: block;
                         margin: 0 auto;
+                        margin-top: 200px;
                         width: 350px;
                     }
 
@@ -1693,10 +1700,10 @@ main {
                             .git_btn {
                                 display: flex;
                                 height: 7vh;
-                                text-indent: 60px;
+                                text-indent: 50px;
                                 margin-right: 90px;
                                 background: url(../image/icon/button/mini_git.png) no-repeat;
-                                background-position: left bottom;
+                                background-position: left center;
                                 background-size: contain;
 
                                 p {
@@ -1707,8 +1714,13 @@ main {
                                 }
                                 
                                 &:hover {
-                                    transform: scale(1.1);
+                                    background: url(../image/icon/button/mini_git_yellow.png) no-repeat;
                                     transition: 0.3s;
+
+                                    p {
+                                        transition: 0.2s;
+                                        font-weight: 700;
+                                    }
                                 }
 
                                 @include responsive(medium-tablet-screens) {

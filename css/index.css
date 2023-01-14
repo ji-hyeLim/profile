@@ -680,14 +680,7 @@ header .menu {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: white;
   z-index: 9999;
-}
-@media screen and (min-width: 900px) {
-  header .menu {
-    position: relative;
-    background-color: transparent;
-  }
 }
 header .menu .menu_icon {
   display: flex;
@@ -933,10 +926,13 @@ header .menu nav .gnb_change li .lnb li:hover a {
 header .menu .on {
   display: block;
 }
+header .menu .off {
+  display: none;
+}
 header .header_video {
   position: relative;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 200px;
   margin-bottom: 200px;
   width: 300px;
   height: 400px;
@@ -1561,6 +1557,7 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_circle_blue
 main .protfolio .protfolio_wrap .protfolio_list .list_box img {
   display: block;
   margin: 0 auto;
+  margin-top: 200px;
   width: 350px;
 }
 main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_text {
@@ -1947,10 +1944,10 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
   display: flex;
   height: 7vh;
-  text-indent: 60px;
+  text-indent: 50px;
   margin-right: 90px;
   background: url(../image/icon/button/mini_git.png) no-repeat;
-  background-position: left bottom;
+  background-position: left center;
   background-size: contain;
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn p {
@@ -1960,8 +1957,12 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
   font-weight: 600;
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn:hover {
-  transform: scale(1.1);
+  background: url(../image/icon/button/mini_git_yellow.png) no-repeat;
   transition: 0.3s;
+}
+main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn:hover p {
+  transition: 0.2s;
+  font-weight: 700;
 }
 @media screen and (min-width: 900px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
