@@ -13,6 +13,7 @@ const nav_menu = document.querySelector(".nav_menu");
 
 function mobile_menu() {
     nav_menu.classList.toggle("on");
+    nav_menu.classList.remove("off");
 }
 
 //** 메뉴 마우스오버 이벤트 **//
@@ -21,15 +22,23 @@ const gnb_li = document.querySelectorAll(".gnb li");
 const lnb = document.querySelector(".lnb");
 const gnb_pf = document.querySelector(".gnb_pf");
 const gnb_pf_a = document.querySelector(".gnb_pf a");
-const lnb_a = document.querySelector(".lnb a");
+const lnb_a = document.querySelectorAll(".lnb li a");
 
 // gnb_li.addEventListener('click', function() {
 //     nav_menu.style.display = none;
 // });
 
-// lnb_a.addEventListener('click', function() {
-//     nav_menu.classList.add("off");
-// });
+lnb_a.forEach(function(lnb_aa) {
+    lnb_aa.addEventListener('click', function() {
+       
+        nav_menu.classList.add("off");
+        nav_menu.classList.remove("on");
+
+    });
+    
+})
+
+
 
 
 
@@ -208,7 +217,7 @@ window.addEventListener("scroll", () => {
         const title_p = document.querySelector(".second p");
         const mini_title = document.getElementById("mini_title")
         const gnb = document.getElementById("gnb");
-        const gnb_a = document.querySelectorAll(".gnb li a");
+        // const gnb_a = document.querySelectorAll(".gnb li a");
         const cloud_top = document.getElementById("cloud_top");
         const menu = document.querySelector(".menu");
         const main_btn = document.getElementById("main_btn");
@@ -225,7 +234,7 @@ window.addEventListener("scroll", () => {
             cloud_top.classList.replace("cloud_top", "cloud_top_white");
             // console.log(gnb_a);
             
-            gnb_a.style.color = "white";
+            // gnb_a.style.color = "white";
 
             if(small_tabletWidth.matches) {
             }
@@ -362,7 +371,7 @@ $( function() {
         $('#aboutMe_box').hide();
         $('#cloud_top').hide();
         const side_menu = function() {
-            if ( !isVisible && checkVisible('.introduce') ) {
+            if ( checkVisible('.introduce') == true ) {
                 $('.gnb').fadeIn('slow');
                 $('#aboutMe_box').fadeIn('slow');
                 $('#cloud_top').fadeIn('slow');
@@ -387,23 +396,24 @@ $( function() {
             //     $('.as_c_b').show();
             // }
             
-            if (checkVisible($('#gomusin'))&&!isVisible) {
+            if (checkVisible($('#gomusin')) == true) {
+                
                 $('#gomusin_box').fadeIn("slow");
             }
 
-            if (checkVisible($('#whac_a_mole'))&&!isVisible) {
+            if (checkVisible($('#whac_a_mole')) == true) {
                 $('#whac_a_mole_box').fadeIn("slow");
             } 
 
-            if (checkVisible($('#todolist'))&&!isVisible) {
+            if (checkVisible($('#todolist')) == true) {
                 $('#todolist_box').fadeIn("slow");
             } 
 
-            if (checkVisible($('#vibe'))&&!isVisible) {
+            if (checkVisible($('#vibe')) == true) {
                 $('#vibe_box').fadeIn("slow");
             } 
 
-            if (checkVisible($('.third'))&&!isVisible) {
+            if (checkVisible($('.third')) == true) {
                 $('.contact').fadeIn("slow");
             } 
         });

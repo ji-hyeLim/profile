@@ -1943,7 +1943,7 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
   display: flex;
-  height: 7vh;
+  height: 50px;
   text-indent: 50px;
   margin-right: 90px;
   background: url(../image/icon/button/mini_git.png) no-repeat;
