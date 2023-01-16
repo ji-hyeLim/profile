@@ -24,19 +24,20 @@ const gnb_pf = document.querySelector(".gnb_pf");
 const gnb_pf_a = document.querySelector(".gnb_pf a");
 const lnb_a = document.querySelectorAll(".lnb li a");
 
-// gnb_li.addEventListener('click', function() {
-//     nav_menu.style.display = none;
-// });
+gnb_li.forEach(function(gnb_lili) {
+    gnb_lili.addEventListener('click', function() {
+        // nav_menu.style.display = none;
+        nav_menu.classList.add("off");
+        nav_menu.classList.remove("on");
+    });
+});
 
 lnb_a.forEach(function(lnb_aa) {
     lnb_aa.addEventListener('click', function() {
-       
         nav_menu.classList.add("off");
         nav_menu.classList.remove("on");
-
     });
-    
-})
+});
 
 
 
