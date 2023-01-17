@@ -1900,6 +1900,8 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 }
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn {

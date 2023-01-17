@@ -183,7 +183,6 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    // animation: rotate 100s infinite linear;
 }
 
 // 달 이동하는 효과
@@ -1656,6 +1655,8 @@ main {
                             position: relative;
                             display: flex;
                             flex-direction: column;
+                            align-items: center;
+                            margin-top: 50px;
 
                             @include responsive(large-tablet-screens) {
                                 flex-direction: row;
