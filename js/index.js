@@ -6,17 +6,14 @@ let largeTabletWidth = window.matchMedia("screen and (min-width: 1024px)"); //
 let tablet_pcWidth = window.matchMedia("screen and (max-width: 1800px)");
 let pcWidth = window.matchMedia("screen and (min-width: 1800px)");
 
-
-// =============== header =============== //
-// 모바일 메뉴 버튼
-const nav_menu = document.querySelector(".nav_menu");
-
-function mobile_menu() {
-    nav_menu.classList.toggle("on");
-    nav_menu.classList.remove("off");
+// 창 크기 변경에 따라 새로고침
+window.onresize = function() {
+    document.location.reload();
 }
 
-//** 메뉴 마우스오버 이벤트 **//
+
+// =============== header =============== //
+const nav_menu = document.querySelector(".nav_menu");
 const gnb = document.getElementById("gnb");
 const gnb_li = document.querySelectorAll(".gnb li");
 const lnb = document.querySelector(".lnb");
@@ -24,20 +21,30 @@ const gnb_pf = document.querySelector(".gnb_pf");
 const gnb_pf_a = document.querySelector(".gnb_pf a");
 const lnb_a = document.querySelectorAll(".lnb li a");
 
-gnb_li.forEach(function(gnb_lili) {
-    gnb_lili.addEventListener('click', function() {
-        // nav_menu.style.display = none;
-        nav_menu.classList.add("off");
-        nav_menu.classList.remove("on");
-    });
-});
+if(moblieWidth.matches) {
 
-lnb_a.forEach(function(lnb_aa) {
-    lnb_aa.addEventListener('click', function() {
-        nav_menu.classList.add("off");
-        nav_menu.classList.remove("on");
+    // 모바일 메뉴 버튼
+    function mobile_menu() {
+        nav_menu.classList.toggle("on");
+        nav_menu.classList.remove("off");
+    }
+
+    //** 메뉴 마우스오버 이벤트 **//
+    gnb_li.forEach(function(gnb_lili) {
+        gnb_lili.addEventListener('click', function() {
+            // nav_menu.style.display = none;
+            nav_menu.classList.add("off");
+            nav_menu.classList.remove("on");
+        });
     });
-});
+
+    lnb_a.forEach(function(lnb_aa) {
+        lnb_aa.addEventListener('click', function() {
+            nav_menu.classList.add("off");
+            nav_menu.classList.remove("on");
+        });
+    });
+}
 
 
 
@@ -175,15 +182,15 @@ const icon_last = document.querySelectorAll(".icon");
 icon_last.forEach(function(con){
     con.addEventListener("mouseover", function() {
         
-            if(con.id == "git") {
-                git.src = `./image/icon/contact/git_yellow.png`;
-            }
-            if (con.id == "kakao"){
-                kakao.src = `./image/icon/contact/kakao_yellow.png`;
-            }
-            if (con.id == "message"){
-                message.src = `./image/icon/contact/message_yellow.png`;
-            }                
+        if(con.id == "git") {
+            git.src = `./image/icon/contact/git_yellow.png`;
+        }
+        if (con.id == "kakao"){
+            kakao.src = `./image/icon/contact/kakao_yellow.png`;
+        }
+        if (con.id == "message"){
+            message.src = `./image/icon/contact/message_yellow.png`;
+        }                
     });
 
     con.addEventListener("mouseout", function() {
@@ -302,30 +309,30 @@ if(largeTabletWidth.matches) {
             const title_h2_3 = document.querySelector(".title_h2_3");
 
             if (pro_01 == "protfolio01") {
-                // protfolio01.style.opacity = 1;
+                protfolio01.style.opacity = 1;
                 as_c_b.style.animation = "moon_open_as 1s";
                 title_h2_1.style.animation = "highlighter_1 1s";
                 
             } else {
-                // protfolio01.style.opacity = 0;
+                protfolio01.style.opacity = 0;
             }
             
             if (pro_02 == "protfolio02") {
-                // protfolio02.style.opacity = 1;
+                protfolio02.style.opacity = 1;
                 bs_c_b.style.animation = "moon_open_bs 1s";
                 title_h2_2.style.animation = "highlighter_2 1s";
                 
             } else {
-                // protfolio02.style.opacity = 0;
+                protfolio02.style.opacity = 0;
             }
             
             if (pro_03 == "protfolio03") {
-                // protfolio03.style.opacity = 1;
+                protfolio03.style.opacity = 1;
                 pro_c_b.style.animation = "moon_open_pro 1s";
                 title_h2_3.style.animation = "highlighter_3 1s";
                 
             } else {
-                // protfolio03.style.opacity = 0;
+                protfolio03.style.opacity = 0;
             }
         });
     });

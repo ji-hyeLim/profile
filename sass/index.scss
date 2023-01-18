@@ -609,8 +609,10 @@ header {
                             background-color: $gray-bg;
                             
                             a {
+                                padding-left: 0;
                                 color: black;
                                 transition: 0.3s ease;
+                                // text-indent: 10px;
                                 background: none;
                                 font: {
                                     size: $mini-text-font-size;
@@ -625,7 +627,6 @@ header {
                                 a {
                                     color: $main-color;
                                     font-weight: 600;
-                                    // text-indent: 10px;
                                     background: none;     
                                 }
                             }
@@ -1101,6 +1102,51 @@ main {
             .protfolio_list {
                 margin-bottom: 500px;
 
+                .protfolio_circle {
+                    @include pos-center-x();
+                    bottom: -90px;
+                    width: 80vw;
+                    min-width: 500px;
+                    max-width: 700px;
+                    height: 80vw;
+                    min-height: 500px;
+                    max-height: 700px;
+                    border-radius: 50%;
+                    background-color: white;
+                    z-index: 10;
+
+                }
+                
+                .protfolio_circle_blue {
+                    @include pos-center-x();
+
+                    @include responsive(large-tablet-screens) {
+                        position: absolute;
+                        border-radius: 50%;
+                        background-color: $main-color;
+                        z-index: 50;
+                    }
+                }
+                
+                // 애슐리 원
+                .as_c {
+                    @include responsive(large-tablet-screens) {
+                        width: 700px;
+                        height: 700px;
+                        top: -150px; 
+                        transform: translateX(-10%);
+                    }
+                }
+
+                .as_c_b {
+                    @include responsive(large-tablet-screens) {
+                        width: 700px;
+                        height: 700px;
+                        top: -150px; 
+                        transform: translateX(-100%);
+                    }
+                }
+
                 @include responsive(large-tablet-screens) {
                     margin-bottom: 0px;
                 }
@@ -1122,50 +1168,50 @@ main {
                         z-index: 999;
                     }
 
-                    .protfolio_circle {
-                        @include pos-center-x();
-                        bottom: -90px;
-                        width: 80vw;
-                        min-width: 500px;
-                        max-width: 700px;
-                        height: 80vw;
-                        min-height: 500px;
-                        max-height: 700px;
-                        border-radius: 50%;
-                        background-color: white;
-                        z-index: 10;
+                    // .protfolio_circle {
+                    //     @include pos-center-x();
+                    //     bottom: -90px;
+                    //     width: 80vw;
+                    //     min-width: 500px;
+                    //     max-width: 700px;
+                    //     height: 80vw;
+                    //     min-height: 500px;
+                    //     max-height: 700px;
+                    //     border-radius: 50%;
+                    //     background-color: white;
+                    //     z-index: 10;
 
-                    }
+                    // }
                     
-                    .protfolio_circle_blue {
-                        @include pos-center-x();
+                    // .protfolio_circle_blue {
+                    //     @include pos-center-x();
 
-                        @include responsive(large-tablet-screens) {
-                            position: absolute;
-                            border-radius: 50%;
-                            background-color: $main-color;
-                            z-index: 50;
-                        }
-                    }
+                    //     @include responsive(large-tablet-screens) {
+                    //         position: absolute;
+                    //         border-radius: 50%;
+                    //         background-color: $main-color;
+                    //         z-index: 50;
+                    //     }
+                    // }
                     
-                    // 애슐리 원
-                    .as_c {
-                        @include responsive(large-tablet-screens) {
-                            width: 700px;
-                            height: 700px;
-                            top: -150px; 
-                            transform: translateX(-10%);
-                        }
-                    }
+                    // // 애슐리 원
+                    // .as_c {
+                    //     @include responsive(large-tablet-screens) {
+                    //         width: 700px;
+                    //         height: 700px;
+                    //         top: -150px; 
+                    //         transform: translateX(-10%);
+                    //     }
+                    // }
 
-                    .as_c_b {
-                        @include responsive(large-tablet-screens) {
-                            width: 700px;
-                            height: 700px;
-                            top: -150px; 
-                            transform: translateX(-100%);
-                        }
-                    }
+                    // .as_c_b {
+                    //     @include responsive(large-tablet-screens) {
+                    //         width: 700px;
+                    //         height: 700px;
+                    //         top: -150px; 
+                    //         transform: translateX(-100%);
+                    //     }
+                    // }
 
                     
                     // 블루스퀘어 원

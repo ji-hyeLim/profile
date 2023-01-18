@@ -95,10 +95,20 @@ header .head_btn {
   width: 100%;
   z-index: 9999;
 }
+header .head_btn .right_btn {
+  display: flex;
+}
 header .head_btn a {
-  width: 100px;
-  height: 100px;
-  margin: 30px;
+  width: 60px;
+  height: 60px;
+  margin: 20px;
+}
+@media screen and (min-width:1440px) {
+  header .head_btn a {
+    width: 80px;
+    height: 80px;
+    margin: 30px;
+  }
 }
 header .head_btn .back {
   background: url(../img/Moon_btn.png) no-repeat;
@@ -107,6 +117,17 @@ header .head_btn .back {
 }
 header .head_btn .back:hover {
   background: url(../img/Moon_btn_yellow.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: 0.2s;
+}
+header .head_btn .page {
+  background: url(../img/page_btn.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+header .head_btn .page:hover {
+  background: url(../img/git_yellow.png) no-repeat;
   background-size: contain;
   background-position: center;
   transition: 0.2s;

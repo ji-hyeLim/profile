@@ -102,9 +102,16 @@ header .head_btn {
   z-index: 9999;
 }
 header .head_btn a {
-  width: 100px;
-  height: 100px;
-  margin: 30px;
+  width: 60px;
+  height: 60px;
+  margin: 20px;
+}
+@media screen and (min-width:1440px) {
+  header .head_btn a {
+    width: 80px;
+    height: 80px;
+    margin: 30px;
+  }
 }
 header .head_btn .back {
   background: url(../img/Moon_btn.png) no-repeat;

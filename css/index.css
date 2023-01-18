@@ -908,6 +908,7 @@ header .menu nav .gnb_change li .lnb li {
   background-color: #eee;
 }
 header .menu nav .gnb_change li .lnb li a {
+  padding-left: 0;
   color: black;
   transition: 0.3s ease;
   background: none;
@@ -1435,6 +1436,50 @@ main .protfolio .protfolio_wrap .second {
 main .protfolio .protfolio_wrap .protfolio_list {
   margin-bottom: 500px;
 }
+main .protfolio .protfolio_wrap .protfolio_list .protfolio_circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -90px;
+  width: 80vw;
+  min-width: 500px;
+  max-width: 700px;
+  height: 80vw;
+  min-height: 500px;
+  max-height: 700px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 10;
+}
+main .protfolio .protfolio_wrap .protfolio_list .protfolio_circle_blue {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 1024px) {
+  main .protfolio .protfolio_wrap .protfolio_list .protfolio_circle_blue {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #5a7cb1;
+    z-index: 50;
+  }
+}
+@media screen and (min-width: 1024px) {
+  main .protfolio .protfolio_wrap .protfolio_list .as_c {
+    width: 700px;
+    height: 700px;
+    top: -150px;
+    transform: translateX(-10%);
+  }
+}
+@media screen and (min-width: 1024px) {
+  main .protfolio .protfolio_wrap .protfolio_list .as_c_b {
+    width: 700px;
+    height: 700px;
+    top: -150px;
+    transform: translateX(-100%);
+  }
+}
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list {
     margin-bottom: 0px;
@@ -1455,50 +1500,6 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box {
 }
 main .protfolio .protfolio_wrap .protfolio_list .list_box .container {
   z-index: 999;
-}
-main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_circle {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -90px;
-  width: 80vw;
-  min-width: 500px;
-  max-width: 700px;
-  height: 80vw;
-  min-height: 500px;
-  max-height: 700px;
-  border-radius: 50%;
-  background-color: white;
-  z-index: 10;
-}
-main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_circle_blue {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-@media screen and (min-width: 1024px) {
-  main .protfolio .protfolio_wrap .protfolio_list .list_box .protfolio_circle_blue {
-    position: absolute;
-    border-radius: 50%;
-    background-color: #5a7cb1;
-    z-index: 50;
-  }
-}
-@media screen and (min-width: 1024px) {
-  main .protfolio .protfolio_wrap .protfolio_list .list_box .as_c {
-    width: 700px;
-    height: 700px;
-    top: -150px;
-    transform: translateX(-10%);
-  }
-}
-@media screen and (min-width: 1024px) {
-  main .protfolio .protfolio_wrap .protfolio_list .list_box .as_c_b {
-    width: 700px;
-    height: 700px;
-    top: -150px;
-    transform: translateX(-100%);
-  }
 }
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list .list_box .bs_c {
