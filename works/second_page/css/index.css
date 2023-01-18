@@ -96,9 +96,16 @@ header .head_btn {
   z-index: 9999;
 }
 header .head_btn a {
-  width: 100px;
-  height: 100px;
-  margin: 30px;
+  width: 70px;
+  height: 70px;
+  margin: 20px;
+}
+@media screen and (min-width:1440px) {
+  header .head_btn a {
+    width: 100px;
+    height: 100px;
+    margin: 30px;
+  }
 }
 header .head_btn .back {
   background: url(../img/Moon_btn.png) no-repeat;
@@ -122,23 +129,25 @@ header .head_btn .git:hover {
   background-position: center;
   transition: 0.2s;
 }
-header .blue_moon {
-  position: absolute;
-  top: 0px;
-  left: 400px;
-  width: 1200px;
-  height: 1200px;
-  border-radius: 50%;
-  background-color: #5a7cb1;
-}
-header .white_moon {
-  position: absolute;
-  top: -300px;
-  left: 800px;
-  width: 1200px;
-  height: 1200px;
-  border-radius: 50%;
-  background-color: white;
+@media screen and (min-width:1440px) {
+  header .blue_moon {
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    background-color: #5a7cb1;
+  }
+  header .white_moon {
+    position: absolute;
+    top: -300px;
+    left: 800px;
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    background-color: white;
+  }
 }
 header .header-wrap {
   width: 100%;
@@ -151,13 +160,13 @@ header .header-wrap .title {
 }
 @media screen and (min-width:1024px) {
   header .header-wrap .title {
-    margin-left: 35%;
+    margin-left: 45%;
   }
 }
 header .header-wrap .title h1 {
   font-size: 6rem;
   background: url(../img/text_deco.png) no-repeat;
-  background-size: 70% 40%;
+  background-size: 75% 40%;
   background-position: bottom left;
 }
 @media screen and (min-width:768px) {
@@ -199,7 +208,7 @@ header .header-wrap .img img {
 }
 
 main {
-  margin-top: 10rem;
+  margin: 10rem 0;
 }
 main .strategy h2 .list_num {
   display: inline-block;

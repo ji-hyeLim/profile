@@ -302,30 +302,30 @@ if(largeTabletWidth.matches) {
             const title_h2_3 = document.querySelector(".title_h2_3");
 
             if (pro_01 == "protfolio01") {
-                protfolio01.style.opacity = 1;
+                // protfolio01.style.opacity = 1;
                 as_c_b.style.animation = "moon_open_as 1s";
                 title_h2_1.style.animation = "highlighter_1 1s";
                 
             } else {
-                protfolio01.style.opacity = 0;
+                // protfolio01.style.opacity = 0;
             }
             
             if (pro_02 == "protfolio02") {
-                protfolio02.style.opacity = 1;
+                // protfolio02.style.opacity = 1;
                 bs_c_b.style.animation = "moon_open_bs 1s";
                 title_h2_2.style.animation = "highlighter_2 1s";
                 
             } else {
-                protfolio02.style.opacity = 0;
+                // protfolio02.style.opacity = 0;
             }
             
             if (pro_03 == "protfolio03") {
-                protfolio03.style.opacity = 1;
+                // protfolio03.style.opacity = 1;
                 pro_c_b.style.animation = "moon_open_pro 1s";
                 title_h2_3.style.animation = "highlighter_3 1s";
                 
             } else {
-                protfolio03.style.opacity = 0;
+                // protfolio03.style.opacity = 0;
             }
         });
     });
@@ -339,8 +339,6 @@ console.log(prot01);
 function protfolio01() {
     prot01.style.opacity = 1;
 }
-
-
 
 // //** 스크롤 이벤트 **//
 $( function() {
@@ -388,7 +386,7 @@ $( function() {
         $('#gomusin_box').hide();
         $('#whac_a_mole_box').hide();
         $('#todolist_box').hide();
-        $('#vibe_box').hide();
+        // $('#vibe_box').hide();
         $('.contact').hide();
 
         $(window).on('scroll',function() {
@@ -410,9 +408,9 @@ $( function() {
                 $('#todolist_box').fadeIn("slow");
             } 
 
-            if (checkVisible($('#vibe')) == true) {
-                $('#vibe_box').fadeIn("slow");
-            } 
+            // if (checkVisible($('#vibe')) == true) {
+            //     $('#vibe_box').fadeIn("slow");
+            // } 
 
             if (checkVisible($('.third')) == true) {
                 $('.contact').fadeIn("slow");

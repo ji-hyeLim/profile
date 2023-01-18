@@ -150,7 +150,7 @@ header .header-wrap .title {
 }
 @media screen and (min-width:1024px) {
   header .header-wrap .title {
-    margin-left: 35%;
+    margin-left: 50%;
   }
 }
 header .header-wrap .title h1 {
@@ -198,7 +198,7 @@ header .header-wrap .img img {
 }
 
 main {
-  margin-top: 10rem;
+  margin: 10rem 0;
 }
 main .strategy h2 .list_num {
   display: inline-block;
@@ -289,7 +289,7 @@ main .strategy .weakness .circle_wrap .right div span {
   }
 }
 main .strategy .weakness .circle_wrap .line {
-  z-index: -1;
+  z-index: -100;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -345,6 +345,16 @@ main .strategy .concept .circle_wrap div span {
   transform: translate(-50%, -50%);
   display: inline-block;
 }
+main .strategy .concept .concept_text {
+  text-align: center;
+  margin-top: 100px;
+}
+main .strategy .concept .concept_text span {
+  color: #5a7cb1;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
 main .typography {
   position: relative;
   margin-top: 20rem;
@@ -390,6 +400,18 @@ main .typography .img_and_font .fonts p {
 }
 main .typography .img_and_font .fonts .font > p:first-of-type {
   padding-top: 2.4rem;
+}
+main .typography .mockup-wrap {
+  width: 100%;
+}
+@media screen and (min-width:1440px) {
+  main .typography .mockup-wrap img {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    margin-left: 40%;
+    width: 80rem;
+  }
 }
 main .color {
   margin-top: 20rem;
@@ -485,17 +507,6 @@ main .color .main_sub_mobile .sub-wrap .sub .hex p {
   main .color .main_sub_mobile .sub-wrap .sub .hex p:nth-child(4) {
     padding-left: 2rem;
   }
-}
-main .color .mockup-wrap {
-  position: absolute;
-  top: -1000px;
-  right: 0;
-  width: 100%;
-  z-index: 1;
-}
-main .color .mockup-wrap img {
-  margin-left: 40%;
-  width: 100rem;
 }
 main .grid_system {
   margin-top: 20rem;

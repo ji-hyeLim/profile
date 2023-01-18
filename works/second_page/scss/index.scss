@@ -41,9 +41,15 @@ header {
     z-index: 9999;
     
     a {
-      width: 100px;
-      height: 100px;
-      margin: 30px;
+      width: 70px;
+      height: 70px;
+      margin: 20px;
+
+      @media #{$break-lg-desktop} {
+        width: 100px;
+        height: 100px;
+        margin: 30px;
+      }
     }
   
     .back {
@@ -73,22 +79,24 @@ header {
     }
   } // head_btn
 
-  .blue_moon {
-    position: absolute;
-    top: 0px; left: 400px;
-    width: 1200px;
-    height: 1200px;
-    border-radius: 50%;
-    background-color: $main_color;
-  }
-
-  .white_moon {
-    position: absolute;
-    top: -300px; left: 800px;
-    width: 1200px;
-    height: 1200px;
-    border-radius: 50%;
-    background-color: white;
+  @media #{$break-lg-desktop} {
+    .blue_moon {
+      position: absolute;
+      top: 0px; left: 400px;
+      width: 1200px;
+      height: 1200px;
+      border-radius: 50%;
+      background-color: $main_color;
+    }
+  
+    .white_moon {
+      position: absolute;
+      top: -300px; left: 800px;
+      width: 1200px;
+      height: 1200px;
+      border-radius: 50%;
+      background-color: white;
+    }
   }
   
   .header-wrap {
@@ -101,14 +109,14 @@ header {
       width: 700px;
       
       @media #{$break-desktop} {
-        margin-left: 35%;
+        margin-left: 45%;
       }
     }
 
     .title h1 {
       font-size: 6rem;
       background: url(../img/text_deco.png) no-repeat;
-      background-size: 70% 40%;
+      background-size: 75% 40%;
       background-position: bottom left;
 
       @media #{$break-tablet} {
@@ -154,7 +162,7 @@ header {
 
 // * ===================== main ===================== *
 main {
-  margin-top: 10rem;
+  margin: 10rem 0;
 
   .strategy {
     h2 {

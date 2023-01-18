@@ -100,7 +100,7 @@ header {
       width: 700px;
       
       @media #{$break-desktop} {
-        margin-left: 35%;
+        margin-left: 50%;
       }
     }
 
@@ -153,7 +153,7 @@ header {
 
 // * ===================== main ===================== *
 main {
-  margin-top: 10rem;
+  margin: 10rem 0;
 
   .strategy {
     h2 {
@@ -257,7 +257,7 @@ main {
         } // right
         
         .line {
-          z-index: -1;
+          z-index: -100;
           position: absolute;
           top: 50%; left: 50%;
           transform: translate(-50%, -50%);
@@ -321,6 +321,18 @@ main {
         } // div
       } // circle-wrap
 
+      .concept_text {
+        text-align: center;
+        margin-top: 100px;
+        
+        span {
+          color: $main_color;
+          font-size: 1.8rem;
+          font-weight: 600;
+          letter-spacing: -0.5px;
+
+        }
+      }
     } // concept
   } // strategy
 
@@ -380,7 +392,20 @@ main {
       } // fonts
     } // img_and_font
 
-    
+    .mockup-wrap {
+      width: 100%;
+
+      @media #{$break-lg-desktop} { 
+        img {
+          position: absolute;
+          top: 0px;
+          right: 0;
+          margin-left: 40%;
+          width: 80rem;
+        }
+      }
+      
+    }
   } // typography
 
   .color {
@@ -499,17 +524,7 @@ main {
       }
     } // main_sub_mobile
 
-    .mockup-wrap {
-      position: absolute;
-      top: -1000px;
-      right: 0;
-      width: 100%;
-      z-index: 1;
-      img {
-        margin-left: 40%;
-        width: 100rem;
-      }
-    }
+    
   } // color section
 
   .grid_system {

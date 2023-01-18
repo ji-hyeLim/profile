@@ -1655,10 +1655,11 @@ main {
                             position: relative;
                             display: flex;
                             flex-direction: column;
-                            align-items: center;
+                            align-items: flex-start;
                             margin-top: 50px;
-
+                            
                             @include responsive(large-tablet-screens) {
+                                align-items: center;
                                 flex-direction: row;
                             }
 
