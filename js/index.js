@@ -8,7 +8,9 @@ let pcWidth = window.matchMedia("screen and (min-width: 1800px)");
 
 // 창 크기 변경에 따라 새로고침
 window.onresize = function() {
-    document.location.reload();
+    if(pcWidth) {
+        document.location.reload();
+    }
 }
 
 
