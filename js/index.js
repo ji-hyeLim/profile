@@ -8,7 +8,7 @@ let pcWidth = window.matchMedia("screen and (min-width: 1800px)");
 
 // 창 크기 변경에 따라 새로고침
 window.onresize = function() {
-    if(pcWidth) {
+    if(largeTabletWidth.matches) {
         document.location.reload();
     }
 }
@@ -49,6 +49,7 @@ if(moblieWidth.matches) {
         lnb_aa.addEventListener('click', function() {
             nav_menu.classList.add("off");
             nav_menu.classList.remove("on");
+            // lnb.style.display = 'none';
         });
     });
 } 
