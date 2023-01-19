@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
 * {
   margin: 0;
   padding: 0;
@@ -127,7 +128,7 @@ header .head_btn .page {
   background-position: center;
 }
 header .head_btn .page:hover {
-  background: url(../img/git_yellow.png) no-repeat;
+  background: url(../img/page_btn_yellow.png) no-repeat;
   background-size: contain;
   background-position: center;
   transition: 0.2s;
@@ -416,6 +417,9 @@ main .typography .img_and_font .fonts .montserrat p {
 }
 main .typography .img_and_font .fonts .pretendard {
   margin-top: 6rem;
+}
+main .typography .img_and_font .fonts .pretendard p {
+  font-family: "Pretendard";
 }
 main .color {
   margin-top: 20rem;

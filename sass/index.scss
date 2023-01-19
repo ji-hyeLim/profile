@@ -337,7 +337,6 @@ header {
         position: fixed;
         top: 0;
         width: 100%;
-        // background-color: white;
         z-index: 9999;
 
         @include responsive(desktop-tablet-screens) {
@@ -371,6 +370,12 @@ header {
                 }
             } // li
         } // ul
+        
+        .main_moon {
+            img {
+                z-index: 9999;
+            }
+        }
 
 
         nav {
@@ -378,7 +383,7 @@ header {
             top: 100px;
             display: none;
             width: 100%;
-            z-index: 9999;
+            z-index: 999;
             
             .gnb {
                 list-style: circle;
@@ -429,15 +434,65 @@ header {
                 } // li
             } // gnb
 
+            .gnb_change_m {
+                list-style: circle;
+                
+                li {
+                    background-color: $gray-bg;
+                    &:hover {
+                        background-color: $gray-bg;
+                        transition: 0.3s ease;
+                        a {
+                            color: $main-color;    
+                        }
+                    }
+                    
+                    a {
+                        color: $night_bg;
+                        padding: 18px 0;
+                        padding-left: 20px;
+                        font: {
+                            size: $sub-font-size;
+                            weight: 600;
+                        }
+                    }
+
+                    .lnb {
+                        display: none;
+                        transition: 1s ease;
+                        
+                        li {
+                            background-color: $main-color;
+
+                            &:hover {
+                                background-color: $gray-bg-sub;
+                                a {
+                                    color: $night_bg;
+                                    font-weight: 600;    
+                                    transition: 0.3s ease;
+                                }
+                            }
+
+                            a {
+                                color: white;
+                                font-size: $text-font-size;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                } // li
+            }
+
             @include responsive(small-tablet-screens) {
                 position: absolute;
-                top: 20px;
+                top: 0px;
                 display: block;
                 width: 100%;
 
                 .gnb {
                     display: flex;
                     justify-content: center;
+                    padding: 20px 0;
 
                     li {
                         margin: 0 5vw;
@@ -554,7 +609,7 @@ header {
 
             
 
-            .gnb_change {
+            .gnb_change_pc {
                 display: block;
         
                 li {
@@ -1984,7 +2039,8 @@ footer {
             weight: 700;
         }
     }
-    @include responsive(large-tablet-screens) {
+
+    @include responsive(desktop-screens) {
         a {
             color: transparent;
             &:hover {
@@ -1996,12 +2052,22 @@ footer {
 
 .cloud_top_white {
     @include cloud_color($cloudColor:"mini_cloud_white");
+
     a {
         @include pos-center();
         color: black;
         font: {
             size: 2rem;
             weight: 700;
+        }
+    }
+
+    @include responsive(desktop-screens) {
+        a {
+            color: transparent;
+            &:hover {
+                color: black;
+            }
         }
     }
 }

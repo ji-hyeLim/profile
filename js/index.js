@@ -15,42 +15,70 @@ window.onresize = function() {
 // =============== header =============== //
 const nav_menu = document.querySelector(".nav_menu");
 const gnb = document.getElementById("gnb");
-const gnb_li = document.querySelectorAll(".gnb li");
+const gnb_li = document.querySelectorAll(".gnb > li");
 const lnb = document.querySelector(".lnb");
+const lnb_li = document.querySelectorAll(".lnb li");
 const gnb_pf = document.querySelector(".gnb_pf");
 const gnb_pf_a = document.querySelector(".gnb_pf a");
 const lnb_a = document.querySelectorAll(".lnb li a");
 
 if(moblieWidth.matches) {
-
+    
     // 모바일 메뉴 버튼
     function mobile_menu() {
         nav_menu.classList.toggle("on");
         nav_menu.classList.remove("off");
     }
 
-    //** 메뉴 마우스오버 이벤트 **//
+    // 메뉴 마우스 클릭 이벤트
+    gnb_pf_a.addEventListener('click', function(e) {
+        e.preventDefault();
+        nav_menu.style.display = 'block';
+        lnb.style.display = 'block';
+    });
+    
     gnb_li.forEach(function(gnb_lili) {
         gnb_lili.addEventListener('click', function() {
-            // nav_menu.style.display = none;
             nav_menu.classList.add("off");
-            nav_menu.classList.remove("on");
         });
     });
-
+    
     lnb_a.forEach(function(lnb_aa) {
         lnb_aa.addEventListener('click', function() {
             nav_menu.classList.add("off");
             nav_menu.classList.remove("on");
         });
     });
+} 
+
+// 스크롤 올리고 내릴때 효과
+if(small_tabletWidth.matches && tabletWidth.matches) {
+    
+    // width: 768~1023px
+    const main_moon = document.querySelector('.main_moon');
+    let lastScroll = document.documentElement.scrollTop || 0;
+    
+    document.addEventListener('scroll', function(){
+        let scrollTop = document.documentElement.scrollTop
+        
+        if(scrollTop > lastScroll) {
+            nav_menu.style.display = 'none';
+            main_moon.style.display = 'none';
+            nav_menu.style.backgroundColor = 'transparent';
+        } else {
+            nav_menu.style.display = 'block';
+            main_moon.style.display = 'block';
+            nav_menu.style.backgroundColor = '#eee';
+            nav_menu.style.backgroundColor = 'rgba( 255, 255, 255, 0.5 )';
+        }
+        lastScroll = scrollTop
+    });
 }
 
 
-
-
-
+//** 메뉴 마우스오버 이벤트 **//
 if(moblieWidth.matches) {
+    
     // 모바일
     gnb_pf.addEventListener("mouseover", function(e) {
         e.preventDefault();
@@ -62,6 +90,7 @@ if(moblieWidth.matches) {
     });
 
 } else if(tablet_pcWidth.matches) {
+    
     // 태블릿 & pc
     gnb_pf.addEventListener("mouseover", function() {
         lnb.style.display = 'block';
@@ -70,7 +99,9 @@ if(moblieWidth.matches) {
     gnb_pf.addEventListener("mouseout", function() {
         lnb.style.display = 'none';
     });
+
 } else {
+
     // desktop
     gnb_pf.addEventListener("mouseover", function() {
         lnb.style.display = 'block';
@@ -225,7 +256,7 @@ window.addEventListener("scroll", () => {
         const title_p = document.querySelector(".second p");
         const mini_title = document.getElementById("mini_title")
         const gnb = document.getElementById("gnb");
-        // const gnb_a = document.querySelectorAll(".gnb li a");
+        const gnb_a = document.querySelectorAll(".gnb > li > a");
         const cloud_top = document.getElementById("cloud_top");
         const menu = document.querySelector(".menu");
         const main_btn = document.getElementById("main_btn");
@@ -233,48 +264,59 @@ window.addEventListener("scroll", () => {
         
         if (currentSection == "protfolio_list") {
             document.body.style.background= "#5a7cb1";
-            // menu.style.background = "#5a7cb1";
             main_btn.src = "./image/icon/button/Moon_btn_white.png";
             menu_btn.src = "./image/icon/button/menu_white.png";
             title_p.style.display = "block";
             mini_title.style.opacity = 0;
             constelacao.style.opacity = 0;
             cloud_top.classList.replace("cloud_top", "cloud_top_white");
-            // console.log(gnb_a);
-            
-            // gnb_a.style.color = "white";
 
-            if(small_tabletWidth.matches) {
+            if(moblieWidth.matches) {
+                gnb.classList.replace("gnb", "gnb_change_m");
+            }
+            
+            if (small_tabletWidth.matches) {
+                for(let i = 0; i < gnb_a.length; i++) {
+                    gnb_a[i].style.color = "white";
+                }
             }
 
             if (pcWidth.matches) {
-                gnb.classList.replace("gnb", "gnb_change");
+                gnb.classList.replace("gnb", "gnb_change_pc");
             }
 
-            
         } else if(currentSection == "js_re_protfolio" || currentSection == "reactProtfolio") {
             document.body.style.background = "-webkit-linear-gradient(top,rgb(43, 32, 72)50%, rgb(0, 0, 0))25%";
-            main_btn.src = "./image/icon/button/Moon_btn.png";
+            main_btn.src = "./image/icon/button/Moon_btn_yellow.png";
             menu_btn.src = "./image/icon/button/menu.png";
             menu.style.background = "transparent";
             constelacao.style.opacity = 1;
             mini_title.style.opacity = 1;
             cloud_top.classList.replace("cloud_top_white", "cloud_top");
 
+            if(moblieWidth.matches) {
+                gnb.classList.replace("gnb_change_m", "gnb");
+            }
+
         } else {
             document.body.style.background = "#ffffff";
             main_btn.src = "./image/icon/button/Moon_btn.png";
             menu_btn.src = "./image/icon/button/menu.png";
-            // menu.style.background = "white";
             title_p.style.display = "none";
             cloud_top.classList.replace("cloud_top_white", "cloud_top");
 
+            if(moblieWidth.matches) {
+                gnb.classList.replace("gnb_change_m", "gnb");
+            }
+
             if(small_tabletWidth.matches) {
-                gnb.style.color = "#5a7cb1";
+                for(let i = 0; i < gnb_a.length; i++) {
+                    gnb_a[i].style.color = "#5a7cb1";
+                }
             }
             
             if (pcWidth.matches) {
-                gnb.classList.replace("gnb_change", "gnb");
+                gnb.classList.replace("gnb_change_pc", "gnb");
             }
         } 
     }); 
@@ -372,35 +414,32 @@ $( function() {
         }
 
         let isVisible = false;
-
-        $('.gnb').hide();
-        $('#aboutMe_box').hide();
-        $('#cloud_top').hide();
-        const side_menu = function() {
-            if ( checkVisible('.introduce') == true ) {
-                $('.gnb').fadeIn('slow');
-                $('#aboutMe_box').fadeIn('slow');
-                $('#cloud_top').fadeIn('slow');
-                $('#intro-main').css('animation','highlighter_main 1s')
-                isVisible = true;
-            }
-        }
-
+        
         // 스크롤 이벤트
-        window.addEventListener('scroll', side_menu );
+            if (window.innerWidth > 1400) {
+                $('.gnb').hide();
+                $('#aboutMe_box').hide();
+                $('#cloud_top').hide();
+                const side_menu = function() {
+                    if ( checkVisible('.introduce') == true ) {
+                        $('.gnb').fadeIn('slow');
+                        $('#aboutMe_box').fadeIn('slow');
+                        $('#cloud_top').fadeIn('slow');
+                        $('#intro-main').css('animation','highlighter_main 1s')
+                        isVisible = true;
+                    }
+                }
+                
+                window.addEventListener('scroll', side_menu );
+            }
 
         $('.as_c_b').hide();
         $('#gomusin_box').hide();
         $('#whac_a_mole_box').hide();
         $('#todolist_box').hide();
-        // $('#vibe_box').hide();
         $('.contact').hide();
 
         $(window).on('scroll',function() {
-            
-            // if (checkVisible($('#protfolio01').find('.flex-box'))&&!isVisible) {
-            //     $('.as_c_b').show();
-            // }
             
             if (checkVisible($('#gomusin')) == true) {
                 
@@ -413,11 +452,7 @@ $( function() {
 
             if (checkVisible($('#todolist')) == true) {
                 $('#todolist_box').fadeIn("slow");
-            } 
-
-            // if (checkVisible($('#vibe')) == true) {
-            //     $('#vibe_box').fadeIn("slow");
-            // } 
+            }  
 
             if (checkVisible($('.third')) == true) {
                 $('.contact').fadeIn("slow");

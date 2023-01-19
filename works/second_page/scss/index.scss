@@ -75,7 +75,7 @@ header {
       background-position: center;
 
       &:hover {
-        background: url(../img/git_yellow.png) no-repeat;
+        background: url(../img/page_btn_yellow.png) no-repeat;
         background-size: contain;
         background-position: center;
         transition: 0.2s;
@@ -407,6 +407,10 @@ main {
 
         .pretendard {
           margin-top: 6rem;
+
+          p {
+            font-family: 'Pretendard';
+          }
         }
       } // fonts
     } // img_and_font

@@ -706,12 +706,15 @@ header .menu .menu_icon li:last-child a {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+header .menu .main_moon img {
+  z-index: 9999;
+}
 header .menu nav {
   position: absolute;
   top: 100px;
   display: none;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 header .menu nav .gnb {
   list-style: circle;
@@ -753,16 +756,57 @@ header .menu nav .gnb li .lnb li a {
   font-size: 1.8rem;
   font-weight: 500;
 }
+header .menu nav .gnb_change_m {
+  list-style: circle;
+}
+header .menu nav .gnb_change_m li {
+  background-color: #eee;
+}
+header .menu nav .gnb_change_m li:hover {
+  background-color: #eee;
+  transition: 0.3s ease;
+}
+header .menu nav .gnb_change_m li:hover a {
+  color: #5a7cb1;
+}
+header .menu nav .gnb_change_m li a {
+  color: #0a121e;
+  padding: 18px 0;
+  padding-left: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+header .menu nav .gnb_change_m li .lnb {
+  display: none;
+  transition: 1s ease;
+}
+header .menu nav .gnb_change_m li .lnb li {
+  background-color: #5a7cb1;
+}
+header .menu nav .gnb_change_m li .lnb li:hover {
+  background-color: #e1e1e1;
+}
+header .menu nav .gnb_change_m li .lnb li:hover a {
+  color: #0a121e;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+header .menu nav .gnb_change_m li .lnb li a {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
 @media screen and (min-width: 768px) {
   header .menu nav {
     position: absolute;
-    top: 20px;
+    top: 0px;
     display: block;
     width: 100%;
   }
   header .menu nav .gnb {
     display: flex;
     justify-content: center;
+    padding: 20px 0;
   }
   header .menu nav .gnb li {
     margin: 0 5vw;
@@ -859,15 +903,15 @@ header .menu nav .gnb li .lnb li a {
     background: none;
   }
 }
-header .menu nav .gnb_change {
+header .menu nav .gnb_change_pc {
   display: block;
 }
-header .menu nav .gnb_change li {
+header .menu nav .gnb_change_pc li {
   width: 100%;
   margin: 0 5vw;
   background-color: transparent;
 }
-header .menu nav .gnb_change li a {
+header .menu nav .gnb_change_pc li a {
   color: white;
   padding: 18px 0;
   text-indent: 25px;
@@ -878,11 +922,11 @@ header .menu nav .gnb_change li a {
   background-position: left;
   background-size: 10px;
 }
-header .menu nav .gnb_change li:hover {
+header .menu nav .gnb_change_pc li:hover {
   transition: none;
   background-color: transparent;
 }
-header .menu nav .gnb_change li:hover a {
+header .menu nav .gnb_change_pc li:hover a {
   font-weight: 800;
   font-size: 1.8rem;
   color: white;
@@ -893,21 +937,21 @@ header .menu nav .gnb_change li:hover a {
   background-size: inherit;
   background-position: left;
 }
-header .menu nav .gnb_change li .gnb_pf {
+header .menu nav .gnb_change_pc li .gnb_pf {
   position: relative;
 }
-header .menu nav .gnb_change li .lnb {
+header .menu nav .gnb_change_pc li .lnb {
   position: absolute;
   right: 0;
   display: none;
   transition: 1s ease;
 }
-header .menu nav .gnb_change li .lnb li {
+header .menu nav .gnb_change_pc li .lnb li {
   margin: 0;
   width: 100%;
   background-color: #eee;
 }
-header .menu nav .gnb_change li .lnb li a {
+header .menu nav .gnb_change_pc li .lnb li a {
   padding-left: 0;
   color: black;
   transition: 0.3s ease;
@@ -915,11 +959,11 @@ header .menu nav .gnb_change li .lnb li a {
   font-size: 1.4rem;
   font-weight: 300;
 }
-header .menu nav .gnb_change li .lnb li:hover {
+header .menu nav .gnb_change_pc li .lnb li:hover {
   transition: 0.3s ease;
   background-color: #eee;
 }
-header .menu nav .gnb_change li .lnb li:hover a {
+header .menu nav .gnb_change_pc li .lnb li:hover a {
   color: #5a7cb1;
   font-weight: 600;
   background: none;
@@ -2177,7 +2221,7 @@ footer .footer_img .copyright p {
   font-size: 2rem;
   font-weight: 700;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1800px) {
   .cloud_top a {
     color: transparent;
   }
@@ -2213,4 +2257,12 @@ footer .footer_img .copyright p {
   color: black;
   font-size: 2rem;
   font-weight: 700;
+}
+@media screen and (min-width: 1800px) {
+  .cloud_top_white a {
+    color: transparent;
+  }
+  .cloud_top_white a:hover {
+    color: black;
+  }
 }/*# sourceMappingURL=index.css.map */
