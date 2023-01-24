@@ -79,7 +79,18 @@
     }
 }
 
+// sidemenu 선 길어지는 효과
+@keyframes long {
+    0% { width: 0;  }
+    100% { width: 100%; }
+}
+
 // 포트폴리오 형광펜 그어지는 효과
+@keyframes highlighter_side {
+    0% { background-size: 0% 55%}
+    100% { background-size: 100% 55%}
+}
+
 @keyframes highlighter_main {
     0% { background-size: 0% 40%}
     100% { background-size: 80% 35%}
@@ -497,19 +508,31 @@ header {
                     li {
                         margin: 0 5vw;
                         background-color: transparent;
-
-                        &:hover {
-                            background-color: transparent;
-                            a {
-                                color: black;
-                                transform: scale(1.05);
-                                transition: 0.3s;
+                        
+                        .gnb-a {
+                            width: 100%;
+                            color: $main-color;
+                            padding-left: 0;
+                            
+                            p {
+                                margin-left: 50px;
+                                padding-bottom: 10px;
                             }
                         }
 
-                        a {
-                            color: $main-color;
+                        &:hover {
+                            background-color: transparent;
+
+                            .gnb-a {
+                                animation: long 0.5s;
+
+                                p {
+                                    color: black;
+                                    border-bottom: 3px solid $main-color;
+                                }
+                            }
                         }
+
                     }
 
                     .gnb_pf {
@@ -526,6 +549,13 @@ header {
                             margin: 0;
                             width: 160px;
                             background-color: $main-color;
+
+                            a {
+                                color: white;
+                                font-size: $mini-text-font-size;
+                                font-weight: 300;
+                                
+                            }
                             
                             &:hover {
                                 transition: 0.3s ease;
@@ -537,11 +567,6 @@ header {
                                 }
                             }
 
-                            a {
-                                color: white;
-                                font-size: $mini-text-font-size;
-                                font-weight: 300;
-                            }
                         }
                     } // lnb
                 } // gnb
@@ -553,37 +578,44 @@ header {
                 top: 30%;
                 right: 10px;
                 display: block;
-                width: 280px;
+                width: 260px;
                 
                 .gnb {
                     display: block;
                     
                     li {
-                        width: 100%;
+                        width: 180px;
                         background-color: transparent;
                         
-                        a {
+                        .gnb-a {
                             color: $gray-font;
-                            text-indent: 25px;
                             background: url(../image/icon/button/gray_circle.png) no-repeat;
                             background-position: left;
                             background-size: 10px;
+                            
+                           
                         }
 
                         &:hover {
                             transition: none;
+                            width: 60%;
                             background-color: transparent;
 
-                            a {
-                                font: {
-                                    weight: 800;
-                                    size: 1.8rem;
-                                }
-                                color: $main-color;
-                                text-indent: 50px;
+                            .gnb-a {
                                 transform: translateX(-20px);
                                 transition: none;
                                 @include moon_btn_back($moonColor:"Moon_btn");
+                                
+                                p {
+                                    color: $main-color;
+                                    margin-left: 60px;
+                                    text-indent: 10px;
+                                    border-bottom: none;
+                                    background: url(../image/text_deco.png) no-repeat;
+                                    background-position: bottom left;
+                                    background-size: 100% 55%;
+                                    animation: highlighter_side 0.2s;
+                                }
                             }
                         }
 
@@ -596,9 +628,13 @@ header {
                                 a {
                                     color: white;
                                     font-size: $mini-text-font-size;
-                                    font-weight: 300;
                                     text-indent: 10px;
                                     background: none;   
+                                }
+
+                                &:hover {
+                                    width: 100%;
+                                    
                                 }
                             }
                         }
@@ -614,21 +650,28 @@ header {
         
                 li {
                     width: 100%;
+                    width: 180px;
                     margin: 0 5vw;
                     background-color: transparent;
         
                     a {
-                        color: white;
-                        padding: 18px 0;
-                        text-indent: 25px;
-                        font: {
-                            size: $sub-font-size;
-                            weight: 600;
-                        }
-                        padding-left: 20px;
+                        padding: 15px 0;
+                        padding-left: 0px;
+                        text-indent: 0px;
                         background: url(../image/icon/button/white_circle.png) no-repeat;
                         background-position: left;
                         background-size: 10px;
+
+                        p {
+                            padding: 5px 0;
+                            margin-left: 50px;
+                            color: white;
+                            font: {
+                                size: $sub-font-size;
+                                // weight: 600;
+                            }
+                            
+                        }
                     }
         
                     &:hover {
@@ -636,15 +679,18 @@ header {
                         background-color: transparent;
         
                         a {
-                            font: {
-                                weight: 800;
-                                size: 1.8rem;
-                            }
                             color: white;
-                            text-indent: 50px;
+                            text-indent: 20px;
                             transform: translateX(-20px);
                             transition: none;
                             @include moon_btn_back($moonColor:"Moon_btn_yellow");
+
+                            p {
+                                background: url(../image/text_deco.png) no-repeat;
+                                background-position: bottom left;
+                                background-size: 100% 55%;
+                                animation: highlighter_side 0.2s;
+                            }
                         }
                     }
         
@@ -654,39 +700,52 @@ header {
         
                     .lnb {
                         position: absolute;
-                        right: 0;
                         display: none;
                         transition: 1s ease;
                         
                         li {
                             margin: 0;
-                            width: 100%;
+                            width: 160px;
                             background-color: $gray-bg;
                             
                             a {
                                 padding-left: 0;
-                                color: black;
+                                color: $main-color;
                                 transition: 0.3s ease;
-                                // text-indent: 10px;
+                                text-indent: 30px;
                                 background: none;
                                 font: {
                                     size: $mini-text-font-size;
-                                    weight: 300;
+                                    weight: 600;
                                 }
                             }
                             
                             &:hover {
                                 transition: 0.3s ease;
-                                background-color: $gray-bg;
+                                background-color: $gray-bg-sub;
         
                                 a {
-                                    color: $main-color;
-                                    font-weight: 600;
+                                    color: black;
                                     background: none;     
                                 }
                             }
                         }
                     }
+                    // .lnb {
+                    //     display: none;
+                    //     transition: 1s ease;
+                        
+                    //     li {
+                    //         background-color: $main-color;
+                    //         a {
+                    //             color: white;
+                    //             font-size: $mini-text-font-size;
+                    //             // font-weight: 300;
+                    //             text-indent: 10px;
+                    //             background: none;   
+                    //         }
+                    //     }
+                    // }
                 } // li
             } // gnb_change
         } // nav

@@ -253,6 +253,38 @@ p {
     transform: translateX(-90%);
   }
 }
+@-webkit-keyframes long {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes long {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes highlighter_side {
+  0% {
+    background-size: 0% 55%;
+  }
+  100% {
+    background-size: 100% 55%;
+  }
+}
+@keyframes highlighter_side {
+  0% {
+    background-size: 0% 55%;
+  }
+  100% {
+    background-size: 100% 55%;
+  }
+}
 @-webkit-keyframes highlighter_main {
   0% {
     background-size: 0% 40%;
@@ -812,16 +844,25 @@ header .menu nav .gnb_change_m li .lnb li a {
     margin: 0 5vw;
     background-color: transparent;
   }
+  header .menu nav .gnb li .gnb-a {
+    width: 100%;
+    color: #5a7cb1;
+    padding-left: 0;
+  }
+  header .menu nav .gnb li .gnb-a p {
+    margin-left: 50px;
+    padding-bottom: 10px;
+  }
   header .menu nav .gnb li:hover {
     background-color: transparent;
   }
-  header .menu nav .gnb li:hover a {
-    color: black;
-    transform: scale(1.05);
-    transition: 0.3s;
+  header .menu nav .gnb li:hover .gnb-a {
+    -webkit-animation: long 0.5s;
+            animation: long 0.5s;
   }
-  header .menu nav .gnb li a {
-    color: #5a7cb1;
+  header .menu nav .gnb li:hover .gnb-a p {
+    color: black;
+    border-bottom: 3px solid #5a7cb1;
   }
   header .menu nav .gnb .gnb_pf {
     position: relative;
@@ -837,6 +878,11 @@ header .menu nav .gnb_change_m li .lnb li a {
     width: 160px;
     background-color: #5a7cb1;
   }
+  header .menu nav .gnb .lnb li a {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
   header .menu nav .gnb .lnb li:hover {
     transition: 0.3s ease;
     background-color: #eee;
@@ -845,11 +891,6 @@ header .menu nav .gnb_change_m li .lnb li a {
     color: black;
     font-weight: 600;
   }
-  header .menu nav .gnb .lnb li a {
-    color: white;
-    font-size: 1.4rem;
-    font-weight: 300;
-  }
 }
 @media screen and (min-width: 1800px) {
   header .menu nav {
@@ -857,36 +898,43 @@ header .menu nav .gnb_change_m li .lnb li a {
     top: 30%;
     right: 10px;
     display: block;
-    width: 280px;
+    width: 260px;
   }
   header .menu nav .gnb {
     display: block;
   }
   header .menu nav .gnb li {
-    width: 100%;
+    width: 180px;
     background-color: transparent;
   }
-  header .menu nav .gnb li a {
+  header .menu nav .gnb li .gnb-a {
     color: #b2b2b2;
-    text-indent: 25px;
     background: url(../image/icon/button/gray_circle.png) no-repeat;
     background-position: left;
     background-size: 10px;
   }
   header .menu nav .gnb li:hover {
     transition: none;
+    width: 60%;
     background-color: transparent;
   }
-  header .menu nav .gnb li:hover a {
-    font-weight: 800;
-    font-size: 1.8rem;
-    color: #5a7cb1;
-    text-indent: 50px;
+  header .menu nav .gnb li:hover .gnb-a {
     transform: translateX(-20px);
     transition: none;
     background: url("../image/icon/button/Moon_btn.png") no-repeat;
     background-size: inherit;
     background-position: left;
+  }
+  header .menu nav .gnb li:hover .gnb-a p {
+    color: #5a7cb1;
+    margin-left: 60px;
+    text-indent: 10px;
+    border-bottom: none;
+    background: url(../image/text_deco.png) no-repeat;
+    background-position: bottom left;
+    background-size: 100% 55%;
+    -webkit-animation: highlighter_side 0.2s;
+            animation: highlighter_side 0.2s;
   }
   header .menu nav .gnb li .lnb {
     display: none;
@@ -898,9 +946,11 @@ header .menu nav .gnb_change_m li .lnb li a {
   header .menu nav .gnb li .lnb li a {
     color: white;
     font-size: 1.4rem;
-    font-weight: 300;
     text-indent: 10px;
     background: none;
+  }
+  header .menu nav .gnb li .lnb li:hover {
+    width: 100%;
   }
 }
 header .menu nav .gnb_change_pc {
@@ -908,64 +958,72 @@ header .menu nav .gnb_change_pc {
 }
 header .menu nav .gnb_change_pc li {
   width: 100%;
+  width: 180px;
   margin: 0 5vw;
   background-color: transparent;
 }
 header .menu nav .gnb_change_pc li a {
-  color: white;
-  padding: 18px 0;
-  text-indent: 25px;
-  font-size: 2rem;
-  font-weight: 600;
-  padding-left: 20px;
+  padding: 15px 0;
+  padding-left: 0px;
+  text-indent: 0px;
   background: url(../image/icon/button/white_circle.png) no-repeat;
   background-position: left;
   background-size: 10px;
+}
+header .menu nav .gnb_change_pc li a p {
+  padding: 5px 0;
+  margin-left: 50px;
+  color: white;
+  font-size: 2rem;
 }
 header .menu nav .gnb_change_pc li:hover {
   transition: none;
   background-color: transparent;
 }
 header .menu nav .gnb_change_pc li:hover a {
-  font-weight: 800;
-  font-size: 1.8rem;
   color: white;
-  text-indent: 50px;
+  text-indent: 20px;
   transform: translateX(-20px);
   transition: none;
   background: url("../image/icon/button/Moon_btn_yellow.png") no-repeat;
   background-size: inherit;
   background-position: left;
 }
+header .menu nav .gnb_change_pc li:hover a p {
+  background: url(../image/text_deco.png) no-repeat;
+  background-position: bottom left;
+  background-size: 100% 55%;
+  -webkit-animation: highlighter_side 0.2s;
+          animation: highlighter_side 0.2s;
+}
 header .menu nav .gnb_change_pc li .gnb_pf {
   position: relative;
 }
 header .menu nav .gnb_change_pc li .lnb {
   position: absolute;
-  right: 0;
   display: none;
   transition: 1s ease;
 }
 header .menu nav .gnb_change_pc li .lnb li {
   margin: 0;
-  width: 100%;
+  width: 160px;
   background-color: #eee;
 }
 header .menu nav .gnb_change_pc li .lnb li a {
   padding-left: 0;
-  color: black;
+  color: #5a7cb1;
   transition: 0.3s ease;
+  text-indent: 30px;
   background: none;
   font-size: 1.4rem;
-  font-weight: 300;
+  font-weight: 600;
 }
 header .menu nav .gnb_change_pc li .lnb li:hover {
   transition: 0.3s ease;
-  background-color: #eee;
+  background-color: #e1e1e1;
 }
 header .menu nav .gnb_change_pc li .lnb li:hover a {
-  color: #5a7cb1;
-  font-weight: 600;
+  color: black;
   background: none;
 }
 header .menu .on {
