@@ -346,7 +346,7 @@ if(largeTabletWidth.matches) {
             const protfolio01 = document.getElementById("protfolio01");
             const protfolio02 = document.getElementById("protfolio02");
             const protfolio03 = document.getElementById("protfolio03");
-            // const as_c_b = document.querySelector(".as_c_b");
+            const as_c_b = document.querySelector(".as_c_b");
             const bs_c_b = document.querySelector(".bs_c_b");
             const pro_c_b = document.querySelector(".pro_c_b");
             const title_h2_1 = document.querySelector(".title_h2_1");
@@ -355,7 +355,7 @@ if(largeTabletWidth.matches) {
 
             if (pro_01 == "protfolio01") {
                 protfolio01.style.opacity = 1;
-                // as_c_b.style.animation = "moon_open_as 1s";
+                as_c_b.style.animation = "moon_open_as 1s";
                 title_h2_1.style.animation = "highlighter_1 1s";
                 
             } else {
@@ -428,8 +428,12 @@ $( function() {
                         $('.gnb').fadeIn('slow');
                         $('#aboutMe_box').fadeIn('slow');
                         $('#cloud_top').fadeIn('slow');
-                        $('#intro-main').css('animation','highlighter_main 1s')
+                        $('#intro-main').css('animation','highlighter_main 2s');
                         isVisible = true;
+                    }
+                    
+                    if( checkVisible('#intro-main') == true ) {
+                        $('#aboutMe').css('animation','quick_side 0.5s');
                     }
                 }
                 

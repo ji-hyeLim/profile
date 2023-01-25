@@ -253,20 +253,20 @@ p {
     transform: translateX(-90%);
   }
 }
-@-webkit-keyframes long {
+@-webkit-keyframes quick_side {
   0% {
-    width: 0;
+    transform: translateX(-50%);
   }
   100% {
-    width: 100%;
+    transform: translateX(0%);
   }
 }
-@keyframes long {
+@keyframes quick_side {
   0% {
-    width: 0;
+    transform: translateX(-50%);
   }
   100% {
-    width: 100%;
+    transform: translateX(0%);
   }
 }
 @-webkit-keyframes highlighter_side {
@@ -946,7 +946,7 @@ header .menu nav .gnb_change_m li .lnb li a {
   header .menu nav .gnb li .lnb li a {
     color: white;
     font-size: 1.4rem;
-    text-indent: 10px;
+    text-indent: 0px;
     background: none;
   }
   header .menu nav .gnb li .lnb li:hover {
@@ -957,8 +957,8 @@ header .menu nav .gnb_change_pc {
   display: block;
 }
 header .menu nav .gnb_change_pc li {
-  width: 100%;
-  width: 180px;
+  text-align: left;
+  width: 160px;
   margin: 0 5vw;
   background-color: transparent;
 }
@@ -972,9 +972,8 @@ header .menu nav .gnb_change_pc li a {
 }
 header .menu nav .gnb_change_pc li a p {
   padding: 5px 0;
-  margin-left: 50px;
+  margin-left: 60px;
   color: white;
-  font-size: 2rem;
 }
 header .menu nav .gnb_change_pc li:hover {
   transition: none;
@@ -982,7 +981,7 @@ header .menu nav .gnb_change_pc li:hover {
 }
 header .menu nav .gnb_change_pc li:hover a {
   color: white;
-  text-indent: 20px;
+  text-indent: 15px;
   transform: translateX(-20px);
   transition: none;
   background: url("../image/icon/button/Moon_btn_yellow.png") no-repeat;
@@ -990,9 +989,10 @@ header .menu nav .gnb_change_pc li:hover a {
   background-position: left;
 }
 header .menu nav .gnb_change_pc li:hover a p {
-  background: url(../image/text_deco.png) no-repeat;
+  padding-bottom: 10px;
+  background: url(../image/text_deco_white.png) no-repeat;
   background-position: bottom left;
-  background-size: 100% 55%;
+  background-size: 100% 50%;
   -webkit-animation: highlighter_side 0.2s;
           animation: highlighter_side 0.2s;
 }
@@ -1005,15 +1005,14 @@ header .menu nav .gnb_change_pc li .lnb {
   transition: 1s ease;
 }
 header .menu nav .gnb_change_pc li .lnb li {
-  margin: 0;
-  width: 160px;
+  margin: 0 auto;
   background-color: #eee;
 }
 header .menu nav .gnb_change_pc li .lnb li a {
   padding-left: 0;
   color: #5a7cb1;
   transition: 0.3s ease;
-  text-indent: 30px;
+  text-indent: 34px;
   background: none;
   font-size: 1.4rem;
   font-weight: 600;
@@ -2266,8 +2265,8 @@ footer .footer_img .copyright p {
 }
 @media screen and (min-width: 1800px) {
   .cloud_top {
-    top: 20%;
-    right: 80px;
+    top: 25%;
+    right: 50px;
   }
 }
 .cloud_top a {
@@ -2303,8 +2302,8 @@ footer .footer_img .copyright p {
 }
 @media screen and (min-width: 1800px) {
   .cloud_top_white {
-    top: 20%;
-    right: 80px;
+    top: 25%;
+    right: 50px;
   }
 }
 .cloud_top_white a {

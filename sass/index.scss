@@ -79,10 +79,10 @@
     }
 }
 
-// sidemenu 선 길어지는 효과
-@keyframes long {
-    0% { width: 0;  }
-    100% { width: 100%; }
+// profile 옆으로 나타나는 효과
+@keyframes quick_side {
+    0% { transform: translateX(-50%);  }
+    100% { transform: translateX(0%); }
 }
 
 // 포트폴리오 형광펜 그어지는 효과
@@ -592,8 +592,6 @@ header {
                             background: url(../image/icon/button/gray_circle.png) no-repeat;
                             background-position: left;
                             background-size: 10px;
-                            
-                           
                         }
 
                         &:hover {
@@ -628,7 +626,7 @@ header {
                                 a {
                                     color: white;
                                     font-size: $mini-text-font-size;
-                                    text-indent: 10px;
+                                    text-indent: 0px;
                                     background: none;   
                                 }
 
@@ -649,8 +647,8 @@ header {
                 display: block;
         
                 li {
-                    width: 100%;
-                    width: 180px;
+                    text-align: left;
+                    width: 160px;
                     margin: 0 5vw;
                     background-color: transparent;
         
@@ -664,10 +662,10 @@ header {
 
                         p {
                             padding: 5px 0;
-                            margin-left: 50px;
+                            margin-left: 60px;
                             color: white;
                             font: {
-                                size: $sub-font-size;
+                                // size: $sub-font-size;
                                 // weight: 600;
                             }
                             
@@ -680,15 +678,16 @@ header {
         
                         a {
                             color: white;
-                            text-indent: 20px;
+                            text-indent: 15px;
                             transform: translateX(-20px);
                             transition: none;
                             @include moon_btn_back($moonColor:"Moon_btn_yellow");
 
                             p {
-                                background: url(../image/text_deco.png) no-repeat;
+                                padding-bottom: 10px;
+                                background: url(../image/text_deco_white.png) no-repeat;
                                 background-position: bottom left;
-                                background-size: 100% 55%;
+                                background-size: 100% 50%;
                                 animation: highlighter_side 0.2s;
                             }
                         }
@@ -704,15 +703,15 @@ header {
                         transition: 1s ease;
                         
                         li {
-                            margin: 0;
-                            width: 160px;
+                            margin: 0 auto;
+                            // width: 160px;
                             background-color: $gray-bg;
                             
                             a {
                                 padding-left: 0;
                                 color: $main-color;
                                 transition: 0.3s ease;
-                                text-indent: 30px;
+                                text-indent: 34px;
                                 background: none;
                                 font: {
                                     size: $mini-text-font-size;
@@ -731,21 +730,6 @@ header {
                             }
                         }
                     }
-                    // .lnb {
-                    //     display: none;
-                    //     transition: 1s ease;
-                        
-                    //     li {
-                    //         background-color: $main-color;
-                    //         a {
-                    //             color: white;
-                    //             font-size: $mini-text-font-size;
-                    //             // font-weight: 300;
-                    //             text-indent: 10px;
-                    //             background: none;   
-                    //         }
-                    //     }
-                    // }
                 } // li
             } // gnb_change
         } // nav
@@ -997,6 +981,10 @@ main {
                 } // profile_text
             } // profile
         } // intro_order
+
+        // @include responsive(large-tablet-screens) {
+        //     animation: quick_side 0.5s;
+        // }
     } // introduce
     
 
@@ -1281,51 +1269,6 @@ main {
                     .container {
                         z-index: 999;
                     }
-
-                    // .protfolio_circle {
-                    //     @include pos-center-x();
-                    //     bottom: -90px;
-                    //     width: 80vw;
-                    //     min-width: 500px;
-                    //     max-width: 700px;
-                    //     height: 80vw;
-                    //     min-height: 500px;
-                    //     max-height: 700px;
-                    //     border-radius: 50%;
-                    //     background-color: white;
-                    //     z-index: 10;
-
-                    // }
-                    
-                    // .protfolio_circle_blue {
-                    //     @include pos-center-x();
-
-                    //     @include responsive(large-tablet-screens) {
-                    //         position: absolute;
-                    //         border-radius: 50%;
-                    //         background-color: $main-color;
-                    //         z-index: 50;
-                    //     }
-                    // }
-                    
-                    // // 애슐리 원
-                    // .as_c {
-                    //     @include responsive(large-tablet-screens) {
-                    //         width: 700px;
-                    //         height: 700px;
-                    //         top: -150px; 
-                    //         transform: translateX(-10%);
-                    //     }
-                    // }
-
-                    // .as_c_b {
-                    //     @include responsive(large-tablet-screens) {
-                    //         width: 700px;
-                    //         height: 700px;
-                    //         top: -150px; 
-                    //         transform: translateX(-100%);
-                    //     }
-                    // }
 
                     
                     // 블루스퀘어 원
