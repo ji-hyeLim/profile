@@ -980,33 +980,33 @@ header .menu nav .gnb_change_m li .lnb li a {
 }
 header .menu nav .gnb_change_pc {
   display: block;
+  padding: 20px 0;
 }
 header .menu nav .gnb_change_pc li {
   text-align: left;
-  width: 160px;
+  width: 180px;
   margin: 0 5vw;
   background-color: transparent;
 }
 header .menu nav .gnb_change_pc li a {
-  padding: 15px 0;
-  padding-left: 0px;
-  text-indent: 0px;
-  background: url(../image/icon/button/white_circle.png) no-repeat;
+  padding: 18px 0;
+  color: #b2b2b2;
+  background: url(../image/icon/button/gray_circle.png) no-repeat;
   background-position: left;
   background-size: 10px;
 }
 header .menu nav .gnb_change_pc li a p {
-  padding: 5px 0;
-  margin-left: 60px;
   color: white;
+  padding-bottom: 8px;
+  margin-left: 50px;
 }
 header .menu nav .gnb_change_pc li:hover {
   transition: none;
+  width: 60%;
   background-color: transparent;
 }
 header .menu nav .gnb_change_pc li:hover a {
   color: white;
-  text-indent: 15px;
   transform: translateX(-20px);
   transition: none;
   background: url("../image/icon/button/Moon_btn_yellow.png") no-repeat;
@@ -1014,7 +1014,8 @@ header .menu nav .gnb_change_pc li:hover a {
   background-position: left;
 }
 header .menu nav .gnb_change_pc li:hover a p {
-  padding-bottom: 10px;
+  margin-left: 60px;
+  text-indent: 10px;
   background: url(../image/text_deco_white.png) no-repeat;
   background-position: bottom left;
   background-size: 100% 50%;
@@ -1452,11 +1453,12 @@ main .skills .circle_area {
   }
 }
 main .skills .circle_area .modal {
-  width: 400px;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.548);
 }
 @media screen and (min-width: 1024px) {
   main .skills .circle_area .modal {
@@ -2337,12 +2339,4 @@ footer .footer_img .copyright p {
   color: black;
   font-size: 2rem;
   font-weight: 700;
-}
-@media screen and (min-width: 1800px) {
-  .cloud_top_white a {
-    color: transparent;
-  }
-  .cloud_top_white a:hover {
-    color: black;
-  }
 }/*# sourceMappingURL=index.css.map */

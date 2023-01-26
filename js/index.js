@@ -137,11 +137,12 @@ skills.forEach(function(lists) {
     //** 스킬 모달 띄우기 **//
     lists.addEventListener("click", function(e) {
         e.preventDefault();
-
+        
         if(tabletWidth.matches) {
             circle_area.style.display = "block";
             del.style.display = "block";
             // document.body.classList.add("background");
+            // circle_area.style.background = "rgba(0, 0, 0, 0.548)"
             area_con.forEach(function(area_c) {
                 area_c.style.display = "none";
             });
@@ -260,6 +261,7 @@ window.addEventListener("scroll", () => {
         const title_p = document.querySelector(".second p");
         const mini_title = document.getElementById("mini_title")
         const gnb = document.getElementById("gnb");
+        const gnb_li = document.querySelectorAll(".gnb > li");
         const gnb_a = document.querySelectorAll(".gnb > li > a");
         const cloud_top = document.getElementById("cloud_top");
         const menu = document.querySelector(".menu");
