@@ -141,6 +141,7 @@ skills.forEach(function(lists) {
         if(tabletWidth.matches) {
             circle_area.style.display = "block";
             del.style.display = "block";
+            // document.body.classList.add("background");
             area_con.forEach(function(area_c) {
                 area_c.style.display = "none";
             });

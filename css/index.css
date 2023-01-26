@@ -253,6 +253,22 @@ p {
     transform: translateX(-90%);
   }
 }
+@-webkit-keyframes long {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes long {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
 @-webkit-keyframes quick_side {
   0% {
     transform: translateX(-50%);
@@ -703,6 +719,15 @@ body {
   }
 }
 
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.548);
+}
+
 header {
   width: 100%;
   -webkit-animation: shine 2s;
@@ -857,8 +882,8 @@ header .menu nav .gnb_change_m li .lnb li a {
     background-color: transparent;
   }
   header .menu nav .gnb li:hover .gnb-a {
-    -webkit-animation: long 0.5s;
-            animation: long 0.5s;
+    -webkit-animation: long 0.3s;
+            animation: long 0.3s;
   }
   header .menu nav .gnb li:hover .gnb-a p {
     color: black;
@@ -1907,6 +1932,9 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup {
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup img {
   width: 35vw;
 }
+main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup .tdl {
+  width: 35vw;
+}
 @media screen and (min-width: 768px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup {
     margin: 0 10%;
@@ -1919,6 +1947,9 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup img {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup img {
     width: 40vw;
     max-width: 530px;
+  }
+  main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_mockup .tdl {
+    max-width: 560px;
   }
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .row_pic img {
@@ -2277,14 +2308,6 @@ footer .footer_img .copyright p {
   color: white;
   font-size: 2rem;
   font-weight: 700;
-}
-@media screen and (min-width: 1800px) {
-  .cloud_top a {
-    color: transparent;
-  }
-  .cloud_top a:hover {
-    color: white;
-  }
 }
 
 .cloud_top_white {

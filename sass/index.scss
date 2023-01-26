@@ -79,6 +79,12 @@
     }
 }
 
+// long
+@keyframes long {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
 // profile 옆으로 나타나는 효과
 @keyframes quick_side {
     0% { transform: translateX(-50%);  }
@@ -339,6 +345,15 @@ body {
 } // title
 
 
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.548);
+}
+
 // ============== header ============== //
 header {
     width: 100%;
@@ -524,7 +539,7 @@ header {
                             background-color: transparent;
 
                             .gnb-a {
-                                animation: long 0.5s;
+                                animation: long 0.3s;
 
                                 p {
                                     color: black;
@@ -1636,7 +1651,10 @@ main {
                         
                         img {
                             width: 35vw;
-                            
+                        }
+
+                        .tdl {
+                            width: 35vw;
                         }
 
                         @include responsive(small-tablet-screens) {
@@ -1648,6 +1666,10 @@ main {
                             img {
                                 width: 40vw;
                                 max-width: 530px;
+                            }
+
+                            .tdl {
+                                max-width: 560px;
                             }
                         }
                     }
@@ -2039,15 +2061,6 @@ footer {
         font: {
             size: 2rem;
             weight: 700;
-        }
-    }
-
-    @include responsive(desktop-screens) {
-        a {
-            color: transparent;
-            &:hover {
-                color: white;
-            }
         }
     }
 }
