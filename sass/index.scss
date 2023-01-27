@@ -233,13 +233,13 @@ html,
 body {
     min-width: 390px;
     max-width: 100%;
-    overflow-x: hidden;
 }
 
 body {
     position: relative;
     transition: 0.3s ease;
     animation: shine 2s;
+    overflow-y: scroll;
 }
 
 .container {
@@ -542,7 +542,7 @@ header {
                                 animation: long 0.3s;
 
                                 p {
-                                    color: black;
+                                    color: $night_bg;
                                     border-bottom: 3px solid $main-color;
                                 }
                             }
@@ -685,7 +685,7 @@ header {
         
                     &:hover {
                         transition: none;
-                        width: 60%;
+                        width: 100%;
                         background-color: transparent;
         
                         a {
@@ -1093,7 +1093,13 @@ main {
         } // skills_list
 
         .circle_area {
+            @include pos-center(fixed);
             display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.548);
+            // overflow:;
+
             
             @include responsive(large-tablet-screens) {
                 display: block;
@@ -1101,10 +1107,7 @@ main {
                 margin: 500px 0;
             }
             .modal {
-                @include pos-center(fixed);
-                width: 100%;
-                // height: 100vh;
-                background-color: rgba(0, 0, 0, 0.548);
+                @include pos-center();
 
                 @include responsive(large-tablet-screens) {
                     width: 100%;
@@ -1119,8 +1122,6 @@ main {
                     position: absolute;
                     top: 0; right: 10px;
                     padding: 10px;
-                    border-radius: 50%;
-                    background-color: $main-color;
                     z-index: 9999;
 
                     img {
@@ -1212,6 +1213,7 @@ main {
             .second {
                 margin: 0;
                 padding-top: 600px;
+                margin-bottom: 200px;
             }
             
             /* protfolio_list  */ 
@@ -1269,10 +1271,16 @@ main {
 
                 .list {
                     margin: 0 auto;
-                    margin-bottom: 300px;
+                    // margin-bottom: 300px;
+                    // background-color: #999;
+                    
+                    @include responsive(mobile-screens) {
+                        padding-top: 50px;
+                    }
                     
                     @include responsive(large-tablet-screens) {
-                        padding-top: 600px;
+                        padding-top: 300px;
+                        padding-bottom: 600px;
                     }
                 }
 
@@ -1328,14 +1336,24 @@ main {
                         }
                     }
 
+                    // mobile
+                    // #m_protfolio01 {
+                        
+                    // }
+                    
                     
                     .flex-box {
+                        // @include responsive(mobile-screens) {
+                        //     // padding-top: 300px;
+                        // }
+
                         @include responsive(large-tablet-screens) {
+                            padding-top: 0px;
                             margin: 0 auto;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-
+                            
                             img {
                                 margin: 0 30px;
                                 width: 550px;
@@ -1353,7 +1371,7 @@ main {
                     img {
                         display: block;
                         margin: 0 auto;
-                        margin-top: 200px;
+                        // padding-top: 200px;
                         width: 350px;
                     }
 
