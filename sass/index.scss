@@ -240,6 +240,7 @@ body {
     transition: 0.3s ease;
     animation: shine 2s;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .container {
@@ -993,10 +994,6 @@ main {
                 } // profile_text
             } // profile
         } // intro_order
-
-        // @include responsive(large-tablet-screens) {
-        //     animation: quick_side 0.5s;
-        // }
     } // introduce
     
 
@@ -1232,7 +1229,6 @@ main {
                     border-radius: 50%;
                     background-color: white;
                     z-index: 10;
-
                 }
                 
                 .protfolio_circle_blue {
@@ -1271,22 +1267,24 @@ main {
 
                 .list {
                     margin: 0 auto;
-                    // margin-bottom: 300px;
-                    // background-color: #999;
                     
                     @include responsive(mobile-screens) {
                         padding-top: 50px;
                     }
                     
                     @include responsive(large-tablet-screens) {
-                        padding-top: 300px;
-                        padding-bottom: 600px;
+                        padding: 600px 0;
+                        margin-top: 500px;
                     }
                 }
 
                 .list_box {
                     position: relative;
                     margin: 0 auto;
+
+                    @include responsive(large-tablet-screens) {
+                        margin: 300px 0;
+                    }
 
                     .container {
                         z-index: 999;
@@ -1332,20 +1330,10 @@ main {
                             width: 1000px;
                             height: 1000px;
                             transform: translateX(-90%);
-                            // animation: moon_open_pro 1s;
                         }
                     }
-
-                    // mobile
-                    // #m_protfolio01 {
-                        
-                    // }
-                    
                     
                     .flex-box {
-                        // @include responsive(mobile-screens) {
-                        //     // padding-top: 300px;
-                        // }
 
                         @include responsive(large-tablet-screens) {
                             padding-top: 0px;

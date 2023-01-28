@@ -45,32 +45,13 @@ if(moblieWidth.matches) {
         nav_menu.classList.toggle("on");
         nav_menu.classList.remove("off");
     }
-
-    // let m_menu = document.getElementById("m_menu");
-    
-    // m_menu.addEventListener('click', function() {
-        //     nav_menu.classList.toggle("on");
-        //     nav_menu.classList.remove("off");
-        // });
         
         let lnb_list = "";
         
     // 메뉴 마우스 클릭 이벤트
     gnb_li.forEach( function(gnb_lili) {
         gnb_lili.addEventListener('click', function(e) {
-            // nav_menu.classList.toggle("on");
             lnb_list = e.target.getAttribute("id");
-
-            // if (largeTabletWidth.matches) {
-            //     // lnb_a.href = '#pro01';
-            //     // console.log(lnb_a);
-            //     // lnb_a.forEach(function(a) {
-            //     //     for(let i = 1; i <= 3; i++) {
-            //     //         a.setAttribute("href", `#pro0${i}`);
-            //     //     }
-            //     // })
-
-            // }
             
             if (lnb_list === 'gnb_pf') {
                 console.log('등장');
@@ -93,73 +74,6 @@ if(moblieWidth.matches) {
         });
     });
 } 
-
-// if(largeTabletWidth.matches){
-//     lnb_a.forEach( function(lnb_aa) {
-//         lnb_aa.addEventListener('click', function(e) {
-//             // lnb_list = e.target.getAttribute("id");
-            
-//             pro_list.forEach(list => {
-//                 const sectionTop = window.scrollY + list.getBoundingClientRect().top;
-                
-//                 if(window.scrollY >= sectionTop) {
-//                     pro_01 = list.getAttribute("id");
-//                     pro_02 = list.getAttribute("id");
-//                     pro_03 = list.getAttribute("id");
-//                 }
-    
-//                 if (pro_01 == "protfolio01") {
-//                     protfolio01.style.opacity = 1;
-//                     as_c_b.style.animation = "moon_open_as 1s";
-//                     title_h2_1.style.animation = "highlighter_1 1s";
-                    
-//                 } else {
-//                     // protfolio01.style.opacity = 0;
-//                 }
-                
-//                 if (pro_02 == "protfolio02") {
-//                     protfolio02.style.opacity = 1;
-//                     bs_c_b.style.animation = "moon_open_bs 1s";
-//                     title_h2_2.style.animation = "highlighter_2 1s";
-                    
-//                 } else {
-//                     protfolio02.style.opacity = 0;
-//                 }
-                
-//                 if (pro_03 == "protfolio03") {
-//                     protfolio03.style.opacity = 1;
-//                     pro_c_b.style.animation = "moon_open_pro 1s";
-//                     title_h2_3.style.animation = "highlighter_3 1s";
-                    
-//                 } else {
-//                     protfolio03.style.opacity = 0;
-//                 }
-//             });
-//             // if (largeTabletWidth.matches) {
-//             //     // lnb_a.href = '#pro01';
-//             //     // console.log(lnb_a);
-//             //     // lnb_a.forEach(function(a) {
-//             //     //     for(let i = 1; i <= 3; i++) {
-//             //     //         a.setAttribute("href", `#pro0${i}`);
-//             //     //     }
-//             //     // })
-
-//             // }
-            
-//             // if (lnb_list === 'gnb_pf') {
-//             //     console.log('등장');
-//             //     nav_menu.classList.remove("off");
-//             //     nav_menu.classList.add("on");
-
-//             // } else {
-//             //     console.log('패스');
-//             //     nav_menu.classList.add("off");
-//             // }
-
-
-//         });
-//     });
-// }
 
 // 스크롤 올리고 내릴때 효과
 if(small_tabletWidth.matches && tabletWidth.matches) {
@@ -483,19 +397,6 @@ window.addEventListener("scroll", () => {
         } 
     }); 
 });
-
-// const list = document.querySelectorAll('.list');
-// const menuHeight = document.querySelector(".pro_list").offsetHeight;
-// const box = document.querySelectorAll(".list")
-// // const location = document.querySelector(".mbox").offsetTop;
-// const scrolls = document.querySelectorAll(".scrolls")
-
-// for (let i = 0; i < scrolls.length; i++) {
-//     scrolls[i].addEventListener('click', e => {
-//         e.preventDefault();
-//         window.scrollTo({top:box[i].offsetTop - menuHeight-50, behavior:'smooth'});
-//     }, false);
-// }
 
 
 // 스크롤 동작 이벤트
