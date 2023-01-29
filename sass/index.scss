@@ -51,8 +51,14 @@
 
 // 포트폴리오 달 나타나는 효과
 @keyframes moon_open_as {
-    0% { transform: translateX(-10%); }
-    100% { transform: translateX(-100%); }
+    0% { 
+        top: -120px;
+        transform: translateX(-10%);
+     }
+    100% { 
+        top: -280px;
+        transform: translateX(-110%);
+     }
 }
 
 @keyframes moon_open_bs {
@@ -95,6 +101,11 @@
 @keyframes highlighter_side {
     0% { background-size: 0% 55%}
     100% { background-size: 100% 55%}
+}
+
+@keyframes highlighter_side_c {
+    0% { background-size: 0% 50%}
+    100% { background-size: 50% 50%}
 }
 
 @keyframes highlighter_main {
@@ -700,8 +711,8 @@ header {
                                 text-indent: 10px;
                                 background: url(../image/text_deco_white.png) no-repeat;
                                 background-position: bottom left;
-                                background-size: 100% 50%;
-                                animation: highlighter_side 0.2s;
+                                background-size: 50% 50%;
+                                animation: highlighter_side_c 0.2s;
                             }
                         }
                     }
@@ -1095,7 +1106,6 @@ main {
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.548);
-            // overflow:;
 
             
             @include responsive(large-tablet-screens) {
@@ -1210,7 +1220,7 @@ main {
             .second {
                 margin: 0;
                 padding-top: 600px;
-                margin-bottom: 200px;
+                margin-bottom: 0px;
             }
             
             /* protfolio_list  */ 
@@ -1241,40 +1251,17 @@ main {
                         z-index: 50;
                     }
                 }
-                
-                // 애슐리 원
-                .as_c {
-                    @include responsive(large-tablet-screens) {
-                        width: 700px;
-                        height: 700px;
-                        top: -150px; 
-                        transform: translateX(-10%);
-                    }
-                }
-
-                .as_c_b {
-                    @include responsive(large-tablet-screens) {
-                        width: 700px;
-                        height: 700px;
-                        top: -150px; 
-                        transform: translateX(-100%);
-                    }
-                }
-
-                @include responsive(large-tablet-screens) {
-                    margin-bottom: 0px;
-                }
 
                 .list {
                     margin: 0 auto;
+                    padding: 300px 0;
                     
                     @include responsive(mobile-screens) {
                         padding-top: 50px;
                     }
                     
                     @include responsive(large-tablet-screens) {
-                        padding: 600px 0;
-                        margin-top: 500px;
+                        padding: 500px 0;
                     }
                 }
 
@@ -1288,6 +1275,24 @@ main {
 
                     .container {
                         z-index: 999;
+                    }
+
+                    // 애슐리 원
+                    .as_c {
+                        @include responsive(large-tablet-screens) {
+                            width: 700px;
+                            height: 700px;
+                            transform: translateX(-10%);
+                        }
+                    }
+                    
+                    .as_c_b {
+                        @include responsive(large-tablet-screens) {
+                            top: -280px;
+                            width: 800px;
+                            height: 800px;
+                            transform: translateX(-110%);
+                        }
                     }
 
                     
@@ -1315,11 +1320,11 @@ main {
                     // 프로필 원
                     .pro_c {
                         @include responsive(large-tablet-screens) {
+                            top: -270px;
                             width: 900px;
                             height: 900px;
                             max-width: 900px;
                             max-height: 900px;
-                            top: -270px;
                             transform: translateX(-35%);
                         }
                     }
@@ -1359,7 +1364,6 @@ main {
                     img {
                         display: block;
                         margin: 0 auto;
-                        // padding-top: 200px;
                         width: 350px;
                     }
 
@@ -1400,17 +1404,14 @@ main {
                             @include responsive(large-tablet-screens) {
                                 .title_h2_1 {
                                     background-size: 50% 40%;
-                                    // animation: highlighter_1 1s;
                                 }
     
                                 .title_h2_2 {
                                     background-size: 70% 40%;
-                                    // animation: highlighter_2 1s;
                                 }
     
                                 .title_h2_3 {
                                     background-size: 90% 40%;
-                                    // animation: highlighter_3 1s;
                                 }
                             }
                             
@@ -1560,7 +1561,6 @@ main {
 
                         img {
                             position: absolute;
-                            // bottom: 0; right: -100px;
                             right: -100px;
                         }
 
@@ -1625,7 +1625,6 @@ main {
                             height: 800px;
                             max-height: 800px;
                             border-radius: 0 400px 400px 0;
-                            // animation: moon_move_1 1s linear;
                         }
                         
                         .half_circle_top {
@@ -1640,7 +1639,6 @@ main {
                             transform: translateX(-30%);
                             height: 400px;
                             border-radius: 0 0 400px 400px;
-                            // animation: moon_move_to_right 3s linear;
                         }
 
                         .jr_protfolio_text {
@@ -1833,10 +1831,14 @@ main {
                                 display: flex;
                                 height: 50px;
                                 text-indent: 50px;
+                                margin-top: 15px;
                                 margin-right: 90px;
                                 background: url(../image/icon/button/mini_git.png) no-repeat;
                                 background-position: left center;
                                 background-size: contain;
+
+                                
+                                
 
                                 p {
                                     display: flex;
@@ -1857,6 +1859,7 @@ main {
 
                                 @include responsive(medium-tablet-screens) {
                                     margin-right: 0px;
+                                    margin-top: 0;
                                 }
                             }
 

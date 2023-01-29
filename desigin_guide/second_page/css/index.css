@@ -521,6 +521,73 @@ main .color .main_sub_mobile .mobile-wrap .mobile img {
   margin-left: 40%;
   width: 60%;
 }
+main .logo {
+  margin-top: 200px;
+}
+main .logo h2 .list_num {
+  display: inline-block;
+  font-size: 2.8rem;
+  vertical-align: top;
+}
+main .logo h2 .list_num::after {
+  display: block;
+  content: "";
+  margin-top: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #5a7cb1;
+}
+main .logo .logo-wrap {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+}
+main .logo .logo-box {
+  margin: 0 auto;
+}
+main .logo .logo-box p {
+  font-size: 1.5rem;
+}
+@media screen and (min-width:768px) {
+  main .logo .logo-box p {
+    font-size: 2rem;
+  }
+}
+main .logo .desktop-logo {
+  width: 60rem;
+  margin-right: 10rem;
+}
+main .logo .desktop-logo img {
+  width: 40vw;
+  max-width: 500px;
+}
+main .logo .desktop-logo p {
+  margin-top: 80px;
+}
+main .logo .mt-logo img {
+  width: 15vw;
+  max-width: 200px;
+}
+main .logo .mt-logo p {
+  margin-top: 80px;
+}
+@media screen and (min-width:768px) {
+  main .logo .mt-logo p {
+    margin-top: 105px;
+  }
+}
+main .logo .logo-con {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 100px;
+  text-align: center;
+}
+main .logo .logo-con span {
+  color: #5a7cb1;
+  font-weight: 600;
+}
 main .grid_system {
   margin-top: 20rem;
 }

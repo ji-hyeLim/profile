@@ -199,18 +199,22 @@ p {
 }
 @-webkit-keyframes moon_open_as {
   0% {
+    top: -120px;
     transform: translateX(-10%);
   }
   100% {
-    transform: translateX(-100%);
+    top: -280px;
+    transform: translateX(-110%);
   }
 }
 @keyframes moon_open_as {
   0% {
+    top: -120px;
     transform: translateX(-10%);
   }
   100% {
-    transform: translateX(-100%);
+    top: -280px;
+    transform: translateX(-110%);
   }
 }
 @-webkit-keyframes moon_open_bs {
@@ -299,6 +303,22 @@ p {
   }
   100% {
     background-size: 100% 55%;
+  }
+}
+@-webkit-keyframes highlighter_side_c {
+  0% {
+    background-size: 0% 50%;
+  }
+  100% {
+    background-size: 50% 50%;
+  }
+}
+@keyframes highlighter_side_c {
+  0% {
+    background-size: 0% 50%;
+  }
+  100% {
+    background-size: 50% 50%;
   }
 }
 @-webkit-keyframes highlighter_main {
@@ -1019,9 +1039,9 @@ header .menu nav .gnb_change_pc li:hover a p {
   text-indent: 10px;
   background: url(../image/text_deco_white.png) no-repeat;
   background-position: bottom left;
-  background-size: 100% 50%;
-  -webkit-animation: highlighter_side 0.2s;
-          animation: highlighter_side 0.2s;
+  background-size: 50% 50%;
+  -webkit-animation: highlighter_side_c 0.2s;
+          animation: highlighter_side_c 0.2s;
 }
 header .menu nav .gnb_change_pc li .gnb_pf {
   position: relative;
@@ -1564,7 +1584,7 @@ main .protfolio .protfolio_wrap {
 main .protfolio .protfolio_wrap .second {
   margin: 0;
   padding-top: 600px;
-  margin-bottom: 200px;
+  margin-bottom: 0px;
 }
 main .protfolio .protfolio_wrap .protfolio_list {
   margin-bottom: 500px;
@@ -1597,29 +1617,9 @@ main .protfolio .protfolio_wrap .protfolio_list .protfolio_circle_blue {
     z-index: 50;
   }
 }
-@media screen and (min-width: 1024px) {
-  main .protfolio .protfolio_wrap .protfolio_list .as_c {
-    width: 700px;
-    height: 700px;
-    top: -150px;
-    transform: translateX(-10%);
-  }
-}
-@media screen and (min-width: 1024px) {
-  main .protfolio .protfolio_wrap .protfolio_list .as_c_b {
-    width: 700px;
-    height: 700px;
-    top: -150px;
-    transform: translateX(-100%);
-  }
-}
-@media screen and (min-width: 1024px) {
-  main .protfolio .protfolio_wrap .protfolio_list {
-    margin-bottom: 0px;
-  }
-}
 main .protfolio .protfolio_wrap .protfolio_list .list {
   margin: 0 auto;
+  padding: 300px 0;
 }
 @media screen and (min-width: 480px) {
   main .protfolio .protfolio_wrap .protfolio_list .list {
@@ -1628,8 +1628,7 @@ main .protfolio .protfolio_wrap .protfolio_list .list {
 }
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list .list {
-    padding: 600px 0;
-    margin-top: 500px;
+    padding: 500px 0;
   }
 }
 main .protfolio .protfolio_wrap .protfolio_list .list_box {
@@ -1643,6 +1642,21 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box {
 }
 main .protfolio .protfolio_wrap .protfolio_list .list_box .container {
   z-index: 999;
+}
+@media screen and (min-width: 1024px) {
+  main .protfolio .protfolio_wrap .protfolio_list .list_box .as_c {
+    width: 700px;
+    height: 700px;
+    transform: translateX(-10%);
+  }
+}
+@media screen and (min-width: 1024px) {
+  main .protfolio .protfolio_wrap .protfolio_list .list_box .as_c_b {
+    top: -280px;
+    width: 800px;
+    height: 800px;
+    transform: translateX(-110%);
+  }
 }
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list .list_box .bs_c {
@@ -1664,11 +1678,11 @@ main .protfolio .protfolio_wrap .protfolio_list .list_box .container {
 }
 @media screen and (min-width: 1024px) {
   main .protfolio .protfolio_wrap .protfolio_list .list_box .pro_c {
+    top: -270px;
     width: 900px;
     height: 900px;
     max-width: 900px;
     max-height: 900px;
-    top: -270px;
     transform: translateX(-35%);
   }
 }
@@ -2098,6 +2112,7 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
   display: flex;
   height: 50px;
   text-indent: 50px;
+  margin-top: 15px;
   margin-right: 90px;
   background: url(../image/icon/button/mini_git.png) no-repeat;
   background-position: left center;
@@ -2120,6 +2135,7 @@ main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text
 @media screen and (min-width: 900px) {
   main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .git_btn {
     margin-right: 0px;
+    margin-top: 0;
   }
 }
 main .protfolio .protfolio_wrap .js_re_protfolio .jr_list_box .jr_protfolio_text .jr_protfolio_btn .btn_right {

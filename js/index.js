@@ -507,7 +507,6 @@ $( function() {
                 window.addEventListener('scroll', side_menu );
             }
 
-        $('.as_c_b').hide();
         $('#gomusin_box').hide();
         $('#whac_a_mole_box').hide();
         $('#todolist_box').hide();
