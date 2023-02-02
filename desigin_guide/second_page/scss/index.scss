@@ -45,9 +45,24 @@ header {
     }
     
     a {
+      position: relative;
       width: 60px;
       height: 60px;
       margin: 20px;
+      
+      p {
+        font-size: 0;
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        
+      }
+      &:hover {
+        p {
+          font-size: 1.6rem;
+        }
+      }
 
       @media #{$break-lg-desktop} {
         width: 80px;
@@ -89,6 +104,19 @@ header {
 
       &:hover {
         background: url(../img/git_yellow.png) no-repeat;
+        background-size: contain;
+        background-position: center;
+        transition: 0.2s;
+      }
+    }
+
+    .notion {
+      background: url(../img/notion.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &:hover {
+        background: url(../img/notion_yellow.png) no-repeat;
         background-size: contain;
         background-position: center;
         transition: 0.2s;

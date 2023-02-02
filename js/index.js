@@ -21,22 +21,8 @@ const gnb_li = document.querySelectorAll(".gnb > li");
 const lnb = document.querySelector(".lnb");
 const lnb_li = document.querySelectorAll(".lnb > li");
 const gnb_pf = document.querySelector(".gnb_pf");
-// const gnb_pf_id = document.getElementById("gnb_pf");
 const gnb_pf_a = document.querySelector(".gnb_pf a");
 const lnb_a = document.querySelectorAll(".lnb > li > a");
-
-
-// const pro_list = document.querySelectorAll(".pro_list");
-// const protfolio01 = document.getElementById("protfolio01");
-// const protfolio02 = document.getElementById("protfolio02");
-// const protfolio03 = document.getElementById("protfolio03");
-
-// const as_c_b = document.querySelector(".as_c_b");
-// const bs_c_b = document.querySelector(".bs_c_b");
-// const pro_c_b = document.querySelector(".pro_c_b");
-// const title_h2_1 = document.querySelector(".title_h2_1");
-// const title_h2_2 = document.querySelector(".title_h2_2");
-// const title_h2_3 = document.querySelector(".title_h2_3");
 
 if(moblieWidth.matches) {
     // 모바일 메뉴 버튼

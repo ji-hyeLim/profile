@@ -100,9 +100,20 @@ header .head_btn .right_btn {
   display: flex;
 }
 header .head_btn a {
+  position: relative;
   width: 60px;
   height: 60px;
   margin: 20px;
+}
+header .head_btn a p {
+  font-size: 0;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .head_btn a:hover p {
+  font-size: 1.6rem;
 }
 @media screen and (min-width:1440px) {
   header .head_btn a {
@@ -140,6 +151,17 @@ header .head_btn .git {
 }
 header .head_btn .git:hover {
   background: url(../img/git_yellow.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: 0.2s;
+}
+header .head_btn .notion {
+  background: url(../img/notion.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+header .head_btn .notion:hover {
+  background: url(../img/notion_yellow.png) no-repeat;
   background-size: contain;
   background-position: center;
   transition: 0.2s;
