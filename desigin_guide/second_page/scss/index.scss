@@ -97,6 +97,19 @@ header {
       }
     }
 
+    .proposal {
+      background: url(../img/file.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &:hover {
+        background: url(../img/page_btn_yellow.png) no-repeat;
+        background-size: contain;
+        background-position: center;
+        transition: 0.2s;
+      }
+    }
+
     .git {
       background: url(../img/git.png) no-repeat;
       background-size: contain;
