@@ -150,7 +150,7 @@ header .head_btn .proposal {
   background-position: center;
 }
 header .head_btn .proposal:hover {
-  background: url(../img/page_btn_yellow.png) no-repeat;
+  background: url(../img/file_yellow.png) no-repeat;
   background-size: contain;
   background-position: center;
   transition: 0.2s;
